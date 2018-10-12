@@ -76,7 +76,7 @@ Page({
      */
     goMyMining(){
         wx.navigateTo({
-          url: '/pages/myMining/myMining',
+          url: '/pages/myMining/myMining',
         })
     },
 })

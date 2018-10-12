@@ -1,0 +1,21 @@
+<!--pages/walletItemDetail/walletItemDetail.wxml-->
+<view class="container">
+    <view class='top'>
+        <image src='/image/bg_wallet.png' class='top_bg' mode='aspectFit'></image>
+        <view class='top_content'>
+            <view class='balance'>
+                <view>1000</view>
+                <text class='yuan'>{{formType==1?'coin':'元'}}</text>
+            </view>
+        </view>
+    </view>
+    <view bindtap='itemClick' class='height-120' wx:for="{{8}}">
+        <view class='left margin-left-30'>
+            <view class='title'>分红</view>
+            <view class='time'>11{{item.day}}</view>
+        </view>
+        <view class='right'>
+            <view class='num'>+50元</view>
+        </view>
+    </view>
+</view>

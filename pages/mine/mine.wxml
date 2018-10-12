@@ -35,10 +35,31 @@
             </view>
         </view>
     </view>
+    <!--  邀请  -->
+    <view bindtap='itemClick' data-name='publish' class='height-120, margintop-20'>
+        <view class='left'>
+            <image src='/image/icon_invite.png' class='size-33' mode='aspectFit'></image>
+            <view class='margin-left-20'>邀请好友得点钻</view>
+        </view>
+        <view class='right'>
+            <view class='quan-total color_FF7821'>立即邀请</view>
+            <image class='arrow' src='/image/arrows_right.png'></image>
+        </view>
+    </view>
+    <view class='inviteView'>
+        <view class='inviteItem'>
+            <text class='inviteText1'>邀请奖励</text>
+            <text class='inviteText2'>1000点钻</text>
+        </view>
+        <view class='inviteItem inviteLine'>
+            <text class='inviteText1'>我的邀请</text>
+            <text class='inviteText2'>8000人</text>
+        </view>
+    </view>
     <!--  发布  -->
     <view bindtap='itemClick' data-name='publish' class='height-120, margintop-20'>
         <view class='left'>
-            <image src='/image/myTicket.png' class='size-50' mode='aspectFit'></image>
+            <image src='/image/icon_publish.png' class='size-33' mode='aspectFit'></image>
             <view class='margin-left-20'>发布作品</view>
         </view>
         <view class='right'>
@@ -47,9 +68,9 @@
         </view>
     </view>
     <!--  作品管理  -->
-    <view bindtap='itemClick' data-name='manager' class='height-120, margintop-20'>
+    <view bindtap='itemClick' data-name='manager' class='height-120, margintop-1'>
         <view class='left'>
-            <image src='/image/myTicket.png' class='size-50' mode='aspectFit'></image>
+            <image src='/image/icon_works_manager.png' class='size-33' mode='aspectFit'></image>
             <view class='margin-left-20'>作品管理</view>
         </view>
         <view class='right'>

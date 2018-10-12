@@ -1,4 +1,4 @@
-// pages/bmyMining/myMining.js
+// pages/inviteFriend/inviteFriend.js
 Page({
 
   /**

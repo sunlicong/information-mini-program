@@ -5,6 +5,7 @@
     "pages/investment/investment",
     "pages/login/login",
     "pages/wallet/wallet",
+    "pages/walletItemDetail/walletItemDetail",
     "pages/miningRevenue/miningRevinue",
     "pages/publish/publish",
     "pages/publishPriview/publishPriview",
@@ -12,7 +13,8 @@
     "pages/articleDetail/articleDetail",
     "pages/myWorks/myWorks",
     "pages/editProfile/editProfile",
-    "pages/myMining/myMining"
+    "pages/myMining/myMining",
+    "pages/inviteFriend/inviteFriend"
   ],
   "window": {
     "backgroundTextStyle": "light",
