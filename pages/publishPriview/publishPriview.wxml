@@ -1,0 +1,13 @@
+<!--pages/publishPriview/publishPriview.wxml-->
+<import src="/utils/wxParse/wxParse.wxml"/> 
+<view class="container">
+    <view class='content'>
+        <view class='title'>
+            {{title}}
+        </view>
+        <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
+    </view>
+    <view class="publish_btn" bindtap="publish">立即发布</view>
+</view>

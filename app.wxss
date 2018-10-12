@@ -1,0 +1,47 @@
+/**app.wxss**/
+page{
+  background: #F4F4F4;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  font-family: PingFangSC-Regular,方正黑体简体;
+}
+.fix-iphonex{
+    bottom: 68rpx!important;
+}
+/**
+*一行显示省略号
+*/
+.one_line {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.two_line,.three_line,.four_line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+/**
+*二行显示省略号
+*/
+.two_line {
+    -webkit-line-clamp: 2;
+}
+/**
+*三行显示省略号
+*/
+.three_line {
+    -webkit-line-clamp: 3;
+}
+/**
+*四行显示省略号
+*/
+.four_line {
+    -line-clamp: 4;
+}

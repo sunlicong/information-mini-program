@@ -1,0 +1,60 @@
+<!--pages/mine/mine.wxml-->
+<wxs src="../../utils/filter.wxs" module="tools" />
+<view class="container">
+    <view class='top'>
+        <view class="myInfo">
+            <image class='cover' src="{{photo}}"></image>
+            <text class='nick'>{{nick}}</text>
+            <view class='info_num'>
+                <view>动态:{{dynamicsCount}}</view>
+                <view class='follow'>关注:{{followedCount}}</view>
+                <view>粉丝:{{fansCount}}</view>
+            </view>
+        </view>
+        <view class='my_assets'>
+            <view class="num-item" bindtap='itemClick' data-name='wallet'>
+                <view>
+                    <text>我的钱包</text>
+                    <text class='color_009'></text>
+                </view>
+                <view class="text">
+                    <text>{{totalToken}}</text>
+                    <text class='coin'>coin</text>
+                </view>
+            </view>
+            <view class="line"></view>
+            <view class="num-item">
+                <view>
+                    <text>内容投资</text>
+                    <text class='color_009'></text>
+                </view>
+                <view class="text">
+                    <text>+{{totalInvestAmount}}</text>
+                    <text class='coin'>coin</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!--  发布  -->
+    <view bindtap='itemClick' data-name='publish' class='height-120, margintop-20'>
+        <view class='left'>
+            <image src='/image/myTicket.png' class='size-50' mode='aspectFit'></image>
+            <view class='margin-left-20'>发布作品</view>
+        </view>
+        <view class='right'>
+            <view class='quan-total'>复制文章链接，一键发布</view>
+            <image class='arrow' src='/image/arrows_right.png'></image>
+        </view>
+    </view>
+    <!--  作品管理  -->
+    <view bindtap='itemClick' data-name='manager' class='height-120, margintop-20'>
+        <view class='left'>
+            <image src='/image/myTicket.png' class='size-50' mode='aspectFit'></image>
+            <view class='margin-left-20'>作品管理</view>
+        </view>
+        <view class='right'>
+            <view class='quan-total'></view>
+            <image class='arrow' src='/image/arrows_right.png'></image>
+        </view>
+    </view>
+</view>

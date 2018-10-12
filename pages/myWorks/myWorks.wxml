@@ -1,0 +1,29 @@
+<!--pages/myWorks/myWorks.wxml-->
+<view class="container">
+    <view class="tab">
+        <view bindtap='tabClick' id="0" class="{{tabIndex==0?'tab-select':'tab-non'}}">
+            作品
+        </view>
+        <view bindtap='tabClick' id="1" class="{{tabIndex==1?'tab-select':'tab-non'}}">
+            数据
+        </view>
+    </view>
+    <!-- feed -->
+    <view wx:if="{{tabIndex==0}}" class='feed margin-top-1' wx:for="{{works}}" wx:key="{{index}}">
+        <newsItem formType="1" pop="{{item}}"></newsItem>
+    </view>
+
+    <view wx:if="{{tabIndex==1}}" class='data'>
+        <view class="myInfo">
+            <image class='cover' src="{{photo}}"></image>
+            <text class='nick'>{{nick}}</text>
+            <view class='info_num'>
+                <view>动态:{{dynamicsCount}}</view>
+                <view class='follow'>关注:{{followedCount}}</view>
+                <view>粉丝:{{fansCount}}</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="publish_btn" bindtap="publish">发布作品</view>
+</view>

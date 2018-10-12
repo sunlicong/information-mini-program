@@ -1,0 +1,17 @@
+<!--pages/publish/publish.wxml-->
+<view class="container">
+    <form bindsubmit="preview" report-submit="true">
+        <view class="item">
+            <view>文章标题</view>
+            <input name="title" class="input" placeholder-class="input_class" type="text" placeholder="4-18个字符" value="{{title}}"/>
+        </view>
+        <view class="item">
+            <view>添加文章链接</view>
+            <input name="url" class="input" placeholder-class="input_class" type="text" placeholder="(复制已有文章链接)" value="{{url}}"/>
+        </view>
+        <view class='tip'>
+            支持微信公众号、今日头条等文章链接系统自动解析，一键发布
+        </view>
+        <button class='preview' formType="submit">查看文章效果</button>
+    </form>
+</view>

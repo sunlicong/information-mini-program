@@ -1,0 +1,27 @@
+<wxs src="../../utils/filter.wxs" module="tools" />
+<view class="share" catchtouchmove="disMove">
+    <view class="modal" wx:if="{{isModal}}"  bindtap="closeModal"></view>
+    <view class="share_box {{show?'share_box_p':''}}">
+        <view class="share_top">
+            <view class="share_button">
+                <button open-type="share" id="{{type}}"></button>
+                <image src="/image/wechat_flock.png"></image>
+                <text>微信群</text>
+            </view>
+            <view bindtap="shareWechatCircle">
+                <image src="/image/wechat_circle.png"></image>
+                <text>朋友圈</text>
+            </view>
+        </view>
+        <view class="back"></view>
+        <view class="share_bottom" bindtap="closeModal">取消</view>
+    </view>
+    <view class='img' wx:if="{{isImgBox}}" bindtap="closeModal">
+        <view class="imgBox">
+            <image src="{{tools.imgUrl(shareUrl)}}" mode="widthFix"></image>
+            <view class="button_box">
+                <view class="button" bindtap="saveImg">保存图片</view>
+            </view>
+        </view>
+    </view>
+</view>

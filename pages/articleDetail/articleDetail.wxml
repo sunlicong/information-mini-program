@@ -1,0 +1,12 @@
+<!--pages/articleDetail/articleDetail.wxml-->
+<import src="/utils/wxParse/wxParse.wxml"/> 
+<view class="container">
+    <view class='content'>
+        <view class='title'>
+            奋斗戏份不比佟大为少，赵宝刚力捧的男主角，如今销声匿迹
+        </view>
+        <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+        </view>
+    </view>
+</view>

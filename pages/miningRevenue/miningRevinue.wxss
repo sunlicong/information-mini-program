@@ -1,0 +1,108 @@
+/* pages/miningRevenue/miningRevinue.wxss */
+
+.top {
+    width: 100%;
+    height: 420rpx;
+    background: linear-gradient(#624af6, #21a4fe);
+    position: relative;
+}
+
+.balance {
+    height: 140rpx;
+    line-height: 140rpx;
+    margin-top: 74rpx;
+    text-align: center;
+    font-size: 100rpx;
+    color: #fff;
+}
+
+.all {
+    line-height: 40rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #fff;
+    opacity: 0.6;
+}
+
+.num-view {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 130rpx;
+    background-image: linear-gradient(-180deg, #70C4FF 0%, #0794FC 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.line {
+    margin-top: 33rpx;
+    width: 3rpx;
+    height: 77rpx;
+    background: #FFFFFF;
+    opacity: 0.3;
+}
+
+.num-item {
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    font-size: 44rpx;
+    color: #FFFFFF;
+}
+
+.num-item .text {
+    font-size: 26rpx;
+    color: #FFFFFF;
+    opacity: 0.6;
+}
+
+.height-130 {
+    width: 100%;
+    height: 120rpx;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30rpx;
+    font-size: 32rpx;
+    color: #051426;
+}
+.left .time {
+    font-size: 24rpx;
+    color: #A3AEBA;
+}
+.right {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    margin-right: 30rpx;
+}
+.margin-top-1{
+    margin-top: 1rpx;
+}
+.size-50 {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.balance_num {
+    line-height: 45rpx;
+    font-size: 32rpx;
+    color: #051426;
+}
+
+.balance_rmb {
+    line-height: 33rpx;
+    font-size: 24rpx;
+    color: #a3aeba;
+}

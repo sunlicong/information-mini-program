@@ -1,0 +1,135 @@
+/* pages/mine/mine.wxss */
+
+.top {
+    width: 100%;
+    height: 500rpx;
+    position: relative;
+}
+
+.myInfo {
+    width: 100%;
+    height: 430rpx;
+    text-align: center;
+    background-image: linear-gradient(33deg, #70c4ff 0%, #0c96fc 65%, #624af6 100%);
+}
+
+.myInfo .cover {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 60rpx;
+    margin-top: 35rpx;
+}
+
+.myInfo .nick {
+    font-family: PingFangSC-Medium;
+    font-size: 32rpx;
+    color: #fff;
+    display: block;
+}
+.myInfo .info_num{
+    margin-top: 20rpx;
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 28rpx;
+    color: #FFFFFF;
+    opacity: 0.6;
+    display: flex;
+    justify-content: center;
+}
+
+.myInfo .info_num .follow{
+    margin-left: 60rpx;
+    margin-right: 60rpx;
+}
+
+.my_assets {
+    position: absolute;
+    left: 30rpx;
+    right: 30rpx;
+    bottom: 0;
+    height: 180rpx;
+    background-color: #FFFFFF;
+    border-radius: 20rpx;
+    display: flex;
+    justify-content: center;
+}
+
+.line {
+    margin-top: 50rpx;
+    width: 2rpx;
+    height: 120rpx;
+    background: #CDDBEC;
+    opacity: 0.36;
+}
+
+.num-item {
+    width: 50%;
+    height: 100%;
+    float: left;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    font-size: 28rpx;
+    color: #051426;
+}
+
+.num-item .text {
+    font-size: 40rpx;
+    color: #051426;
+}
+.num-item .color_009{
+    color: #0094FF;
+}
+.num-item .coin{
+    margin-left: 6rpx;
+    font-size: 28rpx;
+}
+.height-120 {
+    width: 100%;
+    height: 120rpx;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.margintop-20 {
+    margin-top: 20rpx;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    margin-left: 30rpx;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    margin-right: 30rpx;
+}
+
+.margin-left-20 {
+    margin-left: 20rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.size-50 {
+    width: 50rpx;
+    height: 50rpx;
+}
+
+.quan-total {
+    font-size: 28rpx;
+    color: #a3aeba;
+}
+
+.arrow {
+    width: 12rpx;
+    height: 21rpx;
+    margin-left: 12rpx;
+}

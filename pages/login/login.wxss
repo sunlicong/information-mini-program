@@ -1,0 +1,38 @@
+/* pages/login/login.wxss */
+.top{
+    width: 100%;
+    height: 270rpx;
+    text-align: center;
+}
+.logo{
+    width: 269rpx;
+    height: 117rpx;
+    margin-top: 76rpx;
+}
+.line{
+    background-color: #DBDBDB;
+    height: 1rpx;
+    margin-left: 45rpx;
+    margin-right: 45rpx;
+} 
+.text1{
+    font-size: 34rpx;
+    color: #000000;
+    margin-top: 50rpx;
+    margin-left: 45rpx;
+}
+.text2{
+    color: #999999;
+    font-size: 26rpx;
+    margin-top: 18rpx;
+    margin-left: 45rpx;
+}
+#bt{
+    color: #ffffff;
+    background-color: #00C17D;
+    height: 100rpx;
+    width: 640rpx;
+    line-height: 100rpx;
+    border-radius: 50rpx;
+    margin: 50rpx auto 0;
+}

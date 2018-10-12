@@ -1,0 +1,79 @@
+/* pages/publishSuccess/publishSuccess.wxss */
+
+page {
+    background: #fff;
+}
+
+.succsee_box {
+    padding-top: 180rpx;
+    padding-bottom: 110rpx;
+    text-align: center;
+}
+
+.succsee_box .success_text {
+    font-size: 34rpx;
+    color: #0794fc;
+    margin-bottom: 10rpx;
+    font-weight: 900;
+}
+
+.succsee_box .share_text {
+    font-size: 30rpx;
+    color: #999;
+}
+
+.succsee_box image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.btn_box {
+    padding: 0 30rpx;
+}
+
+.btn_box view {
+    height: 90rpx;
+    border-radius: 100px;
+    background: #0794fc;
+    margin-bottom: 30rpx;
+    font-size: 34rpx;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_box view:nth-child(1) image {
+    width: 36rpx;
+    height: 35rpx;
+    margin-right: 10rpx;
+}
+
+.btn_box view:nth-child(2) {
+    background: #fe6503;
+}
+
+.btn_box view:nth-child(2) image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+}
+
+.btn_box view:nth-child(3) {
+    background: #fff;
+    border: 1px solid #0794fc;
+    color: #0794fc;
+}
+
+.share_friend {
+    position: relative;
+}
+
+.share_friend button {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+}

@@ -1,0 +1,28 @@
+<!--pages/miningRevenue/miningRevinue.wxml-->
+<view class="container">
+    <view class='top'>
+        <view class='balance'>{{userIncomeTokenTotal}}</view>
+        <view class='all'>累积挖矿收益(币)</view>
+        <view class='num-view'>
+            <view class="num-item">
+                <text>{{userPointsTotal}}</text>
+                <text class="text">累计阅力</text>
+            </view>
+            <view class="line"></view>
+            <view class="num-item">
+                <text>{{averagePointsToken}}</text>
+                <text class="text">平均每100阅力兑换币</text>
+            </view>
+        </view>
+    </view>
+    <view wx:for="{{profitList}}" wx:key="*this" bindtap='itemClick' class='height-130 margin-top-1'>
+        <view class='left'>
+            <view>挖矿收益</view>
+            <view class='time'>{{item.day}}</view>
+        </view>
+        <view class='right'>
+            <view class='balance_num'>{{item.points}}</view>
+            <view class='balance_rmb'>¥{{item.actionTokenAmount}}</view>
+        </view>
+    </view>
+</view>

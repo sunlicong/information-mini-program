@@ -1,0 +1,25 @@
+<!--pages/wallet/wallet.wxml-->
+<view class="container">
+    <view class='top'>
+        <view class='balance'>1000</view>
+        <view class='all'>总资产折合人民币</view>
+        <view class='view_wait' wx:if="{{showWait}}">
+            <view class='height-100' bindtap="toPage_balance">
+                <view class='text3'>待结算金额（元）</view>
+                <view class='text4'>{{balance2}}
+                    <image class='arrow' src="/image/arrows_white_right.png" />
+                </view>
+            </view>
+        </view>
+    </view>
+    <view bindtap='itemClick' class='height-130'>
+        <view class='left'>
+            <image src='/image/myTicket.png' class='size-50' mode='aspectFit'></image>
+            <view class='margin-left-20'>Fcion</view>
+        </view>
+        <view class='right'>
+            <view class='balance_num'>50</view>
+            <view class='balance_rmb'>¥128.00</view>
+        </view>
+    </view>
+</view>

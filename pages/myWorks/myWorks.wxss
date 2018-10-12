@@ -1,0 +1,67 @@
+/* pages/myWorks/myWorks.wxss */
+
+.tab {
+    width: 100%;
+    height: 100rpx;
+    background: #fff;
+}
+
+.tab view {
+    width: 50%;
+    height: 96rpx;
+    line-height: 96rpx;
+    display: inline-block;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+}
+
+.tab-select {
+    color: #0794fc;
+    border-bottom: 4rpx solid #0794fc;
+}
+
+.tab-non {
+    color: #a3aeba;
+}
+
+.margin-top-1 {
+    margin-top: 1rpx;
+}
+
+.feed {
+    background-color: #fff;
+}
+
+.myInfo {
+    width: 100%;
+    height: 430rpx;
+    text-align: center;
+}
+
+.myInfo .cover {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 60rpx;
+    margin-top: 35rpx;
+    background-image: linear-gradient(33deg, #70c4ff 0%, #0c96fc 65%, #624af6 100%);
+}
+
+.myInfo .nick {
+    font-family: PingFangSC-Medium;
+    font-size: 32rpx;
+    color: #fff;
+    display: block;
+}
+.publish_btn {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    background-color: #0794FC;
+    color: white;
+    height: 98rpx;
+    font-size: 34rpx;
+    line-height: 98rpx; 
+}

@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="container">
+    <swiper class="swiper" autoplay="true">
+        <block wx:for="{{tips}}" wx:key="*this">
+            <swiper-item>
+                <view class="swiper-item" bindtap='onBannerClick'>
+                    <image class="swiper-cover" src="{{filter.imgUrl(item.cover,'@imageView2/1/w/750/h/240')}}"></image>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <!-- <navigator url="/pages/index/memberCenter/memberCenter" class='height-90' hover-class='hover-90'>
+        <view class='left'>
+            <view>信息透明可控，收入返还用户</view>
+        </view>
+        <view class='right'>
+            <image class='arrow' src='/image/arrows_right.png'></image>
+        </view>
+    </navigator> -->
+    <!-- <view class='margin-top-20 num-view'>
+        <view class="num-item">
+            <text class="text">昨日挖矿总量：</text>
+            <text class="money">{{yesterdayTokenTotal}}</text>
+        </view>
+        <view class="line"></view>
+        <view class="num-item" bindtap='goIncome'>
+            <text class="text">累计分配收入总和：</text>
+            <text class="money">{{incomeTokenTotal}}</text>
+        </view>
+    </view> -->
+    <!-- feed -->
+    <view class='feed margin-top-20' wx:for="{{feeds}}" wx:key="*this">
+        <newsItem pop="{{item}}"></newsItem>
+    </view>
+    <image class='my_mining' src="../../image/icon_mining.png" bindtap="goMyMining"></image>
+</view>

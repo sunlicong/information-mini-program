@@ -1,0 +1,15 @@
+<!--pages/investment/investment.wxml-->
+<view class="container">
+    <view class="tab">
+        <view bindtap='tabClick' id="0" class="{{tabIndex==0?'tab-select':'tab-non'}}">
+            最新
+        </view>
+        <view bindtap='tabClick' id="1" class="{{tabIndex==1?'tab-select':'tab-non'}}">
+            最热
+        </view>
+    </view>
+    <!-- feed -->
+    <view class='feed margin-top-1' wx:for="{{5}}" wx:key="*this">
+        <newsItem></newsItem>
+    </view>
+</view>

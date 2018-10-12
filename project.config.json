@@ -1,0 +1,88 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.4",
+	"appid": "wxb14560550a551862",
+	"projectname": "information-mini-program%E6%96%B0%E5%BC%80%E6%94%BE",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 7,
+			"list": [
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "wallet",
+					"pathName": "pages/wallet/wallet",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "miningRevinue",
+					"pathName": "pages/miningRevenue/miningRevinue",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "mine",
+					"pathName": "pages/mine/mine",
+					"query": ""
+				},
+				{
+					"id": 4,
+					"name": "publishPriview",
+					"pathName": "pages/publishPriview/publishPriview",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "publishSuccess",
+					"pathName": "pages/publishSuccess/publishSuccess",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "login",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "editProfile",
+					"pathName": "pages/editProfile/editProfile"
+				}
+			]
+		}
+	}
+}

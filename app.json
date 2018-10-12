@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/investment/investment",
+    "pages/login/login",
+    "pages/wallet/wallet",
+    "pages/miningRevenue/miningRevinue",
+    "pages/publish/publish",
+    "pages/publishPriview/publishPriview",
+    "pages/publishSuccess/publishSuccess",
+    "pages/articleDetail/articleDetail",
+    "pages/myWorks/myWorks",
+    "pages/editProfile/editProfile",
+    "pages/myMining/myMining"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "头条",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F4F4F4"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/index_n.png",
+        "selectedIconPath": "image/index_s.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "image/me_n.png",
+        "selectedIconPath": "image/me_s.png"
+      }
+    ],
+    "color": "#A3AEBA",
+    "selectedColor": "#0794FC",
+    "backgroundColor": "#FFF",
+    "borderStyle": "white"
+  }
+}

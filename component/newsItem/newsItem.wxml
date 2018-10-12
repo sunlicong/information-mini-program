@@ -1,0 +1,37 @@
+<!--component/newsItem/newsItem.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view bindtap='goDetail' data-id='{{item.contentId}}'>
+    <view class='style1'>
+
+    </view>
+    <view class='style2'>
+    
+    </view>
+    <view class='style3'>
+    
+    </view>
+    
+    <view class='feed-title two_line'>
+        {{item.title}}
+    </view>
+    <!-- 图片 3张 -->
+    <view class='feed-imgs'>
+        <image mode='aspectFill' wx:for='{{pics}}' wx:key='*this' src='{{filter.imgUrl(item, "@imageView2/1/w/214/h/214")}}' class='feed-img'></image>
+    </view>
+    <view wx:if="{{formType==0}}" class='feed-bottom'>
+        <view class='feed-bottom-type'>
+            {{item.source}}
+        </view>
+    </view>
+    <view wx:if="{{formType==1}}" class='feed-bottom'>
+        <view class='feed-bottom-type'>
+            {{item.investAmount}}资讯币
+        </view>
+        <view class='feed-bottom-type'>
+            {{item.likeNum}}人点赞
+        </view>
+        <view class='feed-bottom-type'>
+            {{item.browserNum}}人查看
+        </view>
+    </view>
+</view>
