@@ -1,0 +1,29 @@
+<!--pages/payCandyCard/payCandyCard.wxml-->
+<view class="container">
+    <view class='top'>
+        <view class='candy_banace'>
+            <view class='banace'>糖果卡余额：730糖果</view>
+            <view class='right'>
+                <view>明细</view>
+                <image class='arrow' src='/image/arrows_right.png'></image>
+            </view>
+        </view>
+        <view class='card'>
+            <view class='name'>糖果卡</view>
+            <view class='candy'>
+                <view>105.00</view>
+                <view class='unit'>糖果</view>
+            </view>
+        </view>
+    </view>
+    <view class='candy_list'>
+        <view class='title'>选择糖果卡</view>
+        <view class='list'>
+            <view class='list_card' wx:for="{{9}}">
+                <view class='text1'>5000糖果</view>
+                <view>赠送5糖果</view>
+            </view>
+        </view>
+    </view>
+    
+</view>

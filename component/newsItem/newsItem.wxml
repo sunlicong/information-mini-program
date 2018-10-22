@@ -1,26 +1,34 @@
 <!--component/newsItem/newsItem.wxml-->
 <wxs src="../../utils/filter.wxs" module="filter" />
 <view bindtap='goDetail' data-id='{{item.contentId}}'>
-    <view class='style1'>
-
+    <!-- 一张图片 -->
+    <view wx:if="{{pics.length==1}}" class='style1'>
+        <view class='feed-title1'>
+            {{item.title}}
+        </view>
+        <image mode='aspectFill' src='{{filter.imgUrl(pics[0], "@imageView2/1/w/214/h/214")}}' class='feed-img1'></image>
     </view>
-    <view class='style2'>
-    
-    </view>
-    <view class='style3'>
-    
-    </view>
-    
-    <view class='feed-title two_line'>
-        {{item.title}}
-    </view>
-    <!-- 图片 3张 -->
-    <view class='feed-imgs'>
-        <image mode='aspectFill' wx:for='{{pics}}' wx:key='*this' src='{{filter.imgUrl(item, "@imageView2/1/w/214/h/214")}}' class='feed-img'></image>
+    <!-- 一张图片以为的样式 -->
+    <view wx:else class='style2'>
+        <view class='feed-title2 two_line'>
+            {{item.title}}
+        </view>
+        <!-- 图片 3张 -->
+        <view class='feed-imgs2' wx:if="{{pics.length>0}}">
+            <image mode='aspectFill' wx:for='{{pics}}' wx:key='*this' src='{{filter.imgUrl(item, "@imageView2/1/w/214/h/214")}}' class='feed-img2'></image>
+        </view>
     </view>
     <view wx:if="{{formType==0}}" class='feed-bottom'>
         <view class='feed-bottom-type'>
             {{item.source}}
+        </view>
+        <view class='feed-bottom-type'>
+            <image src='/image/icon_item_praise.png' class='icon_opt' mode='aspectFit'></image>
+            <view>{{item.investAmount}}</view>
+        </view>
+        <view class='feed-bottom-type'>
+            <image src='/image/icon_praise_seleced.png' class='icon_opt' mode='aspectFit'></image>
+            <view>{{item.likeNum}}</view>
         </view>
     </view>
     <view wx:if="{{formType==1}}" class='feed-bottom'>

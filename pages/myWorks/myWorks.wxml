@@ -15,15 +15,16 @@
 
     <view wx:if="{{tabIndex==1}}" class='data'>
         <view class="myInfo">
-            <image class='cover' src="{{photo}}"></image>
-            <text class='nick'>{{nick}}</text>
+            <image class='img' src="/image/bg_circle.png"></image>
             <view class='info_num'>
-                <view>动态:{{dynamicsCount}}</view>
-                <view class='follow'>关注:{{followedCount}}</view>
-                <view>粉丝:{{fansCount}}</view>
+                <view class='text1'>累计收益(DB)</view>
+                <view class='text2'>1000万</view>
             </view>
         </view>
     </view>
-
+    <view class='fans_view'>
+        <view class='fans_num'>粉丝 1000万</view>
+        <view class='fans_num'>累积阅读量 1000万</view>
+    </view>
     <view class="publish_btn" bindtap="publish">发布作品</view>
 </view>

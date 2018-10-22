@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 7,
+			"current": 14,
 			"list": [
 				{
 					"id": -1,
@@ -80,7 +80,49 @@
 				{
 					"id": -1,
 					"name": "editProfile",
-					"pathName": "pages/editProfile/editProfile"
+					"pathName": "pages/editProfile/editProfile",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myMining",
+					"pathName": "pages/myMining/myMining",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "walletItemDetail",
+					"pathName": "pages/walletItemDetail/walletItemDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myProfile",
+					"pathName": "pages/myProfile/myProfile",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "payCandyCard",
+					"pathName": "pages/payCandyCard/payCandyCard",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "candyDetail",
+					"pathName": "pages/candyDetail/candyDetail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "inviteFriend",
+					"pathName": "pages/inviteFriend/inviteFriend",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "myWorks",
+					"pathName": "pages/myWorks/myWorks"
 				}
 			]
 		}

@@ -56,9 +56,26 @@ Page({
             wx.navigateTo({
                 url: '/pages/publish/publish',
             })
-        } else if (itemName == 'manager'){
+        } else if (itemName == 'manager') {
             wx.navigateTo({
                 url: '/pages/myWorks/myWorks',
+            })
+        } else if (itemName == 'invite') {
+            wx.navigateTo({
+                url: '/pages/inviteFriend/inviteFriend',
+            })
+        } else if (itemName == 'dynamics') {
+            var uid = app.globalData.userInfo.uid
+            wx.navigateTo({
+                url: '/pages/myProfile/myProfile?uid=' + uid,
+            })
+        } else if (itemName == 'follow') {
+            wx.navigateTo({
+                url: '/pages/myProfile/myProfile',
+            })
+        } else if (itemName == 'fans') {
+            wx.navigateTo({
+                url: '/pages/myProfile/myProfile',
             })
         }
     }

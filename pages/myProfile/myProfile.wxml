@@ -1,0 +1,54 @@
+<!--pages/myProfile/myProfile.wxml-->
+<wxs src="../../utils/filter.wxs" module="tools" />
+<template name="feedItem">
+  <view class='item_card' bindtap="goDetail" data-item='{{item}}'>
+    <view class='item_user'>
+      <image class='item_cover' src="{{user.photo}}"></image>
+      <view class='item_nick'>{{user.nick}}</view>
+      <view class='item_time'>3分钟</view>
+    </view>
+    <view wx:if="{{item.optType==1}}" class='item_opt'>赞了文章</view>
+    <view wx:if="{{item.optType==2}}" class='item_opt'>赞赏了文章</view>
+    <view class='item_info'>
+      <image class='item_img' src="{{item.coverPid}}"></image>
+      <view class='item_content'>{{item.title}}</view>
+    </view>
+  </view>
+</template>
+<view class="container">
+  <view class='head'>
+    <image class='cover' src="{{user.photo}}"></image>
+    <view class='info'>
+      <text>{{user.nick}}</text>
+      <view class='info_num'>
+        <view>关注:{{user.followedCount}}</view>
+        <view>粉丝:{{user.fansCount}}</view>
+      </view>
+    </view>
+    <view wx:if="{{user.user_relation}}" class='follow' bindtap='romoveRelation' data-id='{{user.uid}}' data-id='{{user.user_relation}}'>已关注</view>
+    <view wx:if="{{!user.user_relation}}" class='follow' bindtap='relation' data-id='{{user.uid}}' data-id='{{user.user_relation}}'>关注</view>
+  </view>
+  <view class='desc'>
+    <text class='desc_info'>{{user.desc?user.desc:'简介：这个人很懒，什么都没留下'}}</text>
+  </view>
+  <view class="tab">
+    <view bindtap='tabClick' id="0" class="tab_item {{tabIndex==0?'tab-select':'tab-non'}}">
+      最新
+    </view>
+    <view bindtap='tabClick' id="1" class="tab_item {{tabIndex==1?'tab-select':'tab-non'}}">
+      最热
+    </view>
+  </view>
+  <view>
+  </view>
+  <view wx:if='{{tabIndex==0}}' class='new_feed'>
+    <block wx:for="{{newList}}" wx:for-item="item" wx:key="{{index}}">
+      <template is="feedItem" data="{{item,user}}" />
+    </block>
+  </view>
+  <view wx:if='{{tabIndex==1}}' class='hot_feed'>
+    <block wx:for="{{hotList}}" wx:for-item="item" wx:key="{{index}}">
+      <template is="feedItem" data="{{item,user}}" />
+    </block>
+  </view>
+</view>

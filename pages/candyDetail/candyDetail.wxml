@@ -1,0 +1,10 @@
+<!--pages/candyDetail/candyDetail.wxml-->
+<view class="container">
+    <view class='item' wx:for="{{5}}">
+        <view class='left'>
+            <view>购买</view>
+            <view>2018-06-21</view>
+        </view>
+        <view class='right'>+1.5糖果</view>
+    </view>
+</view>

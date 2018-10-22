@@ -13,7 +13,7 @@ Component({
                 console.log(newVal)
                 this.setData({
                     item: newVal,
-                    pics: newVal.coverPid.split(',')
+                    pics: newVal.coverPid ? newVal.coverPid.split(',') : ['http://demo2.ess.ejucloud.cn/6399f7ea-c7cf-08ee-3360-16c9d2ce832b@imageView2/2/w/200']
                 })
             }
         },

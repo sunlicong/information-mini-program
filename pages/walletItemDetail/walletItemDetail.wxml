@@ -1,21 +1,56 @@
 <!--pages/walletItemDetail/walletItemDetail.wxml-->
+<wxs module="filter">
+    var getTypeName = function(type) {
+        var name = ''
+        switch(type){
+            case 1: name='提现';
+            break;
+            case 2: name='充值';
+            break;
+            case 3: name='购买';
+            break;
+            case 4: name='打赏点钻奖励';
+            break;
+            case 5: name='打赏';
+            break;
+            case 6: name='点赞点钻奖励';
+            break;
+            case 7: name='糖果购买';
+            break;
+            case 8: name='奖金池点钻奖励';
+            break;
+            case 9: name='邀请用户奖励';
+            break;
+            case 10: name='人民币收益';
+            break;
+            case 11: name='发文章奖励';
+            break;
+            case 12: name='分享奖励';
+            break;
+        }
+        return name;
+    }
+    module.exports = {
+        getTypeName: getTypeName,
+    }
+</wxs>
 <view class="container">
     <view class='top'>
         <image src='/image/bg_wallet.png' class='top_bg' mode='aspectFit'></image>
         <view class='top_content'>
             <view class='balance'>
-                <view>1000</view>
+                <view>{{num}}</view>
                 <text class='yuan'>{{formType==1?'coin':'元'}}</text>
             </view>
         </view>
     </view>
-    <view bindtap='itemClick' class='height-120' wx:for="{{8}}">
+    <view bindtap='itemClick' class='height-120' wx:for="{{list}}">
         <view class='left margin-left-30'>
-            <view class='title'>分红</view>
-            <view class='time'>11{{item.day}}</view>
+            <view class='title'>{{filter.getTypeName(item.type)}}</view>
+            <view class='time'>{{item.time}}</view>
         </view>
         <view class='right'>
-            <view class='num'>+50元</view>
+            <view class='num'>+{{item.count}}{{formType==1?'coin':'元'}}</view>
         </view>
     </view>
 </view>

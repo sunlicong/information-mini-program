@@ -1,12 +1,39 @@
 <!--pages/articleDetail/articleDetail.wxml-->
-<import src="/utils/wxParse/wxParse.wxml"/> 
+<import src="/utils/wxParse/wxParse.wxml" />
 <view class="container">
-    <view class='content'>
-        <view class='title'>
-            奋斗戏份不比佟大为少，赵宝刚力捧的男主角，如今销声匿迹
-        </view>
-        <view class="wxParse">
-            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-        </view>
+  <view class='content'>
+    <view class='title'>
+      奋斗戏份不比佟大为少，赵宝刚力捧的男主角，如今销声匿迹
     </view>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+  <view class='praise'>
+    <image class='praise_cover' src="{{photo}}"></image>
+    <view class='praise_text'>喜欢就给我赞赏吧</view>
+    <button class='praise_push'>赞赏</button>
+    <view class='praise_count'>192人赞赏</view>
+  </view>
+  <view class='opt'>
+    <view class='opt_item'>
+      <image src='/image/icon_praise_seleced.png' class='icon_opt' mode='aspectFit'></image>
+      <view>111</view>
+    </view>
+    <view class='opt_item'>
+      <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
+      <view>分享</view>
+    </view>
+  </view>
+  <view class='bottom_bar'>
+    <view class='bottom_praise'>
+      <image src='/image/icon_praise_seleced.png' class='icon_opt' mode='aspectFit'></image>
+      <view>111</view>
+    </view>
+    <view class='bottom_share'>
+      <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
+      <view>分享</view>
+    </view>
+    <view class='bottom_pay'>赞赏</view>
+  </view>
 </view>

@@ -18,7 +18,7 @@
         <image src='/image/bg_my_mining.png' class='top_bg' mode='aspectFit'></image>
         <view class='top_content'>
             <view class='top_content_menu'>
-                <view class='invite'>邀请好友</view>
+                <view class='invite' bindtap='invite'>邀请好友</view>
                 <view class='help'>
                     <view>攻略</view>
                     <image src='/image/icon_help_search.png' mode='aspectFit'></image>
@@ -27,7 +27,7 @@
             <view class='mining'>
                 <view wx:if="{{!item.isShow}}" class='mining_item' style='left:{{filter.getNumX()}}rpx;top:{{filter.getNumY()}}rpx' bindtap="getMining" wx:for="{{mineList}}" bindtap='getCoin' data-id='{{item.id}}' data-index='{{index}}'>
                     <image class='img_mining' src="../../image/icon_mining.png"></image>
-                    <view class='num'>{{filter.getNumX()}}</view>
+                    <view class='num'>{{item.tokenamount}}</view>
                     <view class='coin'>coin</view>
                 </view>
             </view>
@@ -46,8 +46,8 @@
     </view>
     <view class='divid_content'>
         <view class='title'>待领取分红</view>
-        <view class='price'>1000万</view>
-        <view class='coin'>参与分红币：180</view>
-        <button class='get'>领取</button>
+        <view class='price'>{{unReceiveMoney}}</view>
+        <!-- <view class='coin'>参与分红币：180</view> -->
+        <button class='get' bindtap='getRmb'>领取</button>
     </view>
 </view>

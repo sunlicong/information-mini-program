@@ -6,9 +6,9 @@
             <image class='cover' src="{{photo}}"></image>
             <text class='nick'>{{nick}}</text>
             <view class='info_num'>
-                <view>动态:{{dynamicsCount}}</view>
-                <view class='follow'>关注:{{followedCount}}</view>
-                <view>粉丝:{{fansCount}}</view>
+                <view bindtap='itemClick' data-name='dynamics'>动态:{{dynamicsCount}}</view>
+                <view bindtap='itemClick' data-name='follow' class='follow'>关注:{{followedCount}}</view>
+                <view bindtap='itemClick' data-name='fans'>粉丝:{{fansCount}}</view>
             </view>
         </view>
         <view class='my_assets'>
@@ -25,18 +25,18 @@
             <view class="line"></view>
             <view class="num-item">
                 <view>
-                    <text>内容投资</text>
+                    <text>累计分红</text>
                     <text class='color_009'></text>
                 </view>
                 <view class="text">
-                    <text>+{{totalInvestAmount}}</text>
-                    <text class='coin'>coin</text>
+                    <text>{{totalInvestAmount}}</text>
+                    <text class='coin'>元</text>
                 </view>
             </view>
         </view>
     </view>
     <!--  邀请  -->
-    <view bindtap='itemClick' data-name='publish' class='height-120, margintop-20'>
+    <view bindtap='itemClick' data-name='invite' class='height-120, margintop-20'>
         <view class='left'>
             <image src='/image/icon_invite.png' class='size-33' mode='aspectFit'></image>
             <view class='margin-left-20'>邀请好友得点钻</view>

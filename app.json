@@ -14,7 +14,10 @@
     "pages/myWorks/myWorks",
     "pages/editProfile/editProfile",
     "pages/myMining/myMining",
-    "pages/inviteFriend/inviteFriend"
+    "pages/inviteFriend/inviteFriend",
+    "pages/myProfile/myProfile",
+    "pages/payCandyCard/payCandyCard",
+    "pages/candyDetail/candyDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

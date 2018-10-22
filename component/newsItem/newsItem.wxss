@@ -1,6 +1,27 @@
 /* component/newsItem/newsItem.wxss */
 @import "/app.wxss";
-.feed-title {
+.style1{
+    width: 100%;
+    height: 170rpx;
+    display: flex;
+}
+.feed-title1 {
+    flex: 1;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-top: 28rpx;
+    font-size: 32rpx;
+    color: #051426;
+}
+.feed-img1 {
+    width: 220rpx;
+    height: 140rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-top: 30rpx;
+}
+
+.feed-title2 {
     margin-left: 30rpx;
     margin-right: 30rpx;
     margin-top: 28rpx;
@@ -8,7 +29,7 @@
     color: #051426;
 }
 
-.feed-imgs {
+.feed-imgs2 {
     width: 100%;
     height: 140rpx;
     margin-top: 26rpx;
@@ -17,15 +38,15 @@
     align-items: center;
 }
 
-.feed-imgs .feed-img {
+.feed-imgs2 .feed-img2 {
     width: 220rpx;
     height: 140rpx;
     margin-left: 15rpx;
 }
 .feed-bottom{
     width: 100%;
-    height: 66rpx;
-    line-height: 66rpx;
+    height: 76rpx;
+    line-height: 76rpx;
     font-size: 22rpx;
     color: #A3AEBA;
     display: flex;
@@ -33,4 +54,11 @@
 }
 .feed-bottom .feed-bottom-type{
     margin-left: 30rpx;
+    display: flex;
+    align-items: center;
+}
+.icon_opt{
+    margin-right: 10rpx;
+    width: 24rpx;
+    height: 24rpx;
 }

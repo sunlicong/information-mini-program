@@ -1,0 +1,103 @@
+/* pages/payCandyCard/payCandyCard.wxss */
+
+.top {
+    width: 100%;
+    height: 472rpx;
+    background: #fff;
+}
+
+.top .candy_banace {
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+}
+
+.top .banace {
+    flex: 1;
+    margin-left: 30rpx;
+    font-size: 34rpx;
+    color: #051426;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    margin-right: 30rpx;
+    font-size: 30rpx;
+    color: #a3aeba;
+}
+
+.arrow {
+    width: 12rpx;
+    height: 21rpx;
+    margin-left: 12rpx;
+}
+
+.top .card {
+    margin-top: 5rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    height: 324rpx;
+    background: #0794fc;
+    border-radius: 10rpx;
+    position: relative;
+}
+
+.top .card .name {
+    position: absolute;
+    margin-left: 35rpx;
+    margin-top: 31rpx;
+    font-size: 34rpx;
+    color: #fff;
+}
+
+.top .card .candy {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 72rpx;
+    color: #fff;
+    justify-content: center;
+}
+
+.top .card .unit {
+    font-size: 24rpx;
+    margin-top: 20rpx;
+}
+
+.candy_list {
+    margin-top: 20rpx;
+    padding-bottom: 46rpx;
+    background: #fff;
+}
+
+.candy_list .title {
+    margin-left: 30rpx;
+    margin-top: 36rpx;
+    font-size: 32rpx;
+    color: #051426;
+}
+
+.list_card {
+    float: left;
+    margin-left: 27rpx;
+    margin-top: 30rpx;
+    width: 210rpx;
+    height: 120rpx;
+    border: 1rpx solid #A3AEBA;
+    border-radius: 8rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 24rpx;
+    color: #a3aeba;
+}
+.text1{
+    font-size: 24rpx;
+    color: #050000;
+}
+.card_selected{
+    border: 1rpx solid #0794FC;
+}
