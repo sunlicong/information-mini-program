@@ -1,0 +1,57 @@
+/* pages/mineEdit/mineEdit.wxss */
+.myInfo {
+    width: 100%;
+    height: 240rpx;
+    text-align: center;
+    background: #ffffff;
+}
+
+.myInfo .cover {
+    width: 120rpx;
+    height: 120rpx;
+    border-radius: 60rpx;
+    margin-top: 30rpx;
+    background: #f4f4f4;
+}
+
+.myInfo .cover_text {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #A3AEBA;
+    display: block;
+}
+.item{
+    margin-top: 20rpx;
+    width: 100%;
+    height: 100rpx;
+    background: #ffffff;
+    align-items: center;
+    font-family: PingFangSC-Regular;
+    font-size: 32rpx;
+    color: #051426;
+}
+.name{
+    float: left;
+    margin-left: 30rpx;
+    width: 90rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+.info{
+    margin-left: 30rpx;
+    margin-right: 40rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+}
+.save{
+    margin-top: 60rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    background: #0794FC;
+    border-radius: 8rpx;
+    font-size: 36rpx;
+    color: #FFFFFF;
+}
+.save::after{
+    border: 0;
+}

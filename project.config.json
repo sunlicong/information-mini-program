@@ -12,8 +12,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.4",
-	"appid": "wxb14560550a551862",
-	"projectname": "information-mini-program%E6%96%B0%E5%BC%80%E6%94%BE",
+	"appid": "wx0a2ca081e6923bb0",
+	"projectname": "information-mini-program",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
@@ -33,13 +33,13 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 14,
+			"current": 19,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "index",
 					"pathName": "pages/index/index",
-					"query": ""
+					"query": "inviter=1033926009268736000"
 				},
 				{
 					"id": -1,
@@ -54,10 +54,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "mine",
 					"pathName": "pages/mine/mine",
-					"query": ""
+					"query": "a=1"
 				},
 				{
 					"id": 4,
@@ -122,7 +122,38 @@
 				{
 					"id": -1,
 					"name": "myWorks",
-					"pathName": "pages/myWorks/myWorks"
+					"pathName": "pages/myWorks/myWorks",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "articleDetail",
+					"pathName": "pages/articleDetail/articleDetail",
+					"query": "contentId=142"
+				},
+				{
+					"id": -1,
+					"name": "mineEdit",
+					"pathName": "pages/mineEdit/mineEdit",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "myFans",
+					"pathName": "pages/myFans/myFans",
+					"query": "type=2"
+				},
+				{
+					"id": -1,
+					"name": "inviteList",
+					"pathName": "pages/inviteList/inviteList",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "raiders",
+					"pathName": "pages/raiders/raiders",
+					"query": ""
 				}
 			]
 		}

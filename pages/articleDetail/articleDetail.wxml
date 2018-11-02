@@ -1,39 +1,63 @@
 <!--pages/articleDetail/articleDetail.wxml-->
 <import src="/utils/wxParse/wxParse.wxml" />
 <view class="container">
-  <view class='content'>
-    <view class='title'>
-      奋斗戏份不比佟大为少，赵宝刚力捧的男主角，如今销声匿迹
+    <view class='content'>
+        <view class='title'>
+            {{data.content.title}}
+        </view>
+        <view class="wxParse">
+            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+            <view class='readCount'>阅读{{123}}</view>
+        </view>
     </view>
-    <view class="wxParse">
-      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    <view class='praise'>
+        <image class='praise_cover' src="{{photo}}"></image>
+        <view class='praise_text'>喜欢就给我赞赏吧</view>
+        <button class='praise_push'>赞赏</button>
+        <view class='praise_count'>192人赞赏</view>
     </view>
-  </view>
-  <view class='praise'>
-    <image class='praise_cover' src="{{photo}}"></image>
-    <view class='praise_text'>喜欢就给我赞赏吧</view>
-    <button class='praise_push'>赞赏</button>
-    <view class='praise_count'>192人赞赏</view>
-  </view>
-  <view class='opt'>
-    <view class='opt_item'>
-      <image src='/image/icon_praise_seleced.png' class='icon_opt' mode='aspectFit'></image>
-      <view>111</view>
+    <view class='opt'>
+        <view class='opt_item'>
+            <image src='/image/icon_praise_seleced.png' class='icon_opt' mode='aspectFit'></image>
+            <view>111</view>
+        </view>
+        <button open-type='share' class='opt_item opt_item_share'>
+            <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
+            <view>分享</view>
+        </button>
     </view>
-    <view class='opt_item'>
-      <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
-      <view>分享</view>
+    <view class='bottom_bar'>
+        <view class='bottom_praise right_line' bindtap='goHome'>
+            <image src='/image/icon_back_home.png' class='icon_opt' mode='aspectFit'></image>
+            <view>回首页</view>
+        </view>
+        <view class='bottom_praise right_line'>
+            <image src='/image/icon_praise_seleced.png' class='icon_opt' mode='aspectFit'></image>
+            <view>111</view>
+        </view>
+        <button open-type='share' class='bottom_share'>
+            <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
+            <view>分享</view>
+        </button>
+        <!-- <view class='bottom_pay' bindtap='pay'>赞赏</view> -->
     </view>
-  </view>
-  <view class='bottom_bar'>
-    <view class='bottom_praise'>
-      <image src='/image/icon_praise_seleced.png' class='icon_opt' mode='aspectFit'></image>
-      <view>111</view>
+</view>
+<view>
+    <view class="modal" wx:if="{{showDialog}}" bindtap="closeDialog"></view>
+    <view class="dialog_box {{showDialog?'dialog_box_p':''}}">
+        <!-- <view class="box_top">10糖果返还赞赏者8DB，内容发布者2DB</view> -->
+        <scroll-view class="box_list" scroll-x>
+            <view class='card {{index==0? "ml-30":""}}' wx:for="{{candyList}}" bindtap='selectCandy' data-index='{{index}}'>
+                <image class='bg {{index==selectCandyId?"select":""}}' src="/image/10_candy.png"></image>
+            </view>
+        </scroll-view>
+        <view class="share_bottom" bindtap="">
+            <view class='balance'>糖果{{candyCount}}</view>
+            <view class='buy' bindtap='goBuyCandy'>
+                <view class=''>购买</view>
+                <image class='arrow' src='/image/arrows_right.png'></image>
+            </view>
+            <button class='send'>赠送</button>
+        </view>
     </view>
-    <view class='bottom_share'>
-      <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
-      <view>分享</view>
-    </view>
-    <view class='bottom_pay'>赞赏</view>
-  </view>
 </view>

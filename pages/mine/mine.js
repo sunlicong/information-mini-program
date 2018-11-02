@@ -38,7 +38,8 @@ Page({
                     followedCount: res.data.followedCount,
                     fansCount: res.data.fansCount,
                     totalToken: res.data.totalToken,
-                    totalInvestAmount: res.data.totalInvestAmount
+                    totalInvestAmount: res.data.totalInvestAmount,
+                    invitation: res.data.invitation
                 })
             },
             fail: function(res) {
@@ -64,18 +65,28 @@ Page({
             wx.navigateTo({
                 url: '/pages/inviteFriend/inviteFriend',
             })
+        } else if (itemName == 'invite2') {
+            wx.navigateTo({
+                url: '/pages/inviteList/inviteList',
+            })
+        } else if (itemName == 'invite3') {
+            wx.navigateTo({
+                url: '/pages/inviteList/inviteList',
+            })
         } else if (itemName == 'dynamics') {
             var uid = app.globalData.userInfo.uid
             wx.navigateTo({
                 url: '/pages/myProfile/myProfile?uid=' + uid,
             })
         } else if (itemName == 'follow') {
+            var uid = app.globalData.userInfo.uid
             wx.navigateTo({
-                url: '/pages/myProfile/myProfile',
+                url: '/pages/myFans/myFans?type=2'
             })
         } else if (itemName == 'fans') {
+            var uid = app.globalData.userInfo.uid
             wx.navigateTo({
-                url: '/pages/myProfile/myProfile',
+                url: '/pages/myFans/myFans?type=1'
             })
         }
     }

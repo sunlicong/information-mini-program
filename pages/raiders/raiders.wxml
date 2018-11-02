@@ -1,0 +1,28 @@
+<!--pages/raiders/raiders.wxml-->
+<view class="container">
+    <image class='body' mode="widthFix" src="/image/img_raiders.png" bindload="imageLoad"></image>
+    <view class='content'>
+        <view class='box1'>
+            <view class='w_50'>
+                <view class='text1'>昨日点赞挖矿产生DB</view>
+                <view class='text2'>100万</view>
+            </view>
+            <view class='w_50'>
+                <view class='text3'>昨日收入分红</view>
+                <view class='text4'>599CNY</view>
+            </view>
+        </view>
+        <view class='box2 b_color_D1D7FF'>
+            <view class='text5'>DB总流通量：</view>
+            <view class='text6'>7,973.00</view>
+        </view>
+        <view class='box2'>
+            <view class='text5'>昨日挖矿产生DB总量：</view>
+            <view class='text6'>7,973.00</view>
+        </view>
+        <view class='box2 b_color_D1D7FF'>
+            <view class='text5'>生态和团队同步释放DB总量：</view>
+            <view class='text6'>7,973.00</view>
+        </view>
+    </view>
+</view>

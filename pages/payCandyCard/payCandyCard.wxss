@@ -78,26 +78,71 @@
     font-size: 32rpx;
     color: #051426;
 }
-
+.list{
+    width: 100%;
+    display: inline-block;
+}
 .list_card {
-    float: left;
-    margin-left: 27rpx;
+    display: inline-block;
+    margin-left: 30rpx;
     margin-top: 30rpx;
-    width: 210rpx;
+    width: 200rpx;
     height: 120rpx;
-    border: 1rpx solid #A3AEBA;
     border-radius: 8rpx;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
     font-size: 24rpx;
     color: #a3aeba;
+    position: relative;
+}
+.border{
+    border: 1rpx solid #A3AEBA;
+}
+.border-none{
+    border: 0;
+}
+.box_bg{
+    position: absolute;
+    display: block;
+    width: 200rpx;
+    height: 120rpx;
 }
 .text1{
+    margin-top: 35rpx;
+    height: 50rpx;
+    font-size: 36rpx;
+    color: #051426;
+}
+.text2{
     font-size: 24rpx;
-    color: #050000;
 }
 .card_selected{
     border: 1rpx solid #0794FC;
+}
+.bottom{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 120rpx;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+}
+.bottom_left{
+    margin-left: 30rpx;
+    flex: 1;
+    font-size: 48rpx;
+    color: #FF6700;
+}
+.yuan{
+    font-size: 24rpx;
+    color: #FF6700;
+}
+.buy_card{
+    margin-right: 30rpx;
+    width: 260rpx;
+    height: 88rpx;
+    background: #0794FC;
+    border-radius: 8rpx;
+    font-size: 34rpx;
+    color: #FFFFFF;
 }

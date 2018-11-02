@@ -25,8 +25,9 @@
         <view>粉丝:{{user.fansCount}}</view>
       </view>
     </view>
-    <view wx:if="{{user.user_relation}}" class='follow' bindtap='romoveRelation' data-id='{{user.uid}}' data-id='{{user.user_relation}}'>已关注</view>
-    <view wx:if="{{!user.user_relation}}" class='follow' bindtap='relation' data-id='{{user.uid}}' data-id='{{user.user_relation}}'>关注</view>
+    <view wx:if="{{isMe}}" class='follow' style='width:180rpx;' bindtap='editInfo' data-id='{{user.uid}}' data-id='{{user.user_relation}}'>编辑资料</view>
+    <view wx:elif="{{user.user_relation}}" class='romoveRelation' bindtap='romoveRelation' data-id='{{user.uid}}' data-id='{{user.user_relation}}'>已关注</view>
+    <view wx:elif="{{!user.user_relation}}" class='follow' bindtap='relation' data-id='{{user.uid}}' data-id='{{user.user_relation}}'>关注</view>
   </view>
   <view class='desc'>
     <text class='desc_info'>{{user.desc?user.desc:'简介：这个人很懒，什么都没留下'}}</text>

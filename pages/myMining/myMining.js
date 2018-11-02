@@ -8,7 +8,8 @@ Page({
      */
     data: {
         mineList: [],
-        unReceiveMoney: 0,
+        unReceiveMoney: 0,//待领取的人民币
+        totalCommition: 0//	分红数
     },
 
     /**
@@ -40,6 +41,14 @@ Page({
         })
     },
     /**
+     * 攻略
+     */
+    raiders() {
+        wx.navigateTo({
+            url: '/pages/raiders/raiders',
+        })
+    },
+    /**
      * 获取用户的未领取的资产
      */
     queryUnReceiveAssets() {
@@ -54,12 +63,10 @@ Page({
                 wx.hideLoading();
                 that.setData({
                     mineList: res.data.unReceiveDbList,
-                    unReceiveMoney: res.data.unReceiveMoney
+                    unReceiveMoney: res.data.unReceiveMoney,
+                    totalCommition: res.data.totalCommition
                 })
-            },
-            fail: function(res) {
-                wx.hideLoading();
-            },
+            }
         });
     },
     /**

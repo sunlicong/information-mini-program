@@ -1,0 +1,22 @@
+<!--pages/inviteList/inviteList.wxml-->
+<wxs src="../../utils/filter.wxs" module="filter" />
+<view class="container">
+    <view class='top'>
+        <image src='/image/bg_wallet.png' class='top_bg' mode='aspectFit'></image>
+        <view class='top_content'>
+            <view class='top_text1'>已邀请{{count}}人，获得奖励</view>
+            <view class='top_text2'>{{award}}点钻</view>
+            <view class='top_text3'>奖励实时到账钱包</view>
+        </view>
+    </view>
+    <view class='height-120'>
+        <view class='left margin-left-30'>被邀请人</view>
+    </view>
+    <view bindtap='itemClick' class='height-120' wx:for="{{list}}" bindtap='goProfile' data-uid='{{item.uid}}'>
+        <image class='cover' src="{{item.photo}}"></image>
+        <view class='left'>
+            <view class='nick'>{{item.nick}}</view>
+            <view class='time'>{{filter.formatDate(item.inviterDate,4)}}</view>
+        </view>
+    </view>
+</view>

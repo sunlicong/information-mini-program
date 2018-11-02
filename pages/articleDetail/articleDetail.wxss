@@ -23,11 +23,17 @@
   margin-left: 0rpx;
   margin-right: 0rpx;
 }
+.readCount{
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #A3AEBA;
+}
 
 .praise {
   margin-top: 20rpx;
   background: #fff;
   text-align: center;
+  padding-bottom: 50rpx;
 }
 
 .praise .praise_cover {
@@ -79,7 +85,13 @@
   justify-content: center;
   align-items: center;
 }
-
+.opt_item_share{
+    background: #FFFFFF;
+    border: 0;
+}
+.opt_item_share::after{
+    border: 0;
+}
 .icon_opt {
   width: 28rpx;
   height: 28rpx;
@@ -95,20 +107,33 @@
   background: #fff;
   display: flex;
   align-items: center;
+  font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #A3AEBA;
 }
 .bottom_praise{
   width: 230rpx;
+  height: 41rpx;
+  line-height: 41rpx;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .bottom_share{
   flex: 1;
-  height: 42rpx;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   border-left: 1rpx solid #A3AEBA;
+  background: #FFFFFF;
+  border: 0;
+}
+.bottom_share::after{
+    border: 0;
+}
+.right_line{
+    border-right: 1rpx solid #A3AEBA;
 }
 .bottom_pay{
   width: 261rpx;
@@ -118,4 +143,95 @@
   text-align: center;
   font-size: 36rpx;
   color: #FFFFFF;
+}
+.modal{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: #000000;
+    opacity: 0.5;
+    z-index: 99;
+}
+.dialog_box{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #ffffff;
+    height: 0;
+    transition: all 0.3s;
+    z-index: 100;
+}
+.dialog_box_p{
+    height: 340rpx;
+}
+.box_top{
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #2D3232;
+}
+.box_list{
+    margin-top: 20rpx;
+    width: 100%;
+    height: 200rpx;
+    white-space: nowrap;
+}
+.card{
+    margin-left: 10rpx;
+    width: 165rpx;
+    height: 192rpx;
+    display: inline-block;
+}
+.card .bg{
+    width: 165rpx;
+    height: 195rpx;
+    position: absolute;
+}
+.card .select{
+    border-radius: 8rpx;
+    border: 1rpx solid red;
+}
+.share_bottom{
+    width: 100%;
+    height: 120rpx;
+    display: flex;
+    align-items: center;
+}
+.balance{
+    margin-left: 30rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #2D3232;
+}
+.buy{
+    margin-left: 30rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #0794FC;
+    display: flex;
+    align-items: center;
+}
+.arrow {
+    width: 12rpx;
+    height: 21rpx;
+    margin-left: 12rpx;
+}
+.send{
+    float: right;
+    margin-right: 30rpx;
+    width: 171rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    background: #0794FC;
+    border-radius: 8rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 34rpx;
+    color: #FFFFFF;
+}
+.ml-30{
+    margin-left: 30rpx;
 }

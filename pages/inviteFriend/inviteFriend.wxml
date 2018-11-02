@@ -31,5 +31,5 @@
       <view class='tip_text'>奖励到账</view>
     </view>
   </view>
-  <button class='btn'>立即邀请</button>
+  <button open-type='share' class='btn'>立即邀请</button>
 </view>

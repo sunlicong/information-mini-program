@@ -11,6 +11,23 @@
     <!-- feed -->
     <view wx:if="{{tabIndex==0}}" class='feed margin-top-1' wx:for="{{works}}" wx:key="{{index}}">
         <newsItem formType="1" pop="{{item}}"></newsItem>
+        <view class='feed-bottom'>
+            <view class='feed-bottom-type'>
+                <image src='/image/icon_candy_count.png' class='icon_opt' mode='aspectFit'></image>
+                <view>{{item.investAmount}}糖果</view>
+            </view>
+            <view class='feed-bottom-type'>
+                <image src='/image/icon_my_like.png' class='icon_opt' mode='aspectFit'></image>
+                <view>{{item.likeNum}}人</view>
+            </view>
+            <view class='feed-bottom-type look'>
+                <image src='/image/icon_look.png' class='icon_opt' mode='aspectFit'></image>
+                <view>{{item.browserNum}}</view>
+            </view>
+            <view class='delete'>
+                <image src='/image/icon_close.png' class='icon_opt' mode='aspectFit'></image>
+            </view>
+        </view>
     </view>
 
     <view wx:if="{{tabIndex==1}}" class='data'>
@@ -18,13 +35,13 @@
             <image class='img' src="/image/bg_circle.png"></image>
             <view class='info_num'>
                 <view class='text1'>累计收益(DB)</view>
-                <view class='text2'>1000万</view>
+                <view class='text2'>{{worksData.totalProfit}}万</view>
             </view>
         </view>
-    </view>
-    <view class='fans_view'>
-        <view class='fans_num'>粉丝 1000万</view>
-        <view class='fans_num'>累积阅读量 1000万</view>
+        <view class='fans_view'>
+            <view class='fans_num'>粉丝 {{worksData.fansCount}}万</view>
+            <view class='fans_num'>累积阅读量 {{worksData.totalReads}}万</view>
+        </view>
     </view>
     <view class="publish_btn" bindtap="publish">发布作品</view>
 </view>

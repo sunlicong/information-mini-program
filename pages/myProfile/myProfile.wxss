@@ -39,6 +39,17 @@
   font-size: 28rpx;
   color: #FFFFFF;
 }
+.romoveRelation{
+    margin-right: 30rpx;
+    width: 100rpx;
+    height: 50rpx;
+    line-height: 50rpx;
+    border: 1px solid #333333;
+    border-radius: 4rpx;
+    font-size: 24rpx;
+    color: #333333;
+    text-align: center;
+}
 .desc{
   width: 100%;
   line-height: 100rpx;

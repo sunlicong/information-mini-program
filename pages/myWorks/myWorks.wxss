@@ -32,7 +32,32 @@
 .feed {
     background-color: #fff;
 }
-
+.feed-bottom{
+    width: 100%;
+    height: 76rpx;
+    line-height: 76rpx;
+    font-size: 22rpx;
+    color: #A3AEBA;
+    display: flex;
+    flex-direction: row;
+}
+.feed-bottom .feed-bottom-type{
+    margin-left: 30rpx;
+    margin-right: 50rpx;
+    display: flex;
+    align-items: center;
+}
+.feed-bottom .look{
+    flex: 1;
+}
+.delete{
+    margin-right: 30rpx;
+}
+.icon_opt{
+    margin-right: 10rpx;
+    width: 24rpx;
+    height: 24rpx;
+}
 .myInfo {
     position: relative;
     margin-top: 164rpx;

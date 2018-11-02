@@ -1,5 +1,6 @@
 {
-    "usingComponents": {
-        "newsItem": "../../../component/newsItem/newsItem"
-    }
+  "usingComponents": {
+    "newsItem": "../../../component/newsItem/newsItem",
+    "points-dialog": "/component/pointsDialog/pointsDialog"
+  }
 }

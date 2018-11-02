@@ -9,7 +9,10 @@ Page({
      */
     data: {
         contentId: '',
-        data: {}
+        selectCandyId: 0,
+        data: {},
+        candyCount: 0,//余额
+        candyList:[]//购买的糖果列表
     },
 
     /**
@@ -20,8 +23,6 @@ Page({
             contentId: options.contentId
         })
         var that = this
-        // test1 = test1.replace(/data-src/g, "src")
-        // WxParse.wxParse('article', 'html', test1, that, 5);
         this.getArticleDetail()
     },
 
@@ -35,6 +36,9 @@ Page({
             },
             success: function(res) {
                 wx.hideLoading();
+                that.setData({
+                    data: res.data
+                })
                 var text = res.data.content.content.replace(/data-src/g, "src")
                 WxParse.wxParse('article', 'html', text, that, 15);
             },
@@ -43,7 +47,53 @@ Page({
             },
         });
     },
-
+    closeDialog(){
+        this.setData({
+            showDialog: false
+        })
+    },
+    pay(){
+        var that = this
+        api.http({
+            url: '/blockchain/v1/candy/payCandyList',
+            method: 'GET',
+            success: function (res) {
+                wx.hideLoading();
+                that.setData({
+                    candyCount: res.data.candyCount,
+                    candyList: res.data.candyPayList
+                })
+            }
+        });
+        this.setData({
+            showDialog: true
+        })
+    },
+    /**
+     * 选择赞赏金额
+     */
+    selectCandy(e){
+        var index = e.currentTarget.dataset.index
+        this.setData({
+            selectCandyId: index
+        })
+    },
+    /**
+     * 去购买糖果页
+     */
+    goBuyCandy(){
+        wx.navigateTo({
+            url: '/pages/payCandyCard/payCandyCard',
+        })
+    },
+    /**
+     * 回首页
+     */
+    goHome(){
+        wx.switchTab({
+            url: '/pages/index/index',
+        })
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */

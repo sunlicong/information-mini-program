@@ -44,7 +44,7 @@ Page({
             success: function (res) {
                 wx.hideLoading();
                 var text = res.data.content.replace(/data-src/g, "src")
-                WxParse.wxParse('article', 'html', text, that, 5);
+                WxParse.wxParse('article', 'html', text, that, 15);
             },
             fail: function (res) {
                 wx.hideLoading();

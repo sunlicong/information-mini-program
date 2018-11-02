@@ -47,13 +47,13 @@
         </view>
     </view>
     <view class='inviteView'>
-        <view class='inviteItem'>
+        <view class='inviteItem' bindtap='itemClick' data-name='invite2'>
             <text class='inviteText1'>邀请奖励</text>
-            <text class='inviteText2'>1000点钻</text>
+            <text class='inviteText2'>{{invitation.award}}点钻</text>
         </view>
-        <view class='inviteItem inviteLine'>
+        <view class='inviteItem inviteLine' bindtap='itemClick' data-name='invite3'>
             <text class='inviteText1'>我的邀请</text>
-            <text class='inviteText2'>8000人</text>
+            <text class='inviteText2'>{{invitation.count}}人</text>
         </view>
     </view>
     <!--  发布  -->

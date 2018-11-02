@@ -1,0 +1,91 @@
+/* component/pointsDialog/pointsDialog.wxss */
+
+.body {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0rpx;
+    width: 610rpx;
+    height: 705rpx;
+    z-index: 101;
+    margin: auto;
+}
+
+.bg {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background: #000;
+    opacity: 0.7;
+    z-index: 99;
+}
+
+.bg_img {
+    position: absolute;
+    width: 610rpx;
+    height: 640rpx;
+}
+
+.close_view {
+    width: 100%;
+    text-align: right;
+}
+
+.close {
+    width: 56rpx;
+    height: 56rpx;
+}
+
+.content {
+    position: absolute;
+    width: 610rpx;
+    height: 705rpx;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.text1 {
+    margin-top: 80rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 36rpx;
+    color: #fff;
+}
+
+.text2 {
+    margin-top: 102rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 36rpx;
+    color: #454545;
+    height: 100rpx;
+}
+
+.text2_2 {
+    font-size: 72rpx;
+    color: #ff313d;
+}
+
+.text3 {
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #454545;
+}
+
+.share {
+    margin-top: 65rpx;
+    width: 302rpx;
+    height: 84rpx;
+    line-height: 84rpx;
+    background-image: linear-gradient(-90deg, #fa5e26 2%, #ff313d 100%);
+    border-radius: 12rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 28rpx;
+    color: #FFFFFF;
+}
+
+.mt170{
+    margin-top: 170rpx;
+}

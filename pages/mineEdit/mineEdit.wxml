@@ -1,0 +1,16 @@
+<!--pages/mineEdit/mineEdit.wxml-->
+<view class="container">
+    <view class="myInfo">
+        <image class='cover' src="{{photo}}"></image>
+        <text class='cover_text'>点击修改头像</text>
+    </view>
+    <view class='item'>
+        <view class='name'>昵称</view>
+        <input class='info one_line' value='{{nick}}'></input>
+    </view>
+    <view class='item'>
+        <view class='name'>简介</view>
+        <input class='info one_line' value='{{}}'></input>
+    </view>
+    <button class='save'>保存</button>
+</view>

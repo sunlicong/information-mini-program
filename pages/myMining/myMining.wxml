@@ -8,9 +8,17 @@
         var y = Math.floor(Math.random() * (400 - 100 + 1) + 50);
         return y
     }
+    var formatCoin = function(coin){
+        if(coin.toString().indexOf(".") != -1){
+            coin = coin.toFixed(2);
+        }
+        return coin
+    }
+
     module.exports = {
         getNumX: getNumX,
         getNumY: getNumY,
+        formatCoin: formatCoin,
     }
 </wxs>
 <view class="container">
@@ -19,15 +27,15 @@
         <view class='top_content'>
             <view class='top_content_menu'>
                 <view class='invite' bindtap='invite'>邀请好友</view>
-                <view class='help'>
+                <view class='help' bindtap='raiders'>
                     <view>攻略</view>
                     <image src='/image/icon_help_search.png' mode='aspectFit'></image>
                 </view>
             </view>
             <view class='mining'>
-                <view wx:if="{{!item.isShow}}" class='mining_item' style='left:{{filter.getNumX()}}rpx;top:{{filter.getNumY()}}rpx' bindtap="getMining" wx:for="{{mineList}}" bindtap='getCoin' data-id='{{item.id}}' data-index='{{index}}'>
+                <view wx:if="{{!item.isShow}}" class='mining_item' style='left:{{filter.getNumX()}}rpx;top:{{filter.getNumY()}}rpx' bindtap="getMining" wx:for="{{mineList}}" wx:key="{{index}}" bindtap='getCoin' data-id='{{item.id}}' data-index='{{index}}'>
                     <image class='img_mining' src="../../image/icon_mining.png"></image>
-                    <view class='num'>{{item.tokenamount}}</view>
+                    <view class='num'>{{filter.formatCoin(item.tokenamount)}}</view>
                     <view class='coin'>coin</view>
                 </view>
             </view>
@@ -40,7 +48,7 @@
             <image src='/image/icon_tip.png' class='size-30' mode='aspectFit' bindtap='showTip'></image>
         </view>
         <view class='right'>
-            <view class='quan-total'>50</view>
+            <view class='quan-total'>{{totalCommition}}</view>
             <image class='arrow' src='/image/arrows_right.png'></image>
         </view>
     </view>

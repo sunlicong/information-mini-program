@@ -9,6 +9,7 @@ Page({
     data: {
         tabIndex: 0, //默认可使用状态栏
         works:[],
+        worksData:{}
     },
 
     /**
@@ -16,6 +17,7 @@ Page({
      */
     onLoad: function(options) {
         this.getMyWorks()
+        this.queryWorkDataByUser()
     },
 
     getMyWorks() {
@@ -41,7 +43,25 @@ Page({
             },
         });
     },
-
+    /**
+     * 我的作品”中的数据
+     */
+    queryWorkDataByUser(){
+        var that = this
+        api.http({
+            url: '/blockchain/v1/user/queryWorkDataByUser',
+            method: 'GET',
+            data: {
+                uid: app.globalData.userInfo.uid
+            },
+            success: function (res) {
+                console.log(res.data)
+                that.setData({
+                    worksData: res.data
+                })
+            }
+        });
+    },
     /**
      * tab 点击事件
      */

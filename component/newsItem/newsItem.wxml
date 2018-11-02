@@ -31,15 +31,4 @@
             <view>{{item.likeNum}}</view>
         </view>
     </view>
-    <view wx:if="{{formType==1}}" class='feed-bottom'>
-        <view class='feed-bottom-type'>
-            {{item.investAmount}}资讯币
-        </view>
-        <view class='feed-bottom-type'>
-            {{item.likeNum}}人点赞
-        </view>
-        <view class='feed-bottom-type'>
-            {{item.browserNum}}人查看
-        </view>
-    </view>
 </view>

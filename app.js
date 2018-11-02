@@ -13,7 +13,9 @@ App({
             wx.setEnableDebug({
                 enableDebug: true
             });
-        } 1100111001
+        }
+        console.log(options.query.inviter)
+        this.globalData.inviter = options.query.inviter || ''
         this.globalData.token = wx.getStorageSync('token');
         this.globalData.userInfo = wx.getStorageSync('userInfo');
         this.checkIsLogin();
@@ -101,13 +103,15 @@ App({
         });
     },
     wxAuth(callback, randCode) {
+        console.log('inviter', this.globalData.inviter)
         var that = this;
         wx.getUserInfo({
             success: function (res) {
                 let reqData = {
                     code: randCode,
                     data: res.encryptedData,
-                    iv: res.iv
+                    iv: res.iv,
+                    inviter: that.globalData.inviter
                 };
                 console.log("reqData", reqData)
                 //请求后端通过微信授权登录接口
@@ -119,6 +123,7 @@ App({
                         wx.hideLoading();
                         that.globalData.token = res.data.token;
                         that.globalData.userInfo = res.data.user;
+                        that.globalData.registerTokenAmount = res.data.awardTokenAmount;
                         wx.setStorageSync('token', res.data.token);
                         wx.setStorageSync('userInfo', res.data.user);
                         console.log('callback', callback)
@@ -146,6 +151,10 @@ App({
         token: "",
         // 用户数据
         userInfo: null,
+        //邀请人
+        inviter: '',
+        //注册奖励电钻
+        registerTokenAmount: 0,
         //iphoneX
         isIphoneX: false,
         // 全局配置

@@ -2,7 +2,7 @@
 <wxs src="../../utils/filter.wxs" module="filter" />
 <view class="container">
     <swiper class="swiper" autoplay="true">
-        <block wx:for="{{tips}}" wx:key="*this">
+        <block wx:for="{{tips}}" wx:key="{{index}}">
             <swiper-item>
                 <view class="swiper-item" bindtap='onBannerClick'>
                     <image class="swiper-cover" src="{{filter.imgUrl(item.cover,'@imageView2/1/w/750/h/240')}}"></image>
@@ -30,8 +30,9 @@
         </view>
     </view> -->
     <!-- feed -->
-    <view class='feed margin-top-20' wx:for="{{feeds}}" wx:key="*this">
+    <view class='feed margin-top-20' wx:for="{{feeds}}" wx:key="{{index}}">
         <newsItem pop="{{item}}"></newsItem>
     </view>
     <image class='my_mining' src="../../image/icon_mining.png" bindtap="goMyMining"></image>
 </view>
+<points-dialog data='{{pointDialog}}'></points-dialog>

@@ -2,7 +2,7 @@
 <view class="container">
     <view class='top'>
         <view class='candy_banace'>
-            <view class='banace'>糖果卡余额：730糖果</view>
+            <view class='banace'>糖果卡余额：{{candyCount}}糖果</view>
             <view class='right'>
                 <view>明细</view>
                 <image class='arrow' src='/image/arrows_right.png'></image>
@@ -11,7 +11,7 @@
         <view class='card'>
             <view class='name'>糖果卡</view>
             <view class='candy'>
-                <view>105.00</view>
+                <view>{{selectContent.count+selectContent.giveCount}}</view>
                 <view class='unit'>糖果</view>
             </view>
         </view>
@@ -19,11 +19,21 @@
     <view class='candy_list'>
         <view class='title'>选择糖果卡</view>
         <view class='list'>
-            <view class='list_card' wx:for="{{9}}">
-                <view class='text1'>5000糖果</view>
-                <view>赠送5糖果</view>
+            <view class='list_card {{selectCandy!=index?"border":"border-none"}}' wx:for="{{candyList}}" bindtap='selectCandy' data-index='{{index}}'>
+                <image wx:if="{{selectCandy==index}}" class='box_bg' src='/image/icon_select_box.png'></image>
+                <view class='text1'>
+                    <text>{{item.price}}</text>
+                    <text class='text2'>糖果</text>
+                </view>
+                <!-- <view>赠送5糖果</view> -->
             </view>
         </view>
     </view>
-    
+    <view class='bottom'>
+        <view class='bottom_left'>
+            <text>{{selectContent.price}}</text>
+            <text class='yuan'>元</text>
+        </view>
+        <button class='buy_card'>购卡</button>
+    </view>
 </view>

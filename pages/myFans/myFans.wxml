@@ -1,0 +1,18 @@
+<!--pages/myFans/myFans.wxml-->
+<view class="container">
+    <view wx:if="{{type==1}}">
+        <view class='item' wx:for="{{fansList}}" wx:key="{{index}}">
+            <image class='cover' src="{{item.photo}}"></image>
+            <view class='nick'>{{item.nick}}</view>
+            <view wx:if="{{item.mutual==1}}" class='follow'>关注</view>
+            <view wx:else class='follow yes'>已关注</view>
+        </view>
+    </view>
+    <view wx:if="{{type==2}}">
+        <view class='item' wx:for="{{attentions}}" wx:key="{{index}}">
+            <image class='cover' src="{{item.photo}}"></image>
+            <view class='nick'>{{item.nick}}</view>
+            <view class='follow yes'>已关注</view>
+        </view>
+    </view>
+</view>
