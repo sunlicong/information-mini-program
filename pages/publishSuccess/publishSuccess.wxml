@@ -2,9 +2,9 @@
 <view class="container">
     <view class="succsee_box">
         <image src="/image/publish_success.png"></image>
-        <view class="success_text">文章发布成功，阅力+50</view>
-        <view class="share_text">文章阅读量越高，文章奖励越多，快去分享，</view>
-        <view class="share_text">获得更高收益吧！~</view>
+        <view class="success_text">文章发布成功</view>
+        <view class="share_text">文章阅读量越高，文章奖励越多，</view>
+        <view class="share_text">快去分享，获得更高收益吧！~</view>
     </view>
     <view class="btn_box">
         <view class="share_friend">
@@ -12,10 +12,10 @@
             <image src="/image/share_friend.png"></image>
             <text>分享给朋友</text>
         </view>
-        <view bindtap="shareWechatCircle">
+        <!-- <view bindtap="shareWechatCircle">
              <image src="/image/share_circle.png"></image>
              <text>分享到朋友圈</text>
-        </view>
+        </view> -->
         <view bindtap="goHome">返回首页</view>
     </view>
 </view>

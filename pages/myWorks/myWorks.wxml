@@ -8,6 +8,10 @@
             数据
         </view>
     </view>
+    <view wx:if="{{tabIndex==0&&works.length==0}}" class='non'>
+      <image src="/image/img_non.png"></image>
+      <view>暂时还没有数据哦～</view>
+    </view>
     <!-- feed -->
     <view wx:if="{{tabIndex==0}}" class='feed margin-top-1' wx:for="{{works}}" wx:key="{{index}}">
         <newsItem formType="1" pop="{{item}}"></newsItem>
@@ -24,7 +28,7 @@
                 <image src='/image/icon_look.png' class='icon_opt' mode='aspectFit'></image>
                 <view>{{item.browserNum}}</view>
             </view>
-            <view class='delete'>
+            <view class='delete' bindtap='delete' data-id='{{item.contentId}}' data-index='{{index}}'>
                 <image src='/image/icon_close.png' class='icon_opt' mode='aspectFit'></image>
             </view>
         </view>

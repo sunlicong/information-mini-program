@@ -2,6 +2,11 @@
 page {
     background: #fff;
 }
+.bg{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
 .top_bg {
   position: absolute;
   width: 100%;
@@ -18,30 +23,80 @@ page {
 }
 
 .card{
-  margin-top: 148rpx;
+  margin-top: 87rpx;
   margin-left: 30rpx;
   margin-right: 30rpx;
+  height: 710rpx;
   background: #FFFFFF;
-  box-shadow: 0 2px 15px 0 rgba(143,143,143,0.50);
-  border-radius: 8px;
   z-index: 10;
+}
+.card1_view{
+  margin: 50rpx 47rpx 30rpx 48rpx;
+  width: 597rpx;
+  height: 327rpx;
+}
+.card_img1{
+  position: absolute;
+  width: 597rpx;
+  height: 327rpx;
+}
+.card1_text{
+  position: absolute;
+  width: 597rpx;
+  height: 327rpx;
+  text-align: center;
+}
+.card2_view{
+  margin-left: 48rpx;
+  margin-right: 47rpx;
+  height: 107rpx;
+}
+.card_img2{
+  position: absolute;
+  width: 597rpx;
+  height: 107rpx;
+}
+.card2_text{
+  position: absolute;
+  width: 597rpx;
+  height: 107rpx;
+  display: flex;
+}
+.card2_text1{
+  margin-left: 40rpx;
+  margin-top: 15rpx;
+  width: 70rpx;
+  height: 107rpx;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:#FFFFFF;
+  line-height:42rpx;
+}
+.card2_text2{
+  flex: 1;
+  margin-left: 30rpx;
   text-align: center;
 }
 .view1{
-  margin-top: 46rpx;
-  font-family: PingFangSC-Medium;
-  font-size: 48rpx;
-  color: #333333;
+  margin-top: 43rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 50rpx;
+  color: #FFFFFF;
+  text-align: center;
 }
 .view2{
-  margin-top: 30rpx;
+  margin-top: 10rpx;
+  font-size: 80rpx;
+  font-family:PingFangSC-Semibold;
+  color: #FFFFFF;
 }
 .view3{
-  margin-top: 4rpx;
+  margin-top: 28rpx;
   opacity: 0.8;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
-  color: #A3AEBA;
+  color: #FFFFFF;
   letter-spacing: 2.09rpx;
 }
 .view4{
@@ -56,17 +111,28 @@ page {
   color: #277FFA;
 }
 .text2{
-  font-family: PingFangSC-Regular;
-  font-size: 34rpx;
-  color: #333333;
+  font-size: 48rpx;
 }
 .text3{
-  color: #FE6503;
+  margin-left: 18rpx;
+  margin-right: 5rpx;
+  color: yellow;
+}
+.tip_title{
+  position: relative;
+  height: 106rpx;
+  line-height: 106rpx;
+  text-align: center;
+  font-size:26rpx;
+  color: #B97937;
 }
 .tip_view{
   position: relative;
-  margin-top: 78rpx;
-  width: 100%;
+  background: #FFFFFF;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  padding-top: 36rpx;
+  padding-bottom: 45rpx;
   display: flex;
   justify-content: space-between;
 }
@@ -86,23 +152,24 @@ page {
   z-index: 10;
 }
 .tip1 .tip_img{
-  width: 64rpx;
-  height: 64rpx;
+  width: 84rpx;
+  height: 84rpx;
 }
 .tip_text{
   margin-top: 36rpx;
   width: 150rpx;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
-  color: #5C5C5C;
+  color: #AC8561;
   text-align: center;
 }
 .btn{
-  margin-top: 158rpx;
-  margin-left: 30rpx;
-  margin-right: 30rpx;
-  background: #0794FC;
-  border-radius: 8rpx;
+  margin-top: 50rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  height: 90rpx;
+  background: #FF5130;
+  border-radius: 45rpx;
   font-family: PingFangSC-Regular;
   font-size: 34rpx;
   color: #FFFFFF;

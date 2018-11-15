@@ -3,69 +3,55 @@ const app = getApp()
 const api = app.utils.api;
 Page({
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    nick: '',
+    desc: '',
+    photo: ''
+  },
 
-    },
-
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad: function (options) {
-        this.setData({
-            nick: app.globalData.userInfo.nick,
-            photo: app.globalData.userInfo.photo
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    this.setData({
+      nick: app.globalData.userInfo.nick,
+      desc: app.globalData.userInfo.desc,
+      photo: app.globalData.userInfo.photo
+    })
+  },
+  getNickInput(e) {
+    var value = e.detail.value
+    this.setData({
+      nick: value
+    })
+  },
+  getDescInput(e) {
+    var value = e.detail.value
+    this.setData({
+      desc: value
+    })
+  },
+  save(){
+    var that = this
+    api.http({
+      url: '/blockchain/v1/user/updateProfile',
+      method: 'POST',
+      data: {
+        avatar: that.data.photo,
+        nickName: that.data.nick,
+        description: that.data.desc
+      },
+      success: function (res) {
+        wx.showToast({
+          title: '更新成功',
         })
-    },
-
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide: function () {
-
-    },
-
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload: function () {
-
-    },
-
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh: function () {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom: function () {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
-    }
+        app.globalData.userInfo.nick = that.data.nick
+        app.globalData.userInfo.desc = that.data.desc
+        wx.navigateBack()
+      }
+    });
+  }
 })

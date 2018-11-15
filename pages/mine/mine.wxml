@@ -1,81 +1,83 @@
 <!--pages/mine/mine.wxml-->
 <wxs src="../../utils/filter.wxs" module="tools" />
 <view class="container">
-    <view class='top'>
-        <view class="myInfo">
-            <image class='cover' src="{{photo}}"></image>
-            <text class='nick'>{{nick}}</text>
-            <view class='info_num'>
-                <view bindtap='itemClick' data-name='dynamics'>动态:{{dynamicsCount}}</view>
-                <view bindtap='itemClick' data-name='follow' class='follow'>关注:{{followedCount}}</view>
-                <view bindtap='itemClick' data-name='fans'>粉丝:{{fansCount}}</view>
-            </view>
-        </view>
-        <view class='my_assets'>
-            <view class="num-item" bindtap='itemClick' data-name='wallet'>
-                <view>
-                    <text>我的钱包</text>
-                    <text class='color_009'></text>
-                </view>
-                <view class="text">
-                    <text>{{totalToken}}</text>
-                    <text class='coin'>coin</text>
-                </view>
-            </view>
-            <view class="line"></view>
-            <view class="num-item">
-                <view>
-                    <text>累计分红</text>
-                    <text class='color_009'></text>
-                </view>
-                <view class="text">
-                    <text>{{totalInvestAmount}}</text>
-                    <text class='coin'>元</text>
-                </view>
-            </view>
-        </view>
+  <view class='top'>
+    <image class='top_bg' src="/image/bg_mine.png"></image>
+    <view class="myInfo">
+      <image class='cover' src="{{photo}}" bindtap='itemClick' data-name='edit'></image>
+      <text class='nick'>{{nick}}</text>
+      <view class='info_num'>
+        <view catchtap='itemClick' data-name='dynamics'>动态:   {{dynamicsCount}}</view>
+        <view catchtap='itemClick' data-name='follow' class='follow'>关注:   {{followedCount}}</view>
+        <view catchtap='itemClick' data-name='fans'>粉丝:   {{fansCount}}</view>
+      </view>
     </view>
-    <!--  邀请  -->
-    <view bindtap='itemClick' data-name='invite' class='height-120, margintop-20'>
-        <view class='left'>
-            <image src='/image/icon_invite.png' class='size-33' mode='aspectFit'></image>
-            <view class='margin-left-20'>邀请好友得点钻</view>
+    <image class='bg_assets' src="/image/bg_assets.png"></image>
+    <view class='my_assets'>
+      <view class="num-item" bindtap='itemClick' data-name='wallet'>
+        <view>
+          <text>我的钱包</text>
+          <text class='color_009'></text>
         </view>
-        <view class='right'>
-            <view class='quan-total color_FF7821'>立即邀请</view>
-            <image class='arrow' src='/image/arrows_right.png'></image>
+        <view class="text">
+          <text>{{totalToken?totalToken:'0.00'}}</text>
+          <text class='coin'>DB</text>
         </view>
+      </view>
+      <view class="line"></view>
+      <view class="num-item" bindtap='itemClick' data-name='rmb'>
+        <view>
+          <text>累计分红</text>
+          <text class='color_009'></text>
+        </view>
+        <view class="text">
+          <text>{{totalCommition?totalCommition:'0.00'}}</text>
+          <text class='coin'>元</text>
+        </view>
+      </view>
     </view>
-    <view class='inviteView'>
-        <view class='inviteItem' bindtap='itemClick' data-name='invite2'>
-            <text class='inviteText1'>邀请奖励</text>
-            <text class='inviteText2'>{{invitation.award}}点钻</text>
-        </view>
-        <view class='inviteItem inviteLine' bindtap='itemClick' data-name='invite3'>
-            <text class='inviteText1'>我的邀请</text>
-            <text class='inviteText2'>{{invitation.count}}人</text>
-        </view>
+  </view>
+  <!--  邀请  -->
+  <view bindtap='itemClick' data-name='invite' class='height-120, margintop-20'>
+    <view class='left'>
+      <image src='/image/icon_invite.png' class='size-33' mode='aspectFit'></image>
+      <view class='margin-left-20'>邀请好友得点钻</view>
     </view>
-    <!--  发布  -->
-    <view bindtap='itemClick' data-name='publish' class='height-120, margintop-20'>
-        <view class='left'>
-            <image src='/image/icon_publish.png' class='size-33' mode='aspectFit'></image>
-            <view class='margin-left-20'>发布作品</view>
-        </view>
-        <view class='right'>
-            <view class='quan-total'>复制文章链接，一键发布</view>
-            <image class='arrow' src='/image/arrows_right.png'></image>
-        </view>
+    <view class='right'>
+      <view class='quan-total color_FF7821'>立即邀请</view>
+      <image class='arrow' src='/image/arrows_right.png'></image>
     </view>
-    <!--  作品管理  -->
-    <view bindtap='itemClick' data-name='manager' class='height-120, margintop-1'>
-        <view class='left'>
-            <image src='/image/icon_works_manager.png' class='size-33' mode='aspectFit'></image>
-            <view class='margin-left-20'>作品管理</view>
-        </view>
-        <view class='right'>
-            <view class='quan-total'></view>
-            <image class='arrow' src='/image/arrows_right.png'></image>
-        </view>
+  </view>
+  <view class='inviteView'>
+    <view class='inviteItem' bindtap='itemClick' data-name='invite2'>
+      <text class='inviteText1'>邀请奖励</text>
+      <text class='inviteText2'>{{invitation.award}}点钻</text>
     </view>
+    <view class='inviteItem inviteLine' bindtap='itemClick' data-name='invite3'>
+      <text class='inviteText1'>我的邀请</text>
+      <text class='inviteText2'>{{invitation.count}}人</text>
+    </view>
+  </view>
+  <!--  发布  -->
+  <view bindtap='itemClick' data-name='publish' class='height-120, margintop-20'>
+    <view class='left'>
+      <image src='/image/icon_publish.png' class='size-33' mode='aspectFit'></image>
+      <view class='margin-left-20'>发布作品</view>
+    </view>
+    <view class='right'>
+      <view class='quan-total'>复制文章链接，一键发布</view>
+      <image class='arrow' src='/image/arrows_right.png'></image>
+    </view>
+  </view>
+  <!--  作品管理  -->
+  <view bindtap='itemClick' data-name='manager' class='height-120, margintop-1'>
+    <view class='left'>
+      <image src='/image/icon_works_manager.png' class='size-33' mode='aspectFit'></image>
+      <view class='margin-left-20'>作品管理</view>
+    </view>
+    <view class='right'>
+      <view class='quan-total'></view>
+      <image class='arrow' src='/image/arrows_right.png'></image>
+    </view>
+  </view>
 </view>

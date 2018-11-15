@@ -1,10 +1,58 @@
 <!--pages/candyDetail/candyDetail.wxml-->
+<wxs src="../../utils/filter.wxs" module="tools" />
+<wxs module="filter">
+    var getTypeName = function(type) {
+        var name = ''
+        switch(type){
+            case 1: name='充值';
+            break;
+            case 2: name='提现';
+            break;
+            case 4: name='赞赏奖励';
+            break;
+            case 5: name='消费';
+            break;
+            case 6: name='点赞奖励';
+            break;
+            case 7: name='购买';
+            break;
+            case 8: name='奖池奖励';
+            break;
+            case 9: name='邀请奖励';
+            break;
+            case 10: name='分红';
+            break;
+            case 11: name='作品赞赏奖励';
+            break;
+            case 12: name='作品点赞奖励';
+            break;
+            case 13: name='分享作品奖励';
+            break;
+            case 14: name='邀请注册奖励';
+            break;
+            case 15: name='注册奖励';
+            break;
+            case 16: name='注册分享奖励';
+            break;
+        }
+        return name;
+    }
+    module.exports = {
+        getTypeName: getTypeName,
+    }
+</wxs>
 <view class="container">
-    <view class='item' wx:for="{{5}}">
-        <view class='left'>
-            <view>购买</view>
-            <view>2018-06-21</view>
+    <view wx:if="{{list.length==0}}" class='non'>
+      <image src="/image/img_non.png"></image>
+      <view>暂时还没有数据哦～</view>
+    </view>
+    <view bindtap='itemClick' class='height-120' wx:for="{{list}}" wx:key="{{index}}">
+        <view class='left margin-left-30'>
+            <view class='title'>{{filter.getTypeName(item.type)}}</view>
+            <view class='time'>{{tools.formatDate(item.time,1)}}</view>
         </view>
-        <view class='right'>+1.5糖果</view>
+        <view class='right'>
+            <view class='num'>{{item.type==2||item.type==5?'-':'+'}}{{item.count}}糖果</view>
+        </view>
     </view>
 </view>

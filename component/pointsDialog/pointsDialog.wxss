@@ -6,8 +6,8 @@
     right: 0;
     top: 0;
     bottom: 0rpx;
-    width: 610rpx;
-    height: 705rpx;
+    width: 524rpx;
+    height: 798rpx;
     z-index: 101;
     margin: auto;
 }
@@ -25,8 +25,8 @@
 
 .bg_img {
     position: absolute;
-    width: 610rpx;
-    height: 640rpx;
+    width: 524rpx;
+    height: 549rpx;
 }
 
 .close_view {
@@ -42,45 +42,46 @@
 .content {
     position: absolute;
     width: 610rpx;
-    height: 705rpx;
+    height: 653rpx;
     text-align: center;
     display: flex;
     flex-direction: column;
 }
 
 .text1 {
-    margin-top: 80rpx;
-    font-family: PingFangSC-Regular;
+    margin-top: 170rpx;
+    margin-left: -50rpx;
+    font-family: PingFangSC-Semibold;
     font-size: 36rpx;
-    color: #fff;
+    color: #F13636;
 }
-
 .text2 {
-    margin-top: 102rpx;
-    font-family: PingFangSC-Regular;
-    font-size: 36rpx;
-    color: #454545;
-    height: 100rpx;
-}
-
-.text2_2 {
-    font-size: 72rpx;
-    color: #ff313d;
-}
-
-.text3 {
+    margin-left: -50rpx;
+    margin-top: 25rpx;
     font-family: PingFangSC-Regular;
     font-size: 28rpx;
-    color: #454545;
+    color: #656566;
 }
-
+.text3 {
+    margin-top: 180rpx;
+    margin-left: -50rpx;
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #fff;
+}
+.bottom_view{
+    text-align: center;
+    align-items: center;
+}
 .share {
-    margin-top: 65rpx;
-    width: 302rpx;
-    height: 84rpx;
+    position: absolute;
+    bottom: 0;
+    left: 120rpx;
+    width: 327rpx;
+    height: 81rpx;
     line-height: 84rpx;
-    background-image: linear-gradient(-90deg, #fa5e26 2%, #ff313d 100%);
-    border-radius: 12rpx;
+    background-image: linear-gradient(-180deg, #FDE692 0%, #F9C959 50%);
+    border-radius: 42rpx;
     font-family: PingFangSC-Regular;
     font-size: 28rpx;
     color: #FFFFFF;

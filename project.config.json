@@ -12,7 +12,7 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.2.4",
-	"appid": "wx0a2ca081e6923bb0",
+	"appid": "wx48f7e81747335eea",
 	"projectname": "information-mini-program",
 	"isGameTourist": false,
 	"condition": {
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 20,
 			"list": [
 				{
 					"id": 0,
@@ -154,6 +154,11 @@
 					"name": "raiders",
 					"pathName": "pages/raiders/raiders",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "publishSelectLabel",
+					"pathName": "pages/publishSelectLabel/publishSelectLabel"
 				}
 			]
 		}

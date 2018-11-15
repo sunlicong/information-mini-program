@@ -1,11 +1,30 @@
 <!--pages/myProfile/myProfile.wxml-->
 <wxs src="../../utils/filter.wxs" module="tools" />
+<wxs module="filterTime">
+  var tools = require("../../utils/filter.wxs");
+  var formatTime = function(time) {
+    var now = getDate()
+    var str = ''
+    if (now.getTime() - time < (60 * 1000)) {
+      str = '刚刚'
+    } else if (now.getTime() - time < (60 * 60 * 1000)) {
+      str = parseInt((now.getTime() - time) / 1000 / 60) + '分钟前'
+    } else {
+      str = tools.formatDate(time, 6)
+    }
+    return str
+  }
+  module.exports = {
+    formatTime: formatTime
+  }
+</wxs>
 <template name="feedItem">
-  <view class='item_card' bindtap="goDetail" data-item='{{item}}'>
+  <view class='item_card' bindtap="goDetail" data-id='{{item.contentId}}' data-item='{{item}}'>
     <view class='item_user'>
       <image class='item_cover' src="{{user.photo}}"></image>
       <view class='item_nick'>{{user.nick}}</view>
-      <view class='item_time'>3分钟</view>
+      <view wx:if="{{item.optTime}}" class='item_time'>{{filterTime.formatTime(item.optTime)}}</view>
+      <view wx:else class='item_time'>{{filterTime.formatTime(item.createTime)}}</view>
     </view>
     <view wx:if="{{item.optType==1}}" class='item_opt'>赞了文章</view>
     <view wx:if="{{item.optType==2}}" class='item_opt'>赞赏了文章</view>
@@ -22,7 +41,7 @@
       <text>{{user.nick}}</text>
       <view class='info_num'>
         <view>关注:{{user.followedCount}}</view>
-        <view>粉丝:{{user.fansCount}}</view>
+        <view class='ml20'>粉丝:{{user.fansCount}}</view>
       </view>
     </view>
     <view wx:if="{{isMe}}" class='follow' style='width:180rpx;' bindtap='editInfo' data-id='{{user.uid}}' data-id='{{user.user_relation}}'>编辑资料</view>
@@ -34,10 +53,10 @@
   </view>
   <view class="tab">
     <view bindtap='tabClick' id="0" class="tab_item {{tabIndex==0?'tab-select':'tab-non'}}">
-      最新
+      动态
     </view>
     <view bindtap='tabClick' id="1" class="tab_item {{tabIndex==1?'tab-select':'tab-non'}}">
-      最热
+      文章
     </view>
   </view>
   <view>
@@ -46,6 +65,14 @@
     <block wx:for="{{newList}}" wx:for-item="item" wx:key="{{index}}">
       <template is="feedItem" data="{{item,user}}" />
     </block>
+  </view>
+  <view wx:if="{{tabIndex==0&&newList.length==0}}" class='non'>
+    <image src="/image/img_non.png"></image>
+    <view>暂时还没有数据哦～</view>
+  </view>
+  <view wx:if="{{tabIndex==1&&hotList.length==0}}" class='non'>
+    <image src="/image/img_non.png"></image>
+    <view>暂时还没有数据哦～</view>
   </view>
   <view wx:if='{{tabIndex==1}}' class='hot_feed'>
     <block wx:for="{{hotList}}" wx:for-item="item" wx:key="{{index}}">

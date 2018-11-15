@@ -3,11 +3,18 @@
     <form bindsubmit="preview" report-submit="true">
         <view class="item">
             <view>文章标题</view>
-            <input name="title" class="input" placeholder-class="input_class" type="text" placeholder="4-18个字符" value="{{title}}" />
+            <input name="title" class="input" placeholder-class="input_class" type="text" maxlength='20' placeholder="最多20个字" value="{{title}}" />
         </view>
         <view class="item">
             <view>添加文章链接</view>
-            <input name="url" class="input" placeholder-class="input_class" type="text" placeholder="(复制已有文章链接)" value="{{url}}" />
+            <input name="url" class="input" placeholder-class="input_class" type="text" placeholder="复制已有文章链接" value="{{url}}" />
+        </view>
+        <view class="item" bindtap='selectLabel'>
+            <view class='item_name'>选择文章标签</view>
+            <view class='right'>
+                <view class='quan-total'>{{tags.length?"已选择"+tags.length+"个标签":"未选择"}}</view>
+                <image class='arrow' src='/image/arrows_right.png'></image>
+            </view>
         </view>
         <view class='tip'>
             <text>

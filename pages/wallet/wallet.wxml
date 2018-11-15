@@ -3,10 +3,10 @@
     <view class='top'>
         <image src='/image/bg_wallet.png' class='top_bg' mode='aspectFit'></image>
         <view class='top_content'>
-            <view class='balance'>{{total}}</view>
+            <view class='balance'>{{total?total:'0.00'}}</view>
             <view class='all'>
                 <view>总资产折合人民币</view>
-                <image class='look' src='/image/icon_lookme.png'></image>
+                <!-- <image class='look' src='/image/icon_lookme.png'></image> -->
             </view>
         </view>
     </view>
@@ -28,7 +28,7 @@
         </view>
         <view class='right'>
             <view class='right_text'>
-                <view class='balance_num'>{{rmb}}</view>
+                <view class='balance_num'>{{rmb?rmb:'0.00'}}</view>
             </view>
             <image class='arrow' src='/image/arrows_right.png'></image>
         </view>
@@ -39,7 +39,7 @@
         </view>
         <view class='right'>
             <view class='right_text'>
-                <view class='balance_num'>{{candy}}</view>
+                <view class='balance_num'>{{candy?candy:'0.00'}}</view>
             </view>
             <image class='arrow' src='/image/arrows_right.png'></image>
         </view>

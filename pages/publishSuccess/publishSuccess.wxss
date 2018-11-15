@@ -49,7 +49,7 @@ page {
     margin-right: 10rpx;
 }
 
-.btn_box view:nth-child(2) {
+/* .btn_box view:nth-child(2) {
     background: #fe6503;
 }
 
@@ -57,9 +57,9 @@ page {
     width: 40rpx;
     height: 40rpx;
     margin-right: 10rpx;
-}
+} */
 
-.btn_box view:nth-child(3) {
+.btn_box view:nth-child(2) {
     background: #fff;
     border: 1px solid #0794fc;
     color: #0794fc;

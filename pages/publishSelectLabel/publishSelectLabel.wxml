@@ -1,0 +1,8 @@
+<!--pages/publishSelectLabel/publishSelectLabel.wxml-->
+<view class="container">
+    <label class='item' wx:for="{{list}}" wx:key="{{index}}" bindtap='selectTag' data-index='{{index}}'>
+        <radio class="choose" checked="{{item.checked}}" value="{{index}}" color="#0794FC" />
+        <view class='nick'>{{item.name}}</view>
+    </label>
+    <button class='button' bindtap='save'>保存</button>
+</view>

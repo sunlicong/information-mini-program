@@ -1,4 +1,6 @@
 // pages/inviteFriend/inviteFriend.js
+const app = getApp()
+const api = app.utils.api;
 Page({
 
     /**
@@ -12,8 +14,10 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function() {
-        return {
-            
-        }
+      return {
+        title: '送你头条『股』份，天天有分红，快来领取！',
+        path: 'pages/index/index?inviter=' + app.globalData.userInfo.uid,
+        imageUrl: '/image/share_index_card.png'
+      }
     }
 })

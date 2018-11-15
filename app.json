@@ -9,11 +9,11 @@
         "pages/walletItemDetail/walletItemDetail",
         "pages/miningRevenue/miningRevinue",
         "pages/publish/publish",
+        "pages/publishSelectLabel/publishSelectLabel",
         "pages/publishPriview/publishPriview",
         "pages/publishSuccess/publishSuccess",
         "pages/articleDetail/articleDetail",
         "pages/myWorks/myWorks",
-        "pages/editProfile/editProfile",
         "pages/myMining/myMining",
         "pages/inviteFriend/inviteFriend",
         "pages/inviteList/inviteList",
@@ -30,6 +30,9 @@
         "navigationBarTextStyle": "black",
         "backgroundColor": "#F4F4F4"
     },
+    "requiredBackgroundModes": [
+      "audio"
+    ],
     "tabBar": {
         "list": [
             {

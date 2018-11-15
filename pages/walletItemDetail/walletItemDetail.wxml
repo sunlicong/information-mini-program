@@ -1,31 +1,38 @@
 <!--pages/walletItemDetail/walletItemDetail.wxml-->
+<wxs src="../../utils/filter.wxs" module="tools" />
 <wxs module="filter">
     var getTypeName = function(type) {
         var name = ''
         switch(type){
-            case 1: name='提现';
+            case 1: name='充值';
             break;
-            case 2: name='充值';
+            case 2: name='提现';
             break;
-            case 3: name='购买';
+            case 4: name='赞赏奖励';
             break;
-            case 4: name='打赏点钻奖励';
+            case 5: name='消费';
             break;
-            case 5: name='打赏';
+            case 6: name='点赞奖励';
             break;
-            case 6: name='点赞点钻奖励';
+            case 7: name='购买';
             break;
-            case 7: name='糖果购买';
+            case 8: name='奖池奖励';
             break;
-            case 8: name='奖金池点钻奖励';
+            case 9: name='邀请奖励';
             break;
-            case 9: name='邀请用户奖励';
+            case 10: name='分红';
             break;
-            case 10: name='人民币收益';
+            case 11: name='作品赞赏奖励';
             break;
-            case 11: name='发文章奖励';
+            case 12: name='作品点赞奖励';
             break;
-            case 12: name='分享奖励';
+            case 13: name='分享作品奖励';
+            break;
+            case 14: name='邀请注册奖励';
+            break;
+            case 15: name='注册奖励';
+            break;
+            case 16: name='注册分享奖励';
             break;
         }
         return name;
@@ -38,19 +45,23 @@
     <view class='top'>
         <image src='/image/bg_wallet.png' class='top_bg' mode='aspectFit'></image>
         <view class='top_content'>
-            <view class='balance'>
-                <view>{{num}}</view>
-                <text class='yuan'>{{formType==1?'coin':'元'}}</text>
+            <view class='balance one_line'>
+                <view>{{num?num:'0.00'}}</view>
+                <text class='yuan'>{{formType==1?'DB':'元'}}</text>
             </view>
         </view>
     </view>
-    <view bindtap='itemClick' class='height-120' wx:for="{{list}}">
+    <view wx:if="{{list.length==0}}" class='non'>
+      <image src="/image/img_non.png"></image>
+      <view>暂时还没有数据哦～</view>
+    </view>
+    <view bindtap='itemClick' class='height-120' wx:for="{{list}}" wx:key="{{index}}">
         <view class='left margin-left-30'>
             <view class='title'>{{filter.getTypeName(item.type)}}</view>
-            <view class='time'>{{item.time}}</view>
+            <view class='time'>{{tools.formatDate(item.time,1)}}</view>
         </view>
         <view class='right'>
-            <view class='num'>+{{item.count}}{{formType==1?'coin':'元'}}</view>
+            <view class='num'>{{item.type==2||item.type==5?'-':'+'}}{{item.count}}{{formType==1?'coin':'元'}}</view>
         </view>
     </view>
 </view>

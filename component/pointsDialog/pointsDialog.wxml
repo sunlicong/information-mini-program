@@ -1,28 +1,29 @@
 <!--component/pointsDialog/pointsDialog.wxml-->
 <view class='container' catchtouchmove="preventTouchMove" wx:if="{{data.show}}">
-    <view class='body'>
+    <view class='body' wx:if="{{data.fromType == 1}}">
         <view class='close_view'>
             <image class='close' src='/image/icon_dialog_close.png' catchtap="closeDialog"></image>
         </view>
-        <image class='bg_img' src='/image/bg_dialog.png'></image>
-        <view wx:if="{{data.fromType == 1}}" class='content'>
-            <view class='text1'>分享再得{{data.points}}点钻</view>
-            <view class='text2'>
-                <text>恭喜获得</text>
-                <text class='text2_2'>{{data.points}}</text>
-                <text>点钻</text>
+        <image class='bg_img' src='/image/bg_new_dialog.png'></image>
+        <view class='content'>
+            <view class='text1'>
+                <text>恭喜获得{{data.points}}点钻</text>
             </view>
-            <view class='text3'>『领点钻，天天有分红』</view>
-            <button open-type='share' class='share' bindtap='shareGetPoints'>立即分享</button>
+            <view class='text2'>领点钻，天天有分红</view>
+            <view class='text3'>分享再得5点钻</view>
         </view>
-        <view wx:if="{{data.fromType == 2}}" class='content'>
-            <view class='text1'>分享成功</view>
-            <view class='text2 mt170'>
-                <text>恭喜获得</text>
-                <text class='text2_2'>{{data.points}}</text>
-                <text>点钻</text>
+        <button open-type='share' class='share' bindtap='shareGetPoints'>立即分享</button>
+    </view>
+    <view class='body' wx:if="{{data.fromType == 2}}">
+        <view class='close_view'>
+            <image class='close' src='/image/icon_dialog_close.png' catchtap="closeDialog"></image>
+        </view>
+        <image class='bg_img' src='/image/bg_share_dialog.png'></image>
+        <view class='content'>
+            <view class='text1'>
+                <text>恭喜获得{{data.points}}点钻</text>
             </view>
-            <view class='text3'>『领点钻，天天有分红』</view>
+            <view class='text2'>领点钻，天天有分红</view>
         </view>
     </view>
     <view class="bg"></view>

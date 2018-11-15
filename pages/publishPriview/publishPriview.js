@@ -10,6 +10,8 @@ Page({
     data: {
         title: '',
         url: '',
+        tags:[],
+        coverPid: "",
     },
 
     /**
@@ -23,7 +25,8 @@ Page({
         var prevPage = pages[pages.length - 2]  //上一个页面
         this.setData({
             title: prevPage.data.title,
-            url: prevPage.data.url
+            url: prevPage.data.url,
+            tags: prevPage.data.tags
         })
         this.priview()
     },
@@ -43,6 +46,9 @@ Page({
             },
             success: function (res) {
                 wx.hideLoading();
+                that.setData({
+                    coverPid: res.data.coverPid
+                })
                 var text = res.data.content.replace(/data-src/g, "src")
                 WxParse.wxParse('article', 'html', text, that, 15);
             },
@@ -52,29 +58,31 @@ Page({
         });
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady: function() {
-
-    },
-
     publish(){
         var that = this
         wx.showLoading({
             title: '加载中...',
         });
+        var tag = ''
+        for(var i=0;i<this.data.tags.length;i++){
+          if (i == this.data.tags.length - 1){
+            tag = tag + this.data.tags[i].name
+          }else{
+            tag = tag + this.data.tags[i].name + ','
+          }
+        }
         api.http({
             url: '/blockchain/v1/content/release',
             method: 'POST',
             data: {
                 url: that.data.url,
                 title: that.data.title,
+                tags: tag
             },
             success: function (res) {
                 wx.hideLoading();
                 wx.navigateTo({
-                    url: '/pages/publishSuccess/publishSuccess',
+                  url: '/pages/publishSuccess/publishSuccess?contentId' + res.data.contentId + '&coverPid=' + that.data.coverPid,
                 })
             },
             fail: function (res) {

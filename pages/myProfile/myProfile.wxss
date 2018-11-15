@@ -28,6 +28,9 @@
   font-size: 24rpx;
   color: #333333;
 }
+.ml20{
+  margin-left: 20rpx;
+}
 .follow{
   margin-right: 30rpx;
   width: 120rpx;
@@ -139,4 +142,16 @@
   line-height: 44rpx;
   font-size: 28rpx;
   color: #051426;
+}
+.non{
+  margin-top: 110rpx;
+  text-align: center;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:#9B9B9B;
+}
+.non image{
+  width: 290rpx;
+  height: 396rpx;
 }

@@ -1,63 +1,80 @@
 <!--pages/articleDetail/articleDetail.wxml-->
 <import src="/utils/wxParse/wxParse.wxml" />
+<wxs src="../../utils/filter.wxs" module="tools" />
 <view class="container">
-    <view class='content'>
-        <view class='title'>
-            {{data.content.title}}
-        </view>
-        <view class="wxParse">
-            <template is="wxParse" data="{{wxParseData:article.nodes}}" />
-            <view class='readCount'>阅读{{123}}</view>
-        </view>
+  <view class='content'>
+    <view class='title'>
+      {{data.content.title}}
     </view>
-    <view class='praise'>
-        <image class='praise_cover' src="{{photo}}"></image>
-        <view class='praise_text'>喜欢就给我赞赏吧</view>
-        <button class='praise_push'>赞赏</button>
-        <view class='praise_count'>192人赞赏</view>
+    <view class='authorInfo' bindtap='goProfile' data-uid='{{data.authorInfo.uid}}'>
+      <image class='cover' src="{{data.authorInfo.photo}}"></image>
+      <view class='info'>
+        <text class='nick'>{{data.authorInfo.nick}}</text>
+        <text class='time'>{{tools.formatDate(data.content.createTime,5)}}</text>
+      </view>
+      <view wx:if="{{!data.attentionStatus&&myUid!=data.authorInfo.uid}}" class='attitude' catchtap='relation' data-uid='{{data.authorInfo.uid}}'>关注</view>
+      <view wx:if="{{data.attentionStatus&&myUid!=data.authorInfo.uid}}" class='attitude_n' catchtap='deleteRelation' data-uid='{{data.authorInfo.uid}}'>已关注</view>
     </view>
-    <view class='opt'>
-        <view class='opt_item'>
-            <image src='/image/icon_praise_seleced.png' class='icon_opt' mode='aspectFit'></image>
-            <view>111</view>
-        </view>
-        <button open-type='share' class='opt_item opt_item_share'>
-            <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
-            <view>分享</view>
-        </button>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+      <view class='readCount'>阅读{{data.browserCount}}</view>
     </view>
-    <view class='bottom_bar'>
-        <view class='bottom_praise right_line' bindtap='goHome'>
-            <image src='/image/icon_back_home.png' class='icon_opt' mode='aspectFit'></image>
-            <view>回首页</view>
-        </view>
-        <view class='bottom_praise right_line'>
-            <image src='/image/icon_praise_seleced.png' class='icon_opt' mode='aspectFit'></image>
-            <view>111</view>
-        </view>
-        <button open-type='share' class='bottom_share'>
-            <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
-            <view>分享</view>
-        </button>
-        <!-- <view class='bottom_pay' bindtap='pay'>赞赏</view> -->
+  </view>
+  <view class='praise'>
+    <image class='praise_cover' src="{{data.authorInfo.photo}}"></image>
+    <view class='praise_text'>喜欢就给我赞赏吧</view>
+    <button class='praise_push' bindtap='pay'>赞赏</button>
+    <view class='praise_count'>{{data.investTotalCount}}人赞赏</view>
+    <view class='likeList'>
+      <view class='likeItme' wx:for='{{data.investUserProfiles}}' wx:key="{{index}}">
+        <image class='praise_cover' src="{{item.photo}}"></image>
+      </view>
     </view>
+  </view>
+  <view class='opt'>
+    <view class='opt_item' bindtap='like'>
+      <image src='{{data.attitudeStatus?"/image/icon_praise_seleced.png":"/image/icon_praise_non.png"}}' class='icon_opt' mode='aspectFit'></image>
+      <view>{{data.attitudeLikeCount}}</view>
+    </view>
+    <button open-type='share' class='opt_item opt_item_share'>
+      <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
+      <view>分享</view>
+    </button>
+  </view>
+  <view class='bottom_bar'>
+    <view class='bottom_praise right_line' bindtap='goHome'>
+      <image src='/image/icon_back_home.png' class='icon_opt' mode='aspectFit'></image>
+      <view>回首页</view>
+    </view>
+    <view class='bottom_praise right_line' bindtap='like'>
+      <image src='{{data.attitudeStatus?"/image/icon_praise_seleced.png":"/image/icon_praise_non.png"}}' class='icon_opt' mode='aspectFit'></image>
+      <view>{{data.attitudeLikeCount}}</view>
+    </view>
+    <button open-type='share' class='bottom_share'>
+      <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
+      <view>分享</view>
+    </button>
+    <!-- <view class='bottom_pay' bindtap='pay'>赞赏</view> -->
+  </view>
 </view>
 <view>
-    <view class="modal" wx:if="{{showDialog}}" bindtap="closeDialog"></view>
-    <view class="dialog_box {{showDialog?'dialog_box_p':''}}">
-        <!-- <view class="box_top">10糖果返还赞赏者8DB，内容发布者2DB</view> -->
-        <scroll-view class="box_list" scroll-x>
-            <view class='card {{index==0? "ml-30":""}}' wx:for="{{candyList}}" bindtap='selectCandy' data-index='{{index}}'>
-                <image class='bg {{index==selectCandyId?"select":""}}' src="/image/10_candy.png"></image>
-            </view>
-        </scroll-view>
-        <view class="share_bottom" bindtap="">
-            <view class='balance'>糖果{{candyCount}}</view>
-            <view class='buy' bindtap='goBuyCandy'>
-                <view class=''>购买</view>
-                <image class='arrow' src='/image/arrows_right.png'></image>
-            </view>
-            <button class='send'>赠送</button>
-        </view>
+  <view class="modal" wx:if="{{showDialog}}" bindtap="closeDialog"></view>
+  <view class="dialog_box {{showDialog?'dialog_box_p':''}}">
+    <!-- <view class="box_top">10糖果返还赞赏者8DB，内容发布者2DB</view> -->
+    <scroll-view class="box_list" scroll-x>
+      <view class='card {{index==0? "ml-30":""}}' wx:for="{{candyList}}" bindtap='selectCandy' data-index='{{index}}'>
+        <image class='bg {{index==selectCandyId?"select":""}}' src="/image/10_candy.png"></image>
+      </view>
+    </scroll-view>
+    <view class="share_bottom" bindtap="">
+      <view class='balance'>糖果{{candyCount}}</view>
+      <view class='buy' bindtap='goBuyCandy'>
+        <view class=''>购买</view>
+        <image class='arrow' src='/image/arrows_right.png'></image>
+      </view>
+      <button class='send' bindtap='sendCandy'>赠送</button>
     </view>
+  </view>
+  <image class='send_pay' src="/image/icon_send_pay.png" bindtap="pay"></image>
 </view>
+<points-dialog data='{{pointDialog}}'></points-dialog>

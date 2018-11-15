@@ -29,6 +29,24 @@
     font-size: 22rpx;
     color: #A3AEBA;
 }
+.item_name{
+    flex: 1;
+}
+.right {
+    display: flex;
+    align-items: center;
+    margin-right: 30rpx;
+}
+.quan-total {
+    font-size: 28rpx;
+    color: #a3aeba;
+}
+
+.arrow {
+    width: 12rpx;
+    height: 21rpx;
+    margin-left: 12rpx;
+}
 .preview{
     position: fixed;
     width: 100%;

@@ -144,13 +144,13 @@ Page({
     },
     itemClick() {
         wx.navigateTo({
-            url: '/pages/walletItemDetail/walletItemDetail?formType=2&num=' + this.data.rmb,
+            url: '/pages/walletItemDetail/walletItemDetail?formType=2&num=' + this.data.totalCommition,
         })
     },
     showTip() {
         wx.showModal({
             title: '提示',
-            content: '1、每日24点按当前所有用户持有非冻结DB比例结算当日分红\r\n2、次日中午8点左右发放前一日分红\r\n3、平台按照收入的80% 进行分红\r\n4、超过48小时未领取的分红，将不可领取\r\n5、冻结部分，无法参与分红\r\n6、当前日获得的DB，无法参与前一日分红',
+            content: '1、每日24点按当前所有用户持有非冻结DB比例结算当日分红\r\n2、次日中午8点左右发放前一日分红\r\n3、平台按照收入的80% 进行分红\r\n4前一日分红的40%分配给前一日获得DB并持有的用户，60%分配给以往获得DB并持有的用户\r\n5、超过48小时未领取的分红，将不可领取\r\n6、冻结部分，无法参与分红\r\n7、当前日获得的DB，无法参与前一日分红',
             showCancel: false,
             confirmText: '知道了',
             confirmColor: '#29A3FD',

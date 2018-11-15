@@ -5,50 +5,70 @@
  * 图片地址拼接
  * @param id 图片地址
  */
-var imgUrl = function (id, mode) {
-    if (!id) return "";
-    if (!mode) mode = "";
-    var n = id.indexOf(",");
-    if (n > -1) id = id.slice(0, n);
-    if (id.indexOf('http') > -1) {
-        return id;
-    } else {
-        return 'http://demo1.ess.ejucloud.cn/' + id + mode;
+var imgUrl = function(id, mode) {
+  if (!id) return "";
+  if (!mode) mode = "";
+  var n = id.indexOf(",");
+  if (n > -1) id = id.slice(0, n);
+  if (id.indexOf('http') > -1) {
+    return id;
+  } else {
+    return 'http://demo1.ess.ejucloud.cn/' + id + mode;
     //    return 'https://esscloudstreet.51kupai.com/' + id + mode;
-    }
+  }
 }
-var checkTime = function (i) {
-  if (i < 10)
-  { i = "0" + i }
+var checkTime = function(i) {
+  if (i < 10) {
+    i = "0" + i
+  }
   return i
+}
+var formatMoney = function (money, type) {
+  var s = money
+  switch (type) {
+    case 1:
+      break;
+    default:
+      s = money.toFixed(2);
+  }
+  console.log(s)
+  return s;
 }
 /**
  * 时间格式化
  * @param timestamp 时间戳
  * @param type 类型
  */
-var formatDate = function (timestamp, type) {
-    var d = getDate(timestamp * 1);
-    switch (type) {
-        case 1:// 2018-6-12 00:00:00 
-        var s = checkTime(d.getFullYear()) + "-" + checkTime((d.getMonth() + 1)) + "-" + checkTime(d.getDate());
-        s += " " + checkTime(d.getHours()) + ":" + checkTime(d.getMinutes()) + ":" + checkTime(d.getSeconds());
-            break;
-        case 2:// 2018-6-12
-            var s = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
-            break;
-        case 3:// 6月12日 
-            var s = (d.getMonth() + 1) + "月" + d.getDate() + "日";
-            break;
-        case 4:// 2018.6.12
-            var s = d.getFullYear() + "." + (d.getMonth() + 1) + "." + d.getDate();
-            break;
-        default:
-            var s = (d.getMonth() + 1) + "月" + d.getDate() + "日";
-    }
-    return s;
+var formatDate = function(timestamp, type) {
+  var d = getDate(timestamp * 1);
+  switch (type) {
+    case 1: // 2018-6-12 00:00:00 
+      var s = checkTime(d.getFullYear()) + "-" + checkTime((d.getMonth() + 1)) + "-" + checkTime(d.getDate());
+      s += " " + checkTime(d.getHours()) + ":" + checkTime(d.getMinutes()) + ":" + checkTime(d.getSeconds());
+      break;
+    case 2: // 2018-6-12
+      var s = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+      break;
+    case 3: // 6月12日 
+      var s = (d.getMonth() + 1) + "月" + d.getDate() + "日";
+      break;
+    case 4: // 2018.6.12
+      var s = d.getFullYear() + "." + (d.getMonth() + 1) + "." + d.getDate();
+      break;
+    case 5: // 2018年6月12
+      var s = d.getFullYear() + "年" + (d.getMonth() + 1) + "月" + d.getDate() + "日";
+      break;
+    case 6: // 2018-6-12 00:00
+      var s = checkTime(d.getFullYear()) + "-" + checkTime((d.getMonth() + 1)) + "-" + checkTime(d.getDate());
+      s += " " + checkTime(d.getHours()) + ":" + checkTime(d.getMinutes());
+      break;
+    default:
+      var s = (d.getMonth() + 1) + "月" + d.getDate() + "日";
+  }
+  return s;
 };
 module.exports = {
-    imgUrl: imgUrl,
-    formatDate: formatDate
+  imgUrl: imgUrl,
+  formatDate: formatDate,
+  formatMoney: formatMoney
 };

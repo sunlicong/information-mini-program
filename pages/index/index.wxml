@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <wxs src="../../utils/filter.wxs" module="filter" />
 <view class="container">
-    <swiper class="swiper" autoplay="true">
+    <swiper class="swiper" indicator-dots autoplay="true">
         <block wx:for="{{tips}}" wx:key="{{index}}">
             <swiper-item>
                 <view class="swiper-item" bindtap='onBannerClick'>
@@ -29,8 +29,12 @@
             <text class="money">{{incomeTokenTotal}}</text>
         </view>
     </view> -->
+    <view wx:if="{{feeds.length==0}}" class='non'>
+      <image src="/image/img_non.png"></image>
+      <view>暂时还没有数据哦～</view>
+    </view>
     <!-- feed -->
-    <view class='feed margin-top-20' wx:for="{{feeds}}" wx:key="{{index}}">
+    <view class='feed margin-top-10' wx:for="{{feeds}}" wx:key="{{index}}">
         <newsItem pop="{{item}}"></newsItem>
     </view>
     <image class='my_mining' src="../../image/icon_mining.png" bindtap="goMyMining"></image>
