@@ -15,4 +15,8 @@
             <view class='follow yes' catchtap='deleteRelation' data-uid='{{item.uid}}' data-index='{{index}}'>已关注</view>
         </view>
     </view>
+    <view wx:if="{{list.length==0}}" class='non'>
+      <image src="/image/img_non.png"></image>
+      <view>暂时还没有数据哦～</view>
+    </view>
 </view>

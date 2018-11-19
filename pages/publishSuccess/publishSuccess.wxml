@@ -16,6 +16,6 @@
              <image src="/image/share_circle.png"></image>
              <text>分享到朋友圈</text>
         </view> -->
-        <view bindtap="goHome">返回首页</view>
+        <view bindtap="goMine">返回我的</view>
     </view>
 </view>

@@ -28,6 +28,7 @@
     </view>
     <view wx:if="{{item.optType==1}}" class='item_opt'>赞了文章</view>
     <view wx:if="{{item.optType==2}}" class='item_opt'>赞赏了文章</view>
+    <view wx:else class='item_opt'>发表了文章</view>
     <view class='item_info'>
       <image class='item_img' src="{{item.coverPid}}"></image>
       <view class='item_content'>{{item.title}}</view>
@@ -49,7 +50,7 @@
     <view wx:elif="{{!user.user_relation}}" class='follow' bindtap='relation' data-id='{{user.uid}}' data-id='{{user.user_relation}}'>关注</view>
   </view>
   <view class='desc'>
-    <text class='desc_info'>{{user.desc?user.desc:'简介：这个人很懒，什么都没留下'}}</text>
+    <view class='desc_info'>{{user.desc?'简介：'+user.desc:'简介：这个人很懒，什么都没留下'}}</view>
   </view>
   <view class="tab">
     <view bindtap='tabClick' id="0" class="tab_item {{tabIndex==0?'tab-select':'tab-non'}}">

@@ -56,8 +56,8 @@
 
 .feed-bottom {
   width: 100%;
-  height: 76rpx;
-  line-height: 76rpx;
+  height: 78rpx;
+  line-height: 78rpx;
   font-size: 22rpx;
   color: #a3aeba;
   display: flex;

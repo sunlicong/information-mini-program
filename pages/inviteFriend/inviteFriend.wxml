@@ -17,8 +17,12 @@
       <view class='card2_text'>
         <view class='card2_text1'>好友可得</view>
         <view class='card2_text2'>
-          <view>好友可得</view>
-          <view>未邀请用户10点钻</view>
+          <view class='card2_text3'>
+            <text>好友可得额外</text>
+            <text class='card2_text4'>20</text>
+            <text>点钻</text>
+          </view>
+          <view class='card2_text5'>未邀请用户10点钻</view>
         </view>
       </view>
     </view>
@@ -38,5 +42,7 @@
       <image src='/image/invite_img_3.png' class='tip_img' mode='aspectFit'></image>
       <view class='tip_text'>奖励到账</view>
     </view>
+    <image src='/image/icon_dian.png' class='dian1' mode='aspectFit'></image>
+    <image src='/image/icon_dian.png' class='dian2' mode='aspectFit'></image>
   </view>
 </view>

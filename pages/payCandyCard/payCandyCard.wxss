@@ -70,6 +70,7 @@
 .top .card .unit {
   font-size: 24rpx;
   margin-top: 20rpx;
+  margin-left: 8rpx;
 }
 
 .candy_list {

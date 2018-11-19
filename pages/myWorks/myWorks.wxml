@@ -39,12 +39,12 @@
             <image class='img' src="/image/bg_circle.png"></image>
             <view class='info_num'>
                 <view class='text1'>累计收益(DB)</view>
-                <view class='text2'>{{worksData.totalProfit}}万</view>
+                <view class='text2'>{{worksData.totalProfit}}个</view>
             </view>
         </view>
         <view class='fans_view'>
-            <view class='fans_num'>粉丝 {{worksData.fansCount}}万</view>
-            <view class='fans_num'>累积阅读量 {{worksData.totalReads}}万</view>
+            <view class='fans_num'>粉丝 {{worksData.fansCount}}个</view>
+            <view class='fans_num'>累积阅读量 {{worksData.totalReads}}个</view>
         </view>
     </view>
     <view class="publish_btn" bindtap="publish">发布作品</view>

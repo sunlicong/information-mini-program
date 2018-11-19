@@ -38,8 +38,8 @@
     margin-left: 12rpx;
 }
 
-.margin-top-10 {
-    margin-top: 10rpx;
+.margin-top-2 {
+    margin-top: 2rpx;
 }
 
 .num-view {
@@ -86,14 +86,5 @@
     right: 30rpx;
 }
 .non{
-  margin-top: 230rpx;
-  text-align: center;
-  font-size:28rpx;
-  font-family:PingFangSC-Regular;
-  font-weight:400;
-  color:#9B9B9B;
-}
-.non image{
-  width: 290rpx;
-  height: 396rpx;
+  margin-top: 250rpx;
 }

@@ -1,7 +1,7 @@
 <!--pages/articleDetail/articleDetail.wxml-->
 <import src="/utils/wxParse/wxParse.wxml" />
 <wxs src="../../utils/filter.wxs" module="tools" />
-<view class="container">
+<view class="container {{isIpx?'container-iphonex':''}}">
   <view class='content'>
     <view class='title'>
       {{data.content.title}}
@@ -32,30 +32,38 @@
     </view>
   </view>
   <view class='opt'>
-    <view class='opt_item' bindtap='like'>
-      <image src='{{data.attitudeStatus?"/image/icon_praise_seleced.png":"/image/icon_praise_non.png"}}' class='icon_opt' mode='aspectFit'></image>
-      <view>{{data.attitudeLikeCount}}</view>
+    <view class='opt_item' bindtap='like' data-opt='{{data.attitudeStatus?0:1}}'>
+      <view class='relative_view'>
+        <view wx:if="{{data.attitudeOptCount}}" class='attitudeCount'>{{data.attitudeOptCount}}</view>
+        <image src='{{data.attitudeStatus?"/image/icon_praise_seleced.png":"/image/icon_praise_non.png"}}' class='icon_opt' mode='aspectFit'></image>
+      </view>
+      <view class='{{data.attitudeStatus?"color0794FC":""}}'>{{data.attitudeLikeCount}}</view>
     </view>
     <button open-type='share' class='opt_item opt_item_share'>
       <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
       <view>分享</view>
     </button>
   </view>
-  <view class='bottom_bar'>
-    <view class='bottom_praise right_line' bindtap='goHome'>
-      <image src='/image/icon_back_home.png' class='icon_opt' mode='aspectFit'></image>
-      <view>回首页</view>
+  <view class="bottom_bar">
+    <view class="bottom_view {{isIpx?'iphonex':''}}">
+      <view class='bottom_praise right_line' bindtap='goHome'>
+        <image src='/image/icon_back_home.png' class='icon_opt' mode='aspectFit'></image>
+        <view>回首页</view>
+      </view>
+      <view class='bottom_praise right_line' bindtap='like' data-opt='{{data.attitudeStatus?0:1}}'>
+        <view class='relative_view'>
+          <view wx:if="{{data.attitudeOptCount}}" class='attitudeCount'>{{data.attitudeOptCount}}</view>
+          <image src='{{data.attitudeStatus?"/image/icon_praise_seleced.png":"/image/icon_praise_non.png"}}' class='icon_opt' mode='aspectFit'></image>
+        </view>
+        <view class='{{data.attitudeStatus?"color0794FC":""}}'>{{data.attitudeLikeCount}}</view>
+      </view>
+      <button open-type='share' class='bottom_share'>
+        <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
+        <view>分享</view>
+      </button>
     </view>
-    <view class='bottom_praise right_line' bindtap='like'>
-      <image src='{{data.attitudeStatus?"/image/icon_praise_seleced.png":"/image/icon_praise_non.png"}}' class='icon_opt' mode='aspectFit'></image>
-      <view>{{data.attitudeLikeCount}}</view>
-    </view>
-    <button open-type='share' class='bottom_share'>
-      <image src='/image/icon_share.png' class='icon_opt' mode='aspectFit'></image>
-      <view>分享</view>
-    </button>
-    <!-- <view class='bottom_pay' bindtap='pay'>赞赏</view> -->
   </view>
+  <image class="send_pay {{isIpx?'iphonex_send':''}}" src="/image/icon_send_pay.png" bindtap="pay"></image>
 </view>
 <view>
   <view class="modal" wx:if="{{showDialog}}" bindtap="closeDialog"></view>
@@ -63,18 +71,18 @@
     <!-- <view class="box_top">10糖果返还赞赏者8DB，内容发布者2DB</view> -->
     <scroll-view class="box_list" scroll-x>
       <view class='card {{index==0? "ml-30":""}}' wx:for="{{candyList}}" bindtap='selectCandy' data-index='{{index}}'>
-        <image class='bg {{index==selectCandyId?"select":""}}' src="/image/10_candy.png"></image>
+        <image class='bg {{index==selectCandyIndex?"select":""}}' src="/image/10_candy.png"></image>
+        <view class='candyCount'>{{item.candyCount}}糖果</view>
       </view>
     </scroll-view>
     <view class="share_bottom" bindtap="">
-      <view class='balance'>糖果{{candyCount}}</view>
+      <view class='balance' bindtap='goBuyCandy'>糖果{{candyCount}}</view>
       <view class='buy' bindtap='goBuyCandy'>
         <view class=''>购买</view>
         <image class='arrow' src='/image/arrows_right.png'></image>
       </view>
-      <button class='send' bindtap='sendCandy'>赠送</button>
+      <button class="send {{isIpx?'send_iphonex':''}}" bindtap='sendCandy'>赠送</button>
     </view>
   </view>
-  <image class='send_pay' src="/image/icon_send_pay.png" bindtap="pay"></image>
 </view>
 <points-dialog data='{{pointDialog}}'></points-dialog>

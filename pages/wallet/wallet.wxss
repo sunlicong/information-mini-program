@@ -16,14 +16,16 @@
     height: 374rpx;
 }
 .balance {
-    height: 140rpx;
-    line-height: 140rpx;
-    margin-top: 84rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    margin-top: 100rpx;
     text-align: center;
     font-size: 100rpx;
     color: #fff;
 }
-
+.yuan{
+  font-size: 50rpx;
+}
 .all {
     margin-top: 20rpx;
     text-align: center;

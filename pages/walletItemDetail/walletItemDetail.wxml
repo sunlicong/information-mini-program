@@ -61,7 +61,7 @@
             <view class='time'>{{tools.formatDate(item.time,1)}}</view>
         </view>
         <view class='right'>
-            <view class='num'>{{item.type==2||item.type==5?'-':'+'}}{{item.count}}{{formType==1?'coin':'元'}}</view>
+            <view class='num'>{{item.type==2||item.type==5?'-':'+'}}{{item.count}}{{formType==1?'DB':'元'}}</view>
         </view>
     </view>
 </view>

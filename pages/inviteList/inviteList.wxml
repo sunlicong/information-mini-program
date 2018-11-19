@@ -9,7 +9,7 @@
             <view class='top_text3'>奖励实时到账钱包</view>
         </view>
     </view>
-    <view class='height-120'>
+    <view wx:if="{{list.length}}" class='height-120'>
         <view class='left margin-left-30'>被邀请人</view>
     </view>
     <view bindtap='itemClick' class='height-120' wx:for="{{list}}" bindtap='goProfile' data-uid='{{item.uid}}'>
@@ -18,5 +18,9 @@
             <view class='nick'>{{item.nick}}</view>
             <view class='time'>{{filter.formatDate(item.inviterDate,4)}}</view>
         </view>
+    </view>
+    <view wx:if="{{list.length==0}}" class='non'>
+      <image src="/image/img_non.png"></image>
+      <view>暂时还没有数据哦～</view>
     </view>
 </view>

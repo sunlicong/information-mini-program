@@ -35,10 +35,10 @@
       </view>
       <view class='mining'>
         <view wx:if="{{mineList.length==0}}" class='mining_non'>正在挖矿中</view>
-        <view wx:if="{{!item.isShow}}" class='mining_item' style='left:{{filter.getNumX()}}rpx;top:{{filter.getNumY()}}rpx' bindtap="getMining" wx:for="{{mineList}}" wx:key="{{index}}" bindtap='getCoin' data-id='{{item.id}}' data-index='{{index}}'>
+        <view wx:if="{{!item.isHidden}}" class='mining_item' style='left:{{filter.getNumX()}}rpx;top:{{filter.getNumY()}}rpx' bindtap="getMining" wx:for="{{mineList}}" wx:key="{{index}}" bindtap='getCoin' data-id='{{item.id}}' data-index='{{index}}'>
           <image class='img_mining' src="../../image/icon_mining.png"></image>
           <view class='num'>{{item.tokenamount}}</view>
-          <view class='coin'>coin</view>
+          <view class='coin'>DB</view>
         </view>
       </view>
     </view>
@@ -50,13 +50,13 @@
       <image src='/image/icon_tip.png' class='size-30' mode='aspectFit' bindtap='showTip'></image>
     </view>
     <view class='right' bindtap='itemClick'>
-      <view class='quan-total'>{{tools.formatMoney(totalCommition)}}</view>
+      <view class='quan-total'>{{tools.formatMoney(totalCommition)}}元</view>
       <image class='arrow' src='/image/arrows_right.png'></image>
     </view>
   </view>
   <view class='divid_content'>
     <view class='title'>待领取分红</view>
-    <view class='price'>{{tools.formatMoney(unReceiveMoney)}}</view>
+    <view class='price'>{{tools.formatMoney(unReceiveMoney)}}元</view>
     <!-- <view class='coin'>参与分红币：180</view> -->
     <button disabled='{{unReceiveMoney==0}}' class='get' bindtap='getRmb'>领取</button>
   </view>

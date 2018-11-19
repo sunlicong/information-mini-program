@@ -26,18 +26,13 @@ Page({
     })
     this.queryNewList()
   },
-  onShow(){
+  onShow() {
     this.queryProfile()
   },
   /**
    * tab 点击事件
    */
   tabClick: function(event) {
-    this.setData({
-      next: 0,
-      newList: [],
-      hotList: []
-    })
     switch (event.target.id) {
       case '0':
         if (this.data.tabIndex == 0) return;
@@ -95,7 +90,7 @@ Page({
         wx.hideLoading();
         that.setData({
           next: res.data.next,
-          newList: that.data.newList.concat(res.data.data)
+          newList: that.data.next == 0 ? res.data.data : that.data.newList.concat(res.data.data)
         })
       },
       fail: function(res) {
@@ -119,7 +114,7 @@ Page({
         wx.hideLoading();
         that.setData({
           next: res.data.next,
-          hotList: that.data.hotList.concat(res.data.data)
+          hotList: that.data.next == 0 ? res.data.data : that.data.hotList.concat(res.data.data)
         })
       },
       fail: function(res) {

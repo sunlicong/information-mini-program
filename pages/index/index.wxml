@@ -34,7 +34,7 @@
       <view>暂时还没有数据哦～</view>
     </view>
     <!-- feed -->
-    <view class='feed margin-top-10' wx:for="{{feeds}}" wx:key="{{index}}">
+    <view class='feed margin-top-2' wx:for="{{feeds}}" wx:key="{{index}}">
         <newsItem pop="{{item}}"></newsItem>
     </view>
     <image class='my_mining' src="../../image/icon_mining.png" bindtap="goMyMining"></image>

@@ -39,3 +39,6 @@
     font-size: 24rpx;
     color: #333333;
 }
+.non{
+  margin-top: 250rpx
+}

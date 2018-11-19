@@ -92,12 +92,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var pages = getCurrentPages()
+    var prevPage = pages[pages.length - 2] //上一个页面
+    for (var i = 0; i < prevPage.data.tags.length; i++) {
+      for (var j = 0; j < this.data.list.length; j++) {
+        if (prevPage.data.tags[i].name == this.data.list[j].name) {
+          this.setData({
+            ["list[" + j + "].checked"]: !this.data.list[j].checked,
+          })
+        }
+      }
+    }
 
   },
   selectTag(e) {
     var index = e.currentTarget.dataset.index
     this.setData({
-      ["list[" + index + "].checked"]: true,
+      ["list[" + index + "].checked"]: !this.data.list[index].checked,
     })
   },
   save() {

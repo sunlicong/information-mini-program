@@ -8,9 +8,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isIpx: app.globalData.isIphoneX,
     contentId: '',
+    inviter: '', //邀请人
     myUid: '',
-    selectCandyId: 0,
+    selectCandyIndex: 0,
     data: {},
     candyCount: 0, //余额
     candyList: [] //购买的糖果列表
@@ -22,7 +24,8 @@ Page({
   onLoad: function(options) {
     this.setData({
       contentId: options.contentId,
-      myUid: app.globalData.userInfo.uid
+      inviter: options.inviter || '',
+      myUid: app.globalData.userInfo.uid || ''
     })
     var that = this
     this.getArticleDetail()
@@ -49,7 +52,8 @@ Page({
       url: '/blockchain/v1/content/detail',
       method: 'GET',
       data: {
-        contentId: that.data.contentId
+        contentId: that.data.contentId,
+        forwardUid: that.data.inviter
       },
       success: function(res) {
         that.setData({
@@ -57,9 +61,7 @@ Page({
         })
         var text = res.data.content.content.replace(/data-src/g, "src")
         WxParse.wxParse('article', 'html', text, that, 15);
-        setTimeout(function(){
-          wx.hideLoading();
-        },1000)
+        wx.hideLoading();
       }
     });
   },
@@ -94,7 +96,7 @@ Page({
   selectCandy(e) {
     var index = e.currentTarget.dataset.index
     this.setData({
-      selectCandyId: index
+      selectCandyIndex: index
     })
   },
   /**
@@ -111,27 +113,69 @@ Page({
   /**
    * 赠送糖果
    */
-  sendCandy(){
-    // var uid = e.currentTarget.dataset.uid
+  sendCandy(e) {
     var that = this
     wx.showLoading({
       title: '加载中...',
     })
+    var candyCount = that.data.candyList[that.data.selectCandyIndex].candyCount || 0
     api.http({
       url: '/blockchain/v1/invest/rewardCandy',
       method: 'POST',
       data: {
         contentId: that.data.contentId,
-        candyCount: 10
+        candyCount: candyCount
       },
-      success: function (res) {
+      success: function(res) {
         wx.hideLoading();
         wx.showToast({
           title: '赞赏成功'
         })
-        that.setData({
-          showDialog: false
-        })
+        var ishaveMe = false //判断当前列表是当前用户是否赞赏过。如果赞赏过就不往列表里手动添加了
+        var investUserProfiles = that.data.data.investUserProfiles
+        for (var i = 0; i < investUserProfiles.length; i++) {
+          if (investUserProfiles[i].uid == app.globalData.userInfo.uid) {
+            ishaveMe = true
+          }
+        }
+        if (!ishaveMe) {
+          that.setData({
+            'data.investTotalCount': that.data.data.investTotalCount + 1,
+            'data.investUserProfiles': investUserProfiles ? investUserProfiles.concat([{
+              photo: app.globalData.userInfo.photo,
+              uid: app.globalData.userInfo.uid
+            }]) : [{
+              photo: app.globalData.userInfo.photo,
+              uid: app.globalData.userInfo.uid
+            }],
+            showDialog: false
+          })
+        } else {
+          that.setData({
+            'data.investTotalCount': that.data.data.investTotalCount + 1,
+            showDialog: false
+          })
+        }
+      },
+      fail: function(res){
+        var that = this
+        if (res.data.code == 30101){
+          wx.hideToast()
+          wx.showModal({
+            title: '提示',
+            content: '糖果不足，去购买糖果卡？',
+            confirmText: '去购买',
+            confirmColor: '#0794FC',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/payCandyCard/payCandyCard',
+                })
+              } else if (res.cancel) {
+              }
+            }
+          })
+        }
       }
     });
   },
@@ -143,7 +187,7 @@ Page({
       url: '/pages/index/index',
     })
   },
-  goProfile(e){
+  goProfile(e) {
     var uid = e.currentTarget.dataset.uid
     wx.navigateTo({
       url: '/pages/myProfile/myProfile?uid=' + uid,
@@ -152,21 +196,34 @@ Page({
   /**
    * 点赞
    */
-  like() {
+  like(e) {
+    var opt = e.currentTarget.dataset.opt
     var that = this
     api.http({
       url: '/blockchain/v1/content/like',
       method: 'GET',
       data: {
-        contentId: that.data.contentId
+        contentId: that.data.contentId,
+        opt: opt
       },
       success: function(res) {
-        wx.showToast({
-          title: '点赞成功，还剩' + res.data.remainedCount + '次点赞',
-        })
-        that.setData({
-          'data.attitudeLikeCount': that.data.data.attitudeLikeCount + 1
-        })
+        if (opt == 1) {
+          wx.showToast({
+            icon: 'none',
+            title: '点赞成功，还剩' + res.data.remainedCount + '次点赞',
+          })
+          that.setData({
+            'data.attitudeStatus': 1,
+            'data.attitudeLikeCount': that.data.data.attitudeLikeCount + 1,
+            'data.attitudeOptCount': res.data.remainedCount,
+          })
+        } else {
+          that.setData({
+            'data.attitudeStatus': 0,
+            'data.attitudeLikeCount': that.data.data.attitudeLikeCount - 1,
+            'data.attitudeOptCount': res.data.remainedCount,
+          })
+        }
       }
     });
   },
@@ -196,7 +253,7 @@ Page({
   /**
    * 取消关注
    */
-  deleteRelation(e){
+  deleteRelation(e) {
     var uid = e.currentTarget.dataset.uid
     var that = this
     api.http({
@@ -205,7 +262,7 @@ Page({
       data: {
         mainUserId: uid
       },
-      success: function (res) {
+      success: function(res) {
         wx.hideLoading();
         wx.showToast({
           title: '已取消关注',
@@ -219,7 +276,7 @@ Page({
   /**
    * 分享完加次数
    */
-  share(){
+  share() {
     var that = this
     api.http({
       url: '/blockchain/v1/content/share',
@@ -227,9 +284,13 @@ Page({
       data: {
         contentId: that.data.contentId
       },
-      success: function (res) {
+      success: function(res) {
         wx.showToast({
+          icon: 'none',
           title: '分享成功，剩余点赞次数' + res.data.remainedCount,
+        })
+        that.setData({
+          'data.attitudeOptCount': res.data.remainedCount,
         })
       }
     });
@@ -241,7 +302,7 @@ Page({
     this.share()
     return {
       title: this.data.data.content.title,
-      path: 'pages/articleDetail/articleDetail?contentId='+ this.data.contentId +'&inviter=' + app.globalData.userInfo.uid,
+      path: 'pages/articleDetail/articleDetail?contentId=' + this.data.contentId + '&inviter=' + app.globalData.userInfo.uid,
       imageUrl: this.data.data.content.coverPid
     }
   }

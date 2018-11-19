@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.2.4",
+	"libVersion": "2.4.0",
 	"appid": "wx48f7e81747335eea",
 	"projectname": "information-mini-program",
 	"isGameTourist": false,
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 20,
+			"current": 21,
 			"list": [
 				{
 					"id": 0,
@@ -126,10 +126,10 @@
 					"query": ""
 				},
 				{
-					"id": -1,
+					"id": 15,
 					"name": "articleDetail",
 					"pathName": "pages/articleDetail/articleDetail",
-					"query": "contentId=142"
+					"query": "contentId=218"
 				},
 				{
 					"id": -1,
@@ -158,7 +158,14 @@
 				{
 					"id": -1,
 					"name": "publishSelectLabel",
-					"pathName": "pages/publishSelectLabel/publishSelectLabel"
+					"pathName": "pages/publishSelectLabel/publishSelectLabel",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "publish",
+					"pathName": "pages/publish/publish",
+					"query": ""
 				}
 			]
 		}

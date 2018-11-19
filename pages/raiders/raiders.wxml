@@ -10,7 +10,7 @@
             </view>
             <view class='w_50'>
                 <view class='text3'>昨日收入分红</view>
-                <view class='text4'>{{tools.formatMoney(yesterdayDividend)}}CNY</view>
+                <view class='text4'>{{tools.formatMoney(yesterdayDividend)}}元</view>
             </view>
         </view>
         <view class='box2 b_color_D1D7FF'>
