@@ -1,13 +1,23 @@
 <!--pages/publishPriview/publishPriview.wxml-->
-<import src="/utils/wxParse/wxParse.wxml"/> 
-<view class="container">
-    <view class='content'>
-        <view class='title'>
-            {{title}}
-        </view>
-        <view class="wxParse">
-            <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-        </view>
+<import src="/utils/wxParse/wxParse.wxml" />
+<wxs src="../../utils/filter.wxs" module="tools" />
+<view class="container {{isIpx?'container-iphonex':''}}">
+  <view class='content'>
+    <view class='title'>
+      {{title}}
     </view>
+    <view class='authorInfo'>
+      <image class='cover' src="{{photo}}"></image>
+      <view class='info'>
+        <text class='nick'>{{nick}}</text>
+        <text class='time'>{{tools.formatDate(createTime,5)}}</text>
+      </view>
+    </view>
+    <view class="wxParse">
+      <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+  </view>
+  <view class="bottom_next {{isIpx?'iphonex':''}}">
     <view class="publish_btn" bindtap="publish">立即发布</view>
+  </view>
 </view>

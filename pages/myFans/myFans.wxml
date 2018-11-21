@@ -4,7 +4,7 @@
         <view class='item' wx:for="{{list}}" wx:key="{{index}}" bindtap='goProfile' data-uid='{{item.uid}}'>
             <image class='cover' src="{{item.photo}}"></image>
             <view class='nick'>{{item.nick}}</view>
-            <view wx:if="{{item.mutual==1}}" class='follow' catchtap='relation' data-uid='{{item.uid}}' data-index='{{index}}'>关注</view>
+            <view wx:if="{{item.mutual==0}}" class='follow' catchtap='relation' data-uid='{{item.uid}}' data-index='{{index}}'>关注</view>
             <view wx:else class='follow yes' catchtap='deleteRelation' data-uid='{{item.uid}}' data-index='{{index}}'>已关注</view>
         </view>
     </view>

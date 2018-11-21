@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isIpx: app.globalData.isIphoneX,
     tabIndex: 0, //默认可使用状态栏
     works: [],
     worksData: {},
@@ -20,7 +21,9 @@ Page({
     this.getMyWorks()
     this.queryWorkDataByUser()
   },
-
+  onShow(e){
+    console.log(e)
+  },
   getMyWorks() {
     var that = this
     wx.showLoading({
@@ -38,7 +41,7 @@ Page({
         console.log(res.data)
         that.setData({
           next: res.data.next,
-          works: that.data.works.concat(res.data.data)
+          works: that.data.next == 0 ? res.data.data : that.data.works.concat(res.data.data)
         })
       }
     });

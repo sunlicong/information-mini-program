@@ -1,5 +1,5 @@
 <!--pages/payCandyCard/payCandyCard.wxml-->
-<view class="container">
+<view class="container {{isIpx?'container_ipx':''}}">
   <view class='top'>
     <image class='top_bg' src="/image/bg_candy_card.png"></image>
     <view class='candy_banace'>
@@ -30,7 +30,7 @@
       </view>
     </view>
   </view>
-  <view class='bottom'>
+  <view class="bottom {{isIpx?'iphonex':''}}">
     <view class='bottom_left'>
       <text>{{selectContent.price}}</text>
       <text class='yuan'>元</text>

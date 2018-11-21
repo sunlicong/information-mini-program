@@ -1,3 +1,6 @@
 {
-    "navigationBarTitleText": "我的挖矿"
+    "navigationBarTitleText": "我的挖矿",
+    "usingComponents": {
+      "tipDialog": "/component/tipDialog/tipDialog"
+    }
 }

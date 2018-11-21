@@ -121,6 +121,7 @@
 .item_card .item_opt{
   margin-top: 32rpx;
   margin-left: 30rpx;
+  font-weight:500;
   font-size: 28rpx;
   color: #051426;
 }
@@ -128,7 +129,7 @@
   margin-left: 30rpx;
   margin-top: 15rpx;
   margin-right: 30rpx;
-  height: 140rpx;
+  /* height: 140rpx; */
   background: rgba(163, 174, 186, 0.08);
   display: flex;
 }
@@ -137,9 +138,7 @@
   height: 140rpx;
 }
 .item_content{
-  margin-left: 20rpx;
-  margin-top: 20rpx;
-  margin-right: 20rpx;
+  margin: 20rpx;
   line-height: 44rpx;
   font-size: 28rpx;
   color: #051426;

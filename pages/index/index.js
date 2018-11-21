@@ -42,7 +42,18 @@ Page({
       }
     });
   },
-
+  onBannerClick(e){
+    var link = e.currentTarget.dataset.link
+    if (link.indexOf('http') > -1) {
+      wx.navigateTo({
+        url: '/pages/webViewPage/webViewPage?srcUrl=' + link,
+      })
+    } else {
+      wx.navigateTo({
+        url: link,
+      })
+    }
+  },
   getHomeStatis() {
     var that = this
     api.http({
@@ -61,32 +72,41 @@ Page({
     });
   },
 
-  getFeeds(isPull) {
+  getFeeds(lastContentId) {
     var that = this
     api.http({
       url: '/blockchain/v1/home/feedsV1',
       method: 'GET',
       data: {
         next: that.data.next,
-        limit: 20
+        limit: 20,
+        lastContentId: lastContentId || 0
       },
       success: function(res) {
         wx.hideLoading();
-        if (isPull){
+        if (lastContentId) { //下拉刷新
           wx.showToast({
             icon: 'none',
-            title: '成功为你推荐' + res.data.data.length +'条新内容',
+            title: res.data.data.length ? '成功为你推荐' + res.data.data.length + '条新内容' : '暂无更多新内容哦',
           })
+          if (res.data.next == -1) {
+            that.setData({
+              feeds: res.data.data.concat(that.data.feeds)
+            })
+          } else {
+            that.setData({
+              next: res.data.next,
+              feeds: res.data.data
+            })
+          }
           wx.stopPullDownRefresh()
+        } else {
+          that.setData({
+            next: res.data.next,
+            feeds: that.data.next ? that.data.feeds.concat(res.data.data) : res.data.data
+          })
         }
-        that.setData({
-          next: res.data.next,
-          feeds: that.data.next ? that.data.feeds.concat(res.data.data) : res.data.data
-        })
-      },
-      fail: function(res) {
-        wx.hideLoading();
-      },
+      }
     });
   },
 
@@ -106,11 +126,15 @@ Page({
       imageUrl: '/image/share_index_card.png'
     }
   },
-  onPullDownRefresh(){
+  /**
+   * 下拉刷新
+   */
+  onPullDownRefresh() {
     this.setData({
       next: 0,
     })
-    this.getFeeds(1)
+    this.getTips()
+    this.getFeeds(this.data.feeds[0].contentId)
   },
   /**
    * 页面上拉触底事件的处理函数

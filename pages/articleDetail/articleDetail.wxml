@@ -1,7 +1,7 @@
 <!--pages/articleDetail/articleDetail.wxml-->
 <import src="/utils/wxParse/wxParse.wxml" />
 <wxs src="../../utils/filter.wxs" module="tools" />
-<view class="container {{isIpx?'container-iphonex':''}}">
+<view wx:if="{{showPage}}" class="container {{isIpx?'container-iphonex':''}}">
   <view class='content'>
     <view class='title'>
       {{data.content.title}}
@@ -71,7 +71,7 @@
     <!-- <view class="box_top">10糖果返还赞赏者8DB，内容发布者2DB</view> -->
     <scroll-view class="box_list" scroll-x>
       <view class='card {{index==0? "ml-30":""}}' wx:for="{{candyList}}" bindtap='selectCandy' data-index='{{index}}'>
-        <image class='bg {{index==selectCandyIndex?"select":""}}' src="/image/10_candy.png"></image>
+        <image class='bg {{index==selectCandyIndex?"select":""}}' src="{{index<3?'/image/'+(index+1)+'_candy.png':'/image/4_candy.png'}}"></image>
         <view class='candyCount'>{{item.candyCount}}糖果</view>
       </view>
     </scroll-view>
@@ -83,6 +83,13 @@
       </view>
       <button class="send {{isIpx?'send_iphonex':''}}" bindtap='sendCandy'>赠送</button>
     </view>
+  </view>
+</view>
+<view wx:if="{{showNo}}">
+  <view class='non'>
+    <image src="/image/img_non.png"></image>
+    <view>文章不存在或已被删除</view>
+    <view bindtap='goHome' class='goMore'>去看更多内容</view>
   </view>
 </view>
 <points-dialog data='{{pointDialog}}'></points-dialog>

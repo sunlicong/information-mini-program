@@ -20,7 +20,7 @@
           <text class='color_009'></text>
         </view>
         <view class="text">
-          <text>{{totalToken?totalToken:'0.00'}}</text>
+          <text>{{tools.formatMoney(totalToken,1)}}</text>
           <text class='coin'>DB</text>
         </view>
       </view>
@@ -31,7 +31,7 @@
           <text class='color_009'></text>
         </view>
         <view class="text">
-          <text>{{totalCommition?totalCommition:'0.00'}}</text>
+          <text>{{tools.formatMoney(totalCommition,1)}}</text>
           <text class='coin'>元</text>
         </view>
       </view>

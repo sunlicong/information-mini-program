@@ -2,7 +2,7 @@
 @import "../../utils/wxParse/wxParse.wxss";
 
 .container {
-  padding-bottom: 150rpx;
+  padding-bottom: 130rpx;
 }
 
 .content {
@@ -89,6 +89,7 @@
 }
 
 .readCount {
+  margin-left: 15rpx;
   margin-top: 50rpx;
   font-family: PingFangSC-Regular;
   font-size: 28rpx;
@@ -181,28 +182,29 @@
   height: 28rpx;
   margin-right: 20rpx;
 }
-.attitudeCount{
+
+.attitudeCount {
   position: absolute;
-  margin-top: -35rpx;
-  width: 30rpx;
-  height: 30rpx;
+  margin-top: -28rpx;
+  width: 43rpx;
+  height: 26rpx;
+  background: #0794fc;
   border-radius: 30rpx;
-  background: #0794FC;
-  font-size: 24rpx;
-  color: #ffffff;
+  font-size: 20rpx;
+  color: #fff;
   text-align: center;
-  line-height: 30rpx;
+  line-height: 26rpx;
 }
+
 .bottom_bar {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   /* height: 100rpx; */
-  
 }
-.bottom_view{
-  margin-top: 20rpx;
+
+.bottom_view {
   height: 100rpx;
   background: #fff;
   display: flex;
@@ -211,17 +213,15 @@
   font-size: 28rpx;
   color: #a3aeba;
 }
+
 .bottom_praise {
   width: 230rpx;
   height: 41rpx;
-  line-height: 41rpx;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.relative_view{
-  /* position: relative; */
-}
+
 .bottom_share {
   flex: 1;
   height: 100%;
@@ -305,7 +305,7 @@
 }
 
 .card .bg {
-  width: 163rpx;
+  width: 160rpx;
   height: 190rpx;
   position: absolute;
 }
@@ -314,14 +314,17 @@
   border-radius: 8rpx;
   border: 1rpx solid red;
 }
-.candyCount{
+
+.candyCount {
   position: absolute;
   bottom: 0;
   width: 165rpx;
   text-align: center;
-  color: #ffffff;
-  font-size: 30rpx;
+  color: #fff;
+  font-size: 26rpx;
+  line-height: 50rpx;
 }
+
 .share_bottom {
   width: 100%;
   height: 120rpx;
@@ -363,9 +366,11 @@
   font-size: 34rpx;
   color: #fff;
 }
-.send_iphonex{
+
+.send_iphonex {
   margin-bottom: 68rpx;
 }
+
 .ml-30 {
   margin-left: 30rpx;
 }
@@ -378,9 +383,26 @@
   bottom: 140rpx;
   right: 30rpx;
 }
-.iphonex_send{
+
+.iphonex_send {
   bottom: 208rpx;
 }
-.color0794FC{
-  color: #0794FC;
+
+.color0794FC {
+  color: #0794fc;
+}
+
+.goMore {
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  border: 1rpx solid #0794fc;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #0794fc;
+  line-height: 90rpx;
+  text-align: center;
+  margin-top: 121rpx;
 }

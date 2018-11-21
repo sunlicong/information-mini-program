@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showPage:false,
+    showNo: false,
     isIpx: app.globalData.isIphoneX,
     contentId: '',
     inviter: '', //邀请人
@@ -57,11 +59,20 @@ Page({
       },
       success: function(res) {
         that.setData({
+          showPage: true,
           data: res.data
         })
         var text = res.data.content.content.replace(/data-src/g, "src")
-        WxParse.wxParse('article', 'html', text, that, 15);
+        WxParse.wxParse('article', 'html', text, that, 30);
         wx.hideLoading();
+      },
+      fail: function(res){
+        if (res.data.code == 50003){
+          wx.hideToast()
+          that.setData({
+            showNo: true
+          })
+        }
       }
     });
   },
@@ -132,7 +143,7 @@ Page({
           title: '赞赏成功'
         })
         var ishaveMe = false //判断当前列表是当前用户是否赞赏过。如果赞赏过就不往列表里手动添加了
-        var investUserProfiles = that.data.data.investUserProfiles
+        var investUserProfiles = that.data.data.investUserProfiles || []
         for (var i = 0; i < investUserProfiles.length; i++) {
           if (investUserProfiles[i].uid == app.globalData.userInfo.uid) {
             ishaveMe = true
@@ -152,7 +163,6 @@ Page({
           })
         } else {
           that.setData({
-            'data.investTotalCount': that.data.data.investTotalCount + 1,
             showDialog: false
           })
         }
@@ -287,7 +297,7 @@ Page({
       success: function(res) {
         wx.showToast({
           icon: 'none',
-          title: '分享成功，剩余点赞次数' + res.data.remainedCount,
+          title: '分享成功',
         })
         that.setData({
           'data.attitudeOptCount': res.data.remainedCount,
@@ -300,10 +310,11 @@ Page({
    */
   onShareAppMessage: function() {
     this.share()
+    var covers = this.data.data.content.coverPid.split(',')
     return {
       title: this.data.data.content.title,
       path: 'pages/articleDetail/articleDetail?contentId=' + this.data.contentId + '&inviter=' + app.globalData.userInfo.uid,
-      imageUrl: this.data.data.content.coverPid
+      imageUrl: covers[0] || '/image/share_card.png'
     }
   }
 

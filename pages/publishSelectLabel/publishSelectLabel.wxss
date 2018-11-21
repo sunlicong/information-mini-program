@@ -19,10 +19,17 @@
   font-size: 32rpx;
   color: #051426;
 }
-.button{
+.bottom_next{
   position: fixed;
+  left: 0;
+  right: 0;
   bottom: 0;
-  width: 100%;
+  background: #FFFFFF
+}
+.container_ipx{
+  padding-bottom: 176rpx;
+}
+.button{
   height: 100rpx;
   background: #0794FC;
   border: 0;

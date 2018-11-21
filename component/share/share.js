@@ -8,7 +8,7 @@ Component({
     pop: {
       type: Object,
       value: {
-        type: 1, // 1 邀请
+        type: 1, // 1 邀请 2 详情
         items: '', //项目id
         show: false //是否显示
       },
@@ -23,7 +23,7 @@ Component({
     }
   },
   data: {
-    type: 1, // 1 邀请
+    type: 1, // 1 邀请 2 详情
     show: false, //是否显示分享
     isModal: false, //是否显示遮罩层
     isImgBox: false, //是否显示分享图片
@@ -60,9 +60,8 @@ Component({
      */
     sendShare() {
       if (this.data.type == 1) {
-        var url = '/craftsmanship/share/master';
+        var url = '/blockchain/v1/share/invitation';
         var param = {
-          masterId: this.data.items,
           pathUrl: this.data.pathUrl,
         }
       }
@@ -75,7 +74,7 @@ Component({
           if (res.status) {
             this.setData({
               isImgBox: true,
-              shareUrl: res.data
+              shareUrl: res.data.imageUrl
             });
           }
         }

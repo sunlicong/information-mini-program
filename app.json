@@ -21,7 +21,8 @@
         "pages/payCandyCard/payCandyCard",
         "pages/candyDetail/candyDetail",
         "pages/raiders/raiders",
-        "pages/myFans/myFans"
+        "pages/myFans/myFans",
+        "pages/webViewPage/webViewPage"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -51,6 +52,6 @@
         "color": "#A3AEBA",
         "selectedColor": "#0794FC",
         "backgroundColor": "#FFF",
-        "borderStyle": "white"
+        "borderStyle": "black"
     }
 }

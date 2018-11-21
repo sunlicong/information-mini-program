@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isIpx: app.globalData.isIphoneX,
     title: '',
     url: '',
     tags: [],
@@ -25,9 +26,12 @@ Page({
       title: prevPage.data.title,
       url: prevPage.data.url,
       tags: prevPage.data.tags,
+      photo: app.globalData.userInfo.photo,
+      nick: app.globalData.userInfo.nick,
+      createTime: prevPage.data.createTime
     })
     var text = prevPage.data.content.replace(/data-src/g, "src")
-    WxParse.wxParse('article', 'html', text, this, 15);
+    WxParse.wxParse('article', 'html', text, this, 30);
   },
 
   publish() {
@@ -53,12 +57,28 @@ Page({
       },
       success: function(res) {
         wx.hideLoading();
-        wx.navigateTo({
-          url: '/pages/publishSuccess/publishSuccess?contentId' + res.data.contentId + '&coverPid=' + that.data.coverPid,
+        var pages = getCurrentPages()
+        var prev2Page = pages[pages.length - 2] //上一个页面
+        prev2Page.setData({
+          title: '',
+          url: '',
+          tags: []
         })
-      },
-      fail: function(res) {
-        wx.hideLoading();
+        var prev3Page = pages[pages.length - 3] //上一个页面
+        if (prev3Page.route == 'pages/myWorks/myWorks'){
+          prev3Page.setData({
+            next: 0
+          })
+          prev3Page.getMyWorks()
+        }
+        that.setData({
+          contentId: res.data.contentId,
+          coverPid: res.data.coverPid,
+          title: res.data.title
+        })
+        wx.redirectTo({
+          url: '/pages/publishSuccess/publishSuccess',
+        })
       },
     });
   }

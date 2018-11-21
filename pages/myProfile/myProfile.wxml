@@ -14,8 +14,13 @@
     }
     return str
   }
+  var coverPid =  function(cover) {
+    var covers = cover.split(',')
+    return covers[0]||''
+  }
   module.exports = {
-    formatTime: formatTime
+    formatTime: formatTime,
+    coverPid: coverPid
   }
 </wxs>
 <template name="feedItem">
@@ -27,10 +32,10 @@
       <view wx:else class='item_time'>{{filterTime.formatTime(item.createTime)}}</view>
     </view>
     <view wx:if="{{item.optType==1}}" class='item_opt'>赞了文章</view>
-    <view wx:if="{{item.optType==2}}" class='item_opt'>赞赏了文章</view>
+    <view wx:elif="{{item.optType==2}}" class='item_opt'>赞赏了文章</view>
     <view wx:else class='item_opt'>发表了文章</view>
     <view class='item_info'>
-      <image class='item_img' src="{{item.coverPid}}"></image>
+      <image wx:if="{{item.coverPid}}" class='item_img' src="{{filterTime.coverPid(item.coverPid)}}"></image>
       <view class='item_content'>{{item.title}}</view>
     </view>
   </view>

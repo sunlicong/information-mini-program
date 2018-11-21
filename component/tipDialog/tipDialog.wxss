@@ -1,0 +1,61 @@
+/* component/tipDialog/tipDialog.wxss */
+
+.bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: #000;
+  opacity: 0.6;
+  z-index: 99;
+}
+.body {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0rpx;
+  width: 619rpx;
+  height: 750rpx;
+  z-index: 101;
+  margin: auto;
+}
+.content {
+  width: 619rpx;
+  height: 750rpx;
+  border-radius: 20rpx;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  opacity: 0.9;
+}
+.title{
+  margin-top: 20rpx;
+  line-height: 90rpx;
+  font-family: PingFangSC-Medium;
+  font-size: 34rpx;
+  color: #2D3232;
+  text-align: center;
+}
+.text{
+  margin-left: 28rpx;
+  margin-right: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #2D3232;
+  line-height: 42rpx;
+}
+.confirm{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 98rpx;
+  line-height: 98rpx;
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 34rpx;
+  color: #29A3FD;
+  border-top: 2rpx solid #999999;
+}

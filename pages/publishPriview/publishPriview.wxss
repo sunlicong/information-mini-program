@@ -1,34 +1,74 @@
 /* pages/publishPriview/publishPriview.wxss */
 @import "../../utils/wxParse/wxParse.wxss";
-.content{
-    background-color: #ffffff;
 
+.content {
+  background-color: #fff;
 }
 
-.title{
-    margin: 30rpx 30rpx 0 30rpx;
-    font-size: 36rpx;
-    color: #051426;
-    text-align: justify;
+.title {
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+  margin-right: 30rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  font-size: 36rpx;
+  color: #051426;
+  text-align: justify;
 }
 
+.authorInfo {
+  width: 100%;
+  height: 120rpx;
+  display: flex;
+  align-items: center;
+}
+
+.authorInfo .cover {
+  margin-left: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 60rpx;
+  background: #f4f4f4;
+}
+
+.authorInfo .info {
+  flex: 1;
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.authorInfo .nick {
+  font-family: PingFangSC-Semibold;
+  font-size: 24rpx;
+  color: #051426;
+}
+
+.authorInfo .time {
+  font-family: PingFangTC-Regular;
+  font-size: 20rpx;
+  color: #a3aeba;
+}
 .wxParse {
-    padding-bottom: 140rpx;
-    padding-left: 15px; 
-    padding-right: 15px;  
-    margin-left: 0rpx;
-    margin-right: 0rpx;
+  padding-bottom: 10rpx;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 0rpx;
+  margin-right: 0rpx;
 }
 
 .publish_btn {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    text-align: center;
-    background-color: #0794FC;
-    color: white;
-    height: 98rpx;
-    font-size: 34rpx;
-    line-height: 98rpx; 
+  background-color: #0794fc;
+  color: white;
+  height: 98rpx;
+  font-size: 34rpx;
+  line-height: 98rpx;
+  text-align: center;
+}
+.bottom_next{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF
 }

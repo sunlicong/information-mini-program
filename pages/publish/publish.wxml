@@ -1,24 +1,26 @@
 <!--pages/publish/publish.wxml-->
-<view class="container">
-    <form bindsubmit="preview" report-submit="true">
-        <view class="item">
-            <view>文章标题</view>
-            <input id="title" name="title" class="input" placeholder-class="input_class" type="text" maxlength='20' placeholder="最多20个字" value="{{title}}" bindinput='bindinput'/>
-        </view>
-        <view class="item">
-            <view>添加文章链接</view>
-            <input id="url" name="url" class="input" placeholder-class="input_class" type="text" placeholder="复制已有文章链接" value="{{url}}" bindinput='bindinput' />
-        </view>
-        <view class="item" bindtap='selectLabel'>
-            <view class='item_name'>选择文章标签</view>
-            <view class='right'>
-                <view class='quan-total {{tags.length?"color051426":""}}'>{{tags.length?"已选择"+tags.length+"个标签":"未选择"}}</view>
-                <image class='arrow' src='/image/arrows_right.png'></image>
-            </view>
-        </view>
-        <view class='tip'>
-            <text>支持微信公众号、今日头条等文章链接，一键发布\n建议复制本人文章链接，复制它人内容导致纠纷，将扣除奖励</text>
-        </view>
-        <button class='preview {{previewBtn?"preview":"disabledBtn"}}' formType="submit">查看文章效果</button>
-    </form>
+<view class="container {{isIpx?'container_ipx':''}}">
+  <form bindsubmit="preview" report-submit="true">
+    <view class="item">
+      <view>文章标题</view>
+      <input id="title" name="title" class="input" placeholder-class="input_class" type="text" maxlength='20' placeholder="最多20个字" value="{{title}}" bindinput='bindinput' />
+    </view>
+    <view class="item">
+      <view>添加文章链接</view>
+      <input id="url" name="url" class="input" placeholder-class="input_class" type="text" placeholder="复制已有文章链接" value="{{url}}" bindinput='bindinput' />
+    </view>
+    <view class="item" bindtap='selectLabel'>
+      <view class='item_name'>选择文章标签</view>
+      <view class='right'>
+        <view class='quan-total {{tags.length?"color051426":""}}'>{{tags.length?"已选择"+tags.length+"个标签":"未选择"}}</view>
+        <image class='arrow' src='/image/arrows_right.png'></image>
+      </view>
+    </view>
+    <view class='tip'>
+      <text>支持微信公众号、今日头条等文章链接，一键发布\n建议复制本人文章链接，复制它人内容导致纠纷，将扣除奖励</text>
+    </view>
+    <view class="bottom_next {{isIpx?'iphonex':''}}">
+      <button class='preview {{previewBtn?"preview":"disabledBtn"}}' formType="submit">查看文章效果</button>
+    </view>
+  </form>
 </view>

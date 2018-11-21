@@ -125,11 +125,17 @@ Page({
         wx.showToast({
           title: '取消成功',
         })
-        var list = that.data.list
-        list.splice(index, 1)
-        that.setData({
-          list: list
-        })
+        if (that.data.type == 1){
+          that.setData({
+            ["list[" + index +"].mutual"]: 0
+          })
+        } else {
+          var list = that.data.list
+          list.splice(index, 1)
+          that.setData({
+            list: list
+          })
+        }
       }
     });
   },

@@ -53,12 +53,15 @@
   height: 21rpx;
   margin-left: 12rpx;
 }
-
-.preview {
+.bottom_next{
   position: fixed;
-  width: 100%;
-  height: 98rpx;
+  left: 0;
+  right: 0;
   bottom: 0;
+  background: #FFFFFF
+}
+.preview {
+  height: 98rpx;
   background-color: #0794fc;
   line-height: 98rpx;
   text-align: center;

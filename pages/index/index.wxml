@@ -4,7 +4,7 @@
     <swiper class="swiper" indicator-dots autoplay="true">
         <block wx:for="{{tips}}" wx:key="{{index}}">
             <swiper-item>
-                <view class="swiper-item" bindtap='onBannerClick'>
+                <view class="swiper-item" bindtap='onBannerClick' data-link='{{item.link}}'>
                     <image class="swiper-cover" src="{{filter.imgUrl(item.cover,'@imageView2/1/w/750/h/240')}}"></image>
                 </view>
             </swiper-item>

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isIpx: app.globalData.isIphoneX,
     candyCount: 0, //余额
     candyList: [], //列表
     selectCandy: 0, //选择套餐的索引
@@ -71,6 +72,21 @@ Page({
           title: '购买成功'
         })
         that.getList()
+      },
+      fail: function (res) {
+        if (res.data.code == 30104){
+          wx.hideToast()
+          wx.showModal({
+            title: '提示',
+            content: '很抱歉，小程序暂不支持购卡',
+            confirmText: '知道了',
+            confirmColor: '#0794FC',
+            showCancel: false,
+            success(res) {
+
+            }
+          })
+        }
       }
     });
   },

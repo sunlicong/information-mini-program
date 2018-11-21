@@ -13,8 +13,7 @@ var imgUrl = function(id, mode) {
   if (id.indexOf('http') > -1) {
     return id;
   } else {
-    return 'http://demo1.ess.ejucloud.cn/' + id + mode;
-    //    return 'https://esscloudstreet.51kupai.com/' + id + mode;
+    return 'http://51keli.ess.ejucloud.cn/' + id + mode;
   }
 }
 var checkTime = function(i) {
@@ -23,10 +22,25 @@ var checkTime = function(i) {
   }
   return i
 }
+/**
+ * 1 向下去尾两位小数
+ */
 var formatMoney = function (money, type) {
   var s = money
   switch (type) {
     case 1:
+      var value = Math.floor(parseFloat(money) * 100) / 100;
+      var xsd = money.toString().split(".");
+      if (xsd.length == 1) {
+        value = value.toString() + ".00";
+        s =  value;
+      }
+      if (xsd.length > 1) {
+        if (xsd[1].length < 2) {
+          value = value.toString() + "0";
+        }
+        s = value;
+      }
       break;
     default:
       s = money.toFixed(2);

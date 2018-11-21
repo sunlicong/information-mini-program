@@ -7,10 +7,12 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isIpx: app.globalData.isIphoneX,
     title: '',
     url: '',
     tags: [],
     previewBtn: false,
+    createTime: '',
     content: '',//文章内容
   },
 
@@ -40,7 +42,6 @@ Page({
         url: url
       })
     }
-    console.log(title.length , url.length , this.data.tags.length)
     if (title.length && url.length > 4 && this.data.tags.length) {
       this.setData({
         previewBtn: true
@@ -76,6 +77,13 @@ Page({
       })
       return
     }
+    if (this.data.tags.length == 0) {
+      wx.showToast({
+        title: '请选择文章标签',
+        icon: 'none'
+      })
+      return
+    }
     wx.showLoading({
       title: '加载中...',
     });
@@ -89,6 +97,7 @@ Page({
       success: function (res) {
         wx.hideLoading();
         that.setData({
+          createTime: res.data.createTime,
           content: res.data.content
         })
         wx.navigateTo({

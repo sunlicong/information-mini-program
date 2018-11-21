@@ -26,7 +26,7 @@
         </view>
       </view>
     </view>
-    <button open-type='share' class='btn'>立即邀请</button>
+    <button bindtap='share' class='btn'>立即邀请</button>
   </view>
   <view class='tip_title'>发个朋友圈 躺着把钱赚</view>
   <view class='tip_view'>
@@ -46,3 +46,4 @@
     <image src='/image/icon_dian.png' class='dian2' mode='aspectFit'></image>
   </view>
 </view>
+<share pop="{{share}}"></share>

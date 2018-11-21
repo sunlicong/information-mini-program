@@ -31,7 +31,7 @@ var http = (options) => {
             http(options)
           })
         } else {
-          if (!options.notShowMsg) {
+          if (!options.notShowMsg && res.data.code != 30104 && res.data.code != 30101) {
             wx.showToast({
               title: res.data.msg ? res.data.msg : "服务器异常，请稍后再试",
               icon: 'none',

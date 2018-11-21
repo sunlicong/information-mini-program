@@ -1,8 +1,10 @@
 <!--pages/publishSelectLabel/publishSelectLabel.wxml-->
-<view class="container">
-    <label class='item' wx:for="{{list}}" wx:key="{{index}}" bindtap='selectTag' data-index='{{index}}'>
-        <radio class="choose" checked="{{item.checked}}" value="{{index}}" color="#0794FC" />
-        <view class='nick'>{{item.name}}</view>
-    </label>
-    <button class='button' bindtap='save'>保存</button>
+<view class="container {{isIpx?'container-iphonex':''}}">
+  <label class='item' wx:for="{{list}}" wx:key="{{index}}" bindtap='selectTag' data-index='{{index}}'>
+    <radio class="choose" checked="{{item.checked}}" value="{{index}}" color="#0794FC" />
+    <view class='nick'>{{item.name}}</view>
+  </label>
+  <form bindsubmit="save" report-submit="true" id="preview" class="bottom_next {{isIpx?'iphonex':''}}">
+    <button class="button" formType="submit">保存</button>
+  </form>
 </view>

@@ -1,10 +1,12 @@
 // pages/publishSelectLabel/publishSelectLabel.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    isIpx: app.globalData.isIphoneX,
     list: [{
         name: "娱乐",
         checked: false

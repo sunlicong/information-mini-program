@@ -109,14 +109,17 @@
     text-align: center;
 }
 .publish_btn {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    right: 0;
     text-align: center;
     background-color: #0794fc;
     color: white;
     height: 98rpx;
     font-size: 34rpx;
     line-height: 98rpx;
+}
+.bottom_next{
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #FFFFFF
 }

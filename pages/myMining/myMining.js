@@ -10,7 +10,8 @@ Page({
     mineList: [],
     next: 0,
     unReceiveMoney: 0, //待领取的人民币
-    totalCommition: 0 //	分红数
+    totalCommition: 0, //	分红数
+    randomXY: [],
   },
 
   /**
@@ -47,17 +48,48 @@ Page({
     api.http({
       url: '/blockchain/v1/user/unReceiveDbList',
       method: 'GET',
-      data:{
+      data: {
         next: that.data.next
       },
-      success: function (res) {
+      success: function(res) {
         wx.hideLoading();
+        that.createdBalls()
         that.setData({
           next: res.data.next,
           mineList: res.data.data,
         })
       }
     });
+  },
+  /**
+   * 随机生成位置
+   */
+  createdBalls() {
+    var randomArr = this.data.randomXY
+    const showHeight = 300 //限制钻石生成区域高度
+    const showWidth = 600
+    for (var i = 0; i < 50;i++){
+      const row = Math.floor(Math.random() * showHeight)
+      const col = Math.floor(Math.random() * showWidth)
+      if (randomArr.length === 0) {
+        randomArr.push({
+          left: col,
+          top: row
+        })
+      } else {
+        const noOverlap = randomArr.every(v => Math.hypot(v.left - col, v.top - row) > 100) //这里的主要目的就是来保证每次随机生成的点确定的图片位置不会有重叠
+        if (noOverlap) {
+          randomArr.push({
+            left: col,
+            top: row
+          })
+        }
+      }
+    }
+    this.setData({
+      randomXY: randomArr
+    })
+    console.log('xxxxxyyyyyy--', randomArr)
   },
   /**
    * 获取用户的未领取的资产
@@ -102,14 +134,14 @@ Page({
           if (id == list[i].id) {
             list[i].isHidden = 1
           }
-          if (!list[i].isHidden){
+          if (!list[i].isHidden) {
             isHaveDb = true
           }
         }
         that.setData({
           mineList: list
         })
-        if (that.data.next != -1 && !isHaveDb){
+        if (that.data.next != -1 && !isHaveDb) {
           that.unReceiveDbList()
         }
       },
@@ -166,12 +198,18 @@ Page({
     })
   },
   showTip() {
-    wx.showModal({
-      title: '提示',
-      content: '1、每日24点按当前所有用户持有非冻结DB比例结算当日分红\r\n2、次日中午8点左右发放前一日分红\r\n3、平台按照收入的80% 进行分红\r\n4前一日分红的40%分配给前一日获得DB并持有的用户，60%分配给以往获得DB并持有的用户\r\n5、超过48小时未领取的分红，将不可领取\r\n6、冻结部分，无法参与分红\r\n7、当前日获得的DB，无法参与前一日分红',
-      showCancel: false,
-      confirmText: '知道了',
-      confirmColor: '#29A3FD',
+    this.setData({
+      pointDialog: {
+        fromType: 3,
+        show: true //是否显示
+      }
     })
+    // wx.showModal({
+    //   title: '提示',
+    //   content: '1、每日24点按当前所有用户持有非冻结DB比例结算当日分红\r\n2、次日中午8点左右发放前一日分红\r\n3、平台按照收入的80% 进行分红\r\n4前一日分红的40%分配给前一日获得DB并持有的用户，60%分配给以往获得DB并持有的用户\r\n5、超过48小时未领取的分红，将不可领取\r\n6、冻结部分，无法参与分红\r\n7、当前日获得的DB，无法参与前一日分红',
+    //   showCancel: false,
+    //   confirmText: '知道了',
+    //   confirmColor: '#29A3FD',
+    // })
   }
 })
