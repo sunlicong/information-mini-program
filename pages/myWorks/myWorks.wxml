@@ -16,7 +16,7 @@
   <view wx:if="{{tabIndex==0}}" class='feed margin-top-1' wx:for="{{works}}" wx:key="{{index}}">
     <newsItem formType="1" pop="{{item}}"></newsItem>
     <view class='feed-bottom'>
-      <view class='feed-bottom-type'>
+      <view wx:if="{{false}}" class='feed-bottom-type'>
         <image src='/image/icon_candy_count.png' class='icon_opt' mode='aspectFit'></image>
         <view>{{item.investAmount}}糖果</view>
       </view>
@@ -38,7 +38,7 @@
     <view class="myInfo">
       <image class='img' src="/image/bg_circle.png"></image>
       <view class='info_num'>
-        <view class='text1'>累计收益(DB)</view>
+        <view class='text1'>累计收益(点钻)</view>
         <view class='text2'>{{worksData.totalProfit}}</view>
       </view>
     </view>

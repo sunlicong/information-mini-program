@@ -4,7 +4,9 @@
 .container {
   padding-bottom: 130rpx;
 }
-
+.container-iphonex{
+  padding-bottom: 176rpx;
+}
 .content {
   background-color: #fff;
 }

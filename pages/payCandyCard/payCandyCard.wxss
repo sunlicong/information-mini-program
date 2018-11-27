@@ -95,7 +95,7 @@
   display: inline-block;
   margin-left: 30rpx;
   margin-top: 30rpx;
-  width: 200rpx;
+  width: 208rpx;
   height: 120rpx;
   border-radius: 8rpx;
   text-align: center;
@@ -115,7 +115,7 @@
 .box_bg {
   position: absolute;
   display: block;
-  width: 200rpx;
+  width: 208rpx;
   height: 120rpx;
 }
 

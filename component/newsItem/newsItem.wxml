@@ -22,12 +22,12 @@
         <view class='feed-bottom-type'>
             {{item.source}}
         </view>
-        <view class='feed-bottom-type'>
-            <image src='/image/icon_item_praise_no.png' class='icon_opt' mode='aspectFit'></image>
+        <view wx:if="{{false}}" class='feed-bottom-type'>
+            <image src='/image/icon_item_praise_no.png' class='icon_opt size_16' mode='aspectFit'></image>
             <view>{{item.investAmount}}</view>
         </view>
         <view class='feed-bottom-type'>
-            <image src='/image/icon_praise_non.png' class='icon_opt' mode='aspectFit'></image>
+            <image src='/image/icon_praise_non.png' class='icon_opt size_15' mode='aspectFit'></image>
             <view>{{item.likeNum}}</view>
         </view>
     </view>

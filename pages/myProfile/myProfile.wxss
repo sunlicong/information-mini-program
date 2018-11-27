@@ -138,6 +138,7 @@
   height: 140rpx;
 }
 .item_content{
+  flex: 1;
   margin: 20rpx;
   line-height: 44rpx;
   font-size: 28rpx;

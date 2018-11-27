@@ -14,7 +14,7 @@
     </view>
     <view bindtap='itemClick' data-name='db' class='height-120'>
         <view class='left'>
-            <view class='margin-left-20'>DB</view>
+            <view class='margin-left-20'>点钻</view>
         </view>
         <view class='right'>
             <view class='right_text'>
@@ -35,7 +35,7 @@
             <image class='arrow' src='/image/arrows_right.png'></image>
         </view>
     </view>
-    <view bindtap='itemClick' data-name='candy' class='height-120'>
+    <view wx:if="{{false}}" bindtap='itemClick' data-name='candy' class='height-120'>
         <view class='left'>
             <view class='margin-left-20'>糖果卡</view>
         </view>

@@ -6,7 +6,7 @@
 .content{
     position: absolute;
     margin-top: 468rpx;
-    margin-left: 28rpx;
+    margin-left: 29rpx;
     width: 690rpx;
     height: 467rpx;
     border-radius: 0 0 8rpx 8rpx;

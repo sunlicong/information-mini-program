@@ -7,8 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    formType: 1, // 1 DB 2 人民币
-    num: 0, //DB 或 人民币
+    formType: 1, // 1 点钻 2 人民币
+    num: 0, //点钻 或 人民币
     list: [],
     next: 0
   },
@@ -22,7 +22,7 @@ Page({
     })
     if (options.formType == 1) {
       wx.setNavigationBarTitle({
-        title: 'DB',
+        title: '点钻',
       })
       this.queryTokenBillList()
     } else {

@@ -34,11 +34,11 @@
         </view>
       </view>
       <view class='mining'>
-        <view wx:if="{{mineList.length==0}}" class='mining_non'>正在挖矿中</view>
+        <view wx:if="{{mineList.length==0}}" class='mining_non'>点钻正在产出中</view>
         <view wx:if="{{!item.isHidden}}" class='mining_item' style='left:{{randomXY[index].left}}rpx;top:{{randomXY[index].top}}rpx' bindtap="getMining" wx:for="{{mineList}}" wx:key="{{index}}" bindtap='getCoin' data-id='{{item.id}}' data-index='{{index}}'>
           <image class='img_mining' src="../../image/icon_mining.png"></image>
           <view class='num'>{{item.tokenamount}}</view>
-          <view class='coin'>DB</view>
+          <view class='coin'>点钻</view>
         </view>
       </view>
     </view>
@@ -57,7 +57,7 @@
   <view class='divid_content'>
     <view class='title'>待领取分红</view>
     <view class='price'>{{tools.formatMoney(unReceiveMoney)}}元</view>
-    <!-- <view class='coin'>参与分红币：180</view> -->
+    <view class='coin'>参与分红点钻：{{bonusDb}}</view>
     <button disabled='{{unReceiveMoney==0}}' class='get' bindtap='getRmb'>领取</button>
   </view>
 </view>

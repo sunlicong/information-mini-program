@@ -11,6 +11,7 @@ Page({
     next: 0,
     unReceiveMoney: 0, //待领取的人民币
     totalCommition: 0, //	分红数
+    bonusDb: 0,//参与分红币
     randomXY: [],
   },
 
@@ -49,7 +50,7 @@ Page({
       url: '/blockchain/v1/user/unReceiveDbList',
       method: 'GET',
       data: {
-        next: that.data.next
+        next: 0
       },
       success: function(res) {
         wx.hideLoading();
@@ -106,7 +107,8 @@ Page({
         wx.hideLoading();
         that.setData({
           unReceiveMoney: res.data.unReceiveMoney,
-          totalCommition: res.data.totalCommition
+          totalCommition: res.data.totalCommition,
+          bonusDb: res.data.bonusDb
         })
       }
     });
@@ -204,12 +206,5 @@ Page({
         show: true //是否显示
       }
     })
-    // wx.showModal({
-    //   title: '提示',
-    //   content: '1、每日24点按当前所有用户持有非冻结DB比例结算当日分红\r\n2、次日中午8点左右发放前一日分红\r\n3、平台按照收入的80% 进行分红\r\n4前一日分红的40%分配给前一日获得DB并持有的用户，60%分配给以往获得DB并持有的用户\r\n5、超过48小时未领取的分红，将不可领取\r\n6、冻结部分，无法参与分红\r\n7、当前日获得的DB，无法参与前一日分红',
-    //   showCancel: false,
-    //   confirmText: '知道了',
-    //   confirmColor: '#29A3FD',
-    // })
   }
 })

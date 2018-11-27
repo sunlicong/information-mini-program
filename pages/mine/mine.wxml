@@ -21,7 +21,7 @@
         </view>
         <view class="text">
           <text>{{tools.formatMoney(totalToken,1)}}</text>
-          <text class='coin'>DB</text>
+          <text class='coin'>点钻</text>
         </view>
       </view>
       <view class="line"></view>

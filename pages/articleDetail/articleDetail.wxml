@@ -17,10 +17,10 @@
     </view>
     <view class="wxParse">
       <template is="wxParse" data="{{wxParseData:article.nodes}}" />
-      <view class='readCount'>阅读{{data.browserCount}}</view>
+      <view class='readCount'>阅读    {{data.browserCount}}</view>
     </view>
   </view>
-  <view class='praise'>
+  <view wx:if="{{false}}" class='praise'>
     <image class='praise_cover' src="{{data.authorInfo.photo}}"></image>
     <view class='praise_text'>喜欢就给我赞赏吧</view>
     <button class='praise_push' bindtap='pay'>赞赏</button>
@@ -31,7 +31,7 @@
       </view>
     </view>
   </view>
-  <view class='opt'>
+  <view wx:if="{{false}}" class='opt'>
     <view class='opt_item' bindtap='like' data-opt='{{data.attitudeStatus?0:1}}'>
       <view class='relative_view'>
         <view wx:if="{{data.attitudeOptCount}}" class='attitudeCount'>{{data.attitudeOptCount}}</view>
@@ -63,12 +63,12 @@
       </button>
     </view>
   </view>
-  <image class="send_pay {{isIpx?'iphonex_send':''}}" src="/image/icon_send_pay.png" bindtap="pay"></image>
+  <image wx:if="{{false}}" class="send_pay {{isIpx?'iphonex_send':''}}" src="/image/icon_send_pay.png" bindtap="pay"></image>
 </view>
 <view>
   <view class="modal" wx:if="{{showDialog}}" bindtap="closeDialog"></view>
   <view class="dialog_box {{showDialog?'dialog_box_p':''}}">
-    <!-- <view class="box_top">10糖果返还赞赏者8DB，内容发布者2DB</view> -->
+    <!-- <view class="box_top">10糖果返还赞赏者8点钻，内容发布者2点钻</view> -->
     <scroll-view class="box_list" scroll-x>
       <view class='card {{index==0? "ml-30":""}}' wx:for="{{candyList}}" bindtap='selectCandy' data-index='{{index}}'>
         <image class='bg {{index==selectCandyIndex?"select":""}}' src="{{index<3?'/image/'+(index+1)+'_candy.png':'/image/4_candy.png'}}"></image>
@@ -81,7 +81,7 @@
         <view class=''>购买</view>
         <image class='arrow' src='/image/arrows_right.png'></image>
       </view>
-      <button class="send {{isIpx?'send_iphonex':''}}" bindtap='sendCandy'>赠送</button>
+      <button class="send" bindtap='sendCandy'>赠送</button>
     </view>
   </view>
 </view>

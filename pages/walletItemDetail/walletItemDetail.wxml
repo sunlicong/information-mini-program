@@ -47,7 +47,7 @@
         <view class='top_content'>
             <view class='balance one_line'>
                 <view>{{num?num:'0.00'}}</view>
-                <text class='yuan'>{{formType==1?'DB':'元'}}</text>
+                <text class='yuan'>{{formType==1?'点钻':'元'}}</text>
             </view>
         </view>
     </view>
@@ -61,7 +61,7 @@
             <view class='time'>{{tools.formatDate(item.time,1)}}</view>
         </view>
         <view class='right'>
-            <view class='num'>{{item.type==2||item.type==5?'-':'+'}}{{item.count}}{{formType==1?'DB':'元'}}</view>
+            <view class='num'>{{item.type==2||item.type==5?'-':'+'}}{{item.count}}{{formType==1?'点钻':'元'}}</view>
         </view>
     </view>
 </view>

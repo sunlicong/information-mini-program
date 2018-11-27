@@ -5,7 +5,7 @@
     <view class='content'>
         <view class='box1'>
             <view class='w_50'>
-                <view class='text1'>昨日点赞挖矿产生DB</view>
+                <view class='text1'>昨日点赞挖矿产生点钻</view>
                 <view class='text2'>{{tools.formatMoney(yesterdayLikeTotalToken, 1)}}</view>
             </view>
             <view class='w_50'>
@@ -14,15 +14,15 @@
             </view>
         </view>
         <view class='box2 b_color_D1D7FF'>
-            <view class='text5'>DB总流通量：</view>
+            <view class='text5'>点钻总流通量：</view>
             <view class='text6'>{{tools.formatMoney(tokenTotalCirculating, 1)}}</view>
         </view>
         <view class='box2'>
-            <view class='text5'>昨日挖矿产生DB总量：</view>
+            <view class='text5'>昨日挖矿产生点钻总量：</view>
             <view class='text6'>{{tools.formatMoney(yesterdayTotalToken, 1)}}</view>
         </view>
         <view class='box2 radius b_color_D1D7FF one_line'>
-            <view class='text5'>生态和团队同步释放DB总量：</view>
+            <view class='text5'>生态和团队同步释放点钻总量：</view>
             <view class='text6'>{{tools.formatMoney(unfrozenTotalToken, 1)}}</view>
         </view>
     </view>

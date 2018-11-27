@@ -63,7 +63,7 @@ Page({
           data: res.data
         })
         var text = res.data.content.content.replace(/data-src/g, "src")
-        WxParse.wxParse('article', 'html', text, that, 30);
+        WxParse.wxParse('article', 'html', text, that, 15);
         wx.hideLoading();
       },
       fail: function(res){

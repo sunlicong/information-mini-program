@@ -35,7 +35,7 @@
     <view wx:elif="{{item.optType==2}}" class='item_opt'>赞赏了文章</view>
     <view wx:else class='item_opt'>发表了文章</view>
     <view class='item_info'>
-      <image wx:if="{{item.coverPid}}" class='item_img' src="{{filterTime.coverPid(item.coverPid)}}"></image>
+      <image mode='aspectFill' wx:if="{{item.coverPid}}" class='item_img' src="{{filterTime.coverPid(item.coverPid)}}"></image>
       <view class='item_content'>{{item.title}}</view>
     </view>
   </view>

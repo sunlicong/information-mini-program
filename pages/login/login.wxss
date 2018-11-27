@@ -10,7 +10,7 @@
     margin-top: 76rpx;
 }
 .line{
-    background-color: #DBDBDB;
+    background-color: #dbdbdb;
     height: 1rpx;
     margin-left: 45rpx;
     margin-right: 45rpx;
