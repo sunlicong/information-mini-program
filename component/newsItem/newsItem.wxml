@@ -15,7 +15,7 @@
         </view>
         <!-- 图片 3张 -->
         <view class='feed-imgs2' wx:if="{{pics.length>0}}">
-            <image lazy-load="true" mode='aspectFill' wx:if="{{index<3}}" wx:for='{{pics}}' wx:key='*this' src='{{filter.imgUrl(item, "@imageView2/1/w/214/h/214")}}' class='feed-img2'></image>
+            <image lazy-load="true" mode='aspectFill' wx:if="{{index<3}}" wx:for='{{pics}}' wx:key='*this' src='{{filter.imgUrl(item, "@imageView2/1/w/214/h/214")}}' class='feed-img2 {{index==0?"ml-30":"ml-15"}}'></image>
         </view>
     </view>
     <view wx:if="{{formType==0}}" class='feed-bottom'>

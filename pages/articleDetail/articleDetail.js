@@ -32,35 +32,37 @@ Page({
     })
     var that = this
     this.getArticleDetail()
+    //可能会在 Page.onLoad 之后才返回
+    //登录之后的操作  callback 
+    app.userInfoReadyCallback = res => {
+      if (res.awardTokenAmount) {
+        this.setData({
+          pointDialog: {
+            fromType: 1,
+            points: res.awardTokenAmount, //积分
+            show: true //是否显示
+          }
+        })
+      } else if (!wx.getStorageSync('DetailGuid')) {//首次引导蒙层的标识
+        wx.setStorageSync('DetailGuid', true)
+        this.setData({
+          mask: {
+            fromType: 2,
+            show: true //是否显示
+          }
+        })
+      }
+    }
   },
   onShow() {
-    if (!app.globalData.token) return
-    var token = app.globalData.registerTokenAmount
-    if (token) {
-      app.globalData.registerTokenAmount = 0
-      this.setData({
-        pointDialog: {
-          fromType: 1,
-          points: token, //积分
-          show: true //是否显示
-        }
-      })
-    } else if (!wx.getStorageSync('DetailGuid')) {//首次引导蒙层的标识
-      wx.setStorageSync('DetailGuid', true)
-      this.setData({
-        mask: {
-          fromType: 2,
-          show: true //是否显示
-        }
-      })
-    }
+    
   },
   /**
    * 关闭积分弹框后再判断一下是否显示引导
    */
   closeDialog() {
-    if (!wx.getStorageSync('homeGuid')) {//首次引导蒙层的标识
-      wx.setStorageSync('homeGuid', true)
+    if (!wx.getStorageSync('DetailGuid')) {//首次引导蒙层的标识
+      wx.setStorageSync('DetailGuid', true)
       this.setData({
         mask: {
           fromType: 1,

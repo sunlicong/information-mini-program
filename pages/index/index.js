@@ -12,6 +12,26 @@ Page({
     mask:{}//引导蒙层
   },
   onLoad: function() {
+    // 登录之后的操作  callback 
+    app.userInfoReadyCallback = res => {
+      if (res.awardTokenAmount) {
+        this.setData({
+          pointDialog: {
+            fromType: 1,
+            points: res.awardTokenAmount, //积分
+            show: true //是否显示
+          }
+        })
+      } else if (!wx.getStorageSync('homeGuid')) {//首次引导蒙层的标识
+        wx.setStorageSync('homeGuid', true)
+        this.setData({
+          mask: {
+            fromType: 1,
+            show: true //是否显示
+          }
+        })
+      }
+    }
     wx.showLoading({
       title: '加载中...',
     })
@@ -19,26 +39,7 @@ Page({
     this.getFeeds()
   },
   onShow() {
-    if (!app.globalData.token) return
-    var token = app.globalData.registerTokenAmount
-    if (token) {
-      app.globalData.registerTokenAmount = 0
-      this.setData({
-        pointDialog: {
-          fromType: 1,
-          points: token, //积分
-          show: true //是否显示
-        }
-      })
-    } else if(!wx.getStorageSync('homeGuid')){//首次引导蒙层的标识
-      wx.setStorageSync('homeGuid', true)
-      this.setData({
-        mask: {
-          fromType: 1,
-          show: true //是否显示
-        }
-      })
-    }
+    
   },
   /**
    * 关闭积分弹框后再判断一下是否显示引导
@@ -61,6 +62,7 @@ Page({
       method: 'GET',
       success: function(res) {
         that.setData({
+          currentIndex: 0,
           tips: res.data
         })
       }
@@ -146,7 +148,7 @@ Page({
 
   onShareAppMessage() {
     return {
-      title: '送你大鱼股份，天天有分红，快来领取！s',
+      title: '送你大鱼股份，天天有分红，快来领取！',
       path: 'pages/index/index?inviter=' + app.globalData.userInfo.uid,
       imageUrl: '/image/share_index_card.png'
     }

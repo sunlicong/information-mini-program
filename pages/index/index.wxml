@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <wxs src="../../utils/filter.wxs" module="filter" />
 <view class="container">
-    <swiper class="swiper" indicator-dots="{{tips.length>1}}" autoplay="true">
+    <swiper class="swiper" indicator-dots="{{tips.length>1}}" current='{{currentIndex}}' autoplay="true">
         <block wx:for="{{tips}}" wx:key="{{index}}">
             <swiper-item>
                 <view class="swiper-item" bindtap='onBannerClick' data-link='{{item.link}}'>

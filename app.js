@@ -123,12 +123,16 @@ App({
             wx.hideLoading();
             that.globalData.token = res.data.token;
             that.globalData.userInfo = res.data.user;
-            that.globalData.registerTokenAmount = res.data.awardTokenAmount;
             wx.setStorageSync('token', res.data.token);
             wx.setStorageSync('userInfo', res.data.user);
             console.log('callback', callback)
             if (callback) {
               callback(res.data)
+            }
+            // 可能会在 Page.onLoad 之后才返回
+            // 所以此处加入 callback 以防止这种情况
+            if (that.userInfoReadyCallback) {
+              that.userInfoReadyCallback(res.data)
             }
           },
           fail: function(res) {
@@ -167,8 +171,6 @@ App({
     userInfo: null,
     //邀请人
     inviter: '',
-    //注册奖励电钻
-    registerTokenAmount: 0,
     //iphoneX
     isIphoneX: false,
     // 全局配置
@@ -176,7 +178,7 @@ App({
       // 接口域名
       apiDomain: 'http://47.104.159.109:8181',
       // 图片存储域名
-      imgDomain: 'https://esscraftsman.51kupai.com/'
+      imgDomain: 'http://51keli.ess.ejucloud.cn/'
     },
   },
   /**
