@@ -27,7 +27,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "头条",
+        "navigationBarTitleText": "大鱼快报",
         "navigationBarTextStyle": "black",
         "backgroundColor": "#F4F4F4"
     },

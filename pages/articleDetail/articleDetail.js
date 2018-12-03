@@ -17,7 +17,8 @@ Page({
     selectCandyIndex: 0,
     data: {},
     candyCount: 0, //余额
-    candyList: [] //购买的糖果列表
+    candyList: [], //购买的糖果列表
+    mask: {}//引导蒙层
   },
 
   /**
@@ -33,6 +34,7 @@ Page({
     this.getArticleDetail()
   },
   onShow() {
+    if (!app.globalData.token) return
     var token = app.globalData.registerTokenAmount
     if (token) {
       app.globalData.registerTokenAmount = 0
@@ -40,6 +42,28 @@ Page({
         pointDialog: {
           fromType: 1,
           points: token, //积分
+          show: true //是否显示
+        }
+      })
+    } else if (!wx.getStorageSync('DetailGuid')) {//首次引导蒙层的标识
+      wx.setStorageSync('DetailGuid', true)
+      this.setData({
+        mask: {
+          fromType: 2,
+          show: true //是否显示
+        }
+      })
+    }
+  },
+  /**
+   * 关闭积分弹框后再判断一下是否显示引导
+   */
+  closeDialog() {
+    if (!wx.getStorageSync('homeGuid')) {//首次引导蒙层的标识
+      wx.setStorageSync('homeGuid', true)
+      this.setData({
+        mask: {
+          fromType: 1,
           show: true //是否显示
         }
       })
@@ -81,7 +105,8 @@ Page({
       showDialog: false
     })
   },
-  pay() {
+  pay(e) {
+    if (e.detail.formId) app.collectFormId(e.detail.formId)
     var that = this
     wx.showLoading({
       title: '加载中...',
@@ -125,6 +150,7 @@ Page({
    * 赠送糖果
    */
   sendCandy(e) {
+    if (e.detail.formId) app.collectFormId(e.detail.formId)
     var that = this
     wx.showLoading({
       title: '加载中...',
@@ -192,7 +218,8 @@ Page({
   /**
    * 回首页
    */
-  goHome() {
+  goHome(e) {
+    if (e.detail.formId) app.collectFormId(e.detail.formId)
     wx.switchTab({
       url: '/pages/index/index',
     })
@@ -207,6 +234,7 @@ Page({
    * 点赞
    */
   like(e) {
+    if (e.detail.formId) app.collectFormId(e.detail.formId)
     var opt = e.currentTarget.dataset.opt
     var that = this
     api.http({
@@ -241,6 +269,7 @@ Page({
    * 关注
    */
   relation(e) {
+    if (e.detail.formId) app.collectFormId(e.detail.formId)
     var uid = e.currentTarget.dataset.uid
     var that = this
     api.http({
@@ -264,6 +293,7 @@ Page({
    * 取消关注
    */
   deleteRelation(e) {
+    if (e.detail.formId) app.collectFormId(e.detail.formId)
     var uid = e.currentTarget.dataset.uid
     var that = this
     api.http({
@@ -286,7 +316,8 @@ Page({
   /**
    * 分享完加次数
    */
-  share() {
+  share(e) {
+    console.log(e)
     var that = this
     api.http({
       url: '/blockchain/v1/content/share',

@@ -1,11 +1,10 @@
 <!--pages/login/login.wxml-->
 <view class="container">
     <view class='top'>
-        <image mode='aspectFill' class='logo' src='https://gss1.bdstatic.com/9vo3dSag_xI4khGkpoWK1HF6hhy/baike/crop%3D0%2C1%2C580%2C382%3Bc0%3Dbaike80%2C5%2C5%2C80%2C26/sign=ae05c81278cf3bc7fc4f97acec309690/d53f8794a4c27d1e1b170fdb13d5ad6eddc438ff.jpg'></image>
+        <image mode='aspectFill' class='logo' src='/image/login_logo.png'></image>
     </view>
-	<view class="line"></view>
-    <view class="text1">请您授权微信登录，访问斋藤飞鸟</view>
-    <view class="text2">· 获得你的公开信息（昵称、头像）</view>
+    <view class="text1">大鱼快报</view>
+    <view class="text2">让信息更具价值</view>
     <button wx:if="{{canIUse}}" id='bt' type="default"  open-type='getUserInfo' bindgetuserinfo='getUserInfo'>账号登录</button>
     <view wx:else>请升级微信版本</view>
 </view>

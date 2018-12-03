@@ -22,7 +22,7 @@ Page({
    */
   onShareAppMessage: function() {
     return {
-      title: '送你头条『股』份，天天有分红，快来领取！',
+      title: '送你大鱼股份，天天有分红，快来领取！',
       path: 'pages/index/index?inviter=' + app.globalData.userInfo.uid,
       imageUrl: '/image/share_index_card.png'
     }

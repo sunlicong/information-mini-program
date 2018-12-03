@@ -133,7 +133,7 @@ App({
           },
           fail: function(res) {
             wx.showToast({
-              title: res.data.code + '',
+              title: res.data.code + res.data.msg,
               icon: 'none',
               duration: 1500
             })
@@ -145,9 +145,23 @@ App({
       },
     })
   },
+  /**
+   * 收集formId 用于推送模版消息
+   */
+  collectFormId(formId) {
+    api.http({
+      url: '/blockchain/v1/push/collect/formid',
+      method: 'POST',
+      notShowMsg: true,
+      data: {
+        formId: formId,
+      },
+      success: function (res) { }
+    });
+  },
   globalData: {
     // 调试模式
-    debug: true,
+    debug: false,
     token: "",
     // 用户数据
     userInfo: null,
@@ -160,7 +174,7 @@ App({
     // 全局配置
     config: {
       // 接口域名
-      apiDomain: 'http://192.168.32.223:8181',
+      apiDomain: 'http://47.104.159.109:8181',
       // 图片存储域名
       imgDomain: 'https://esscraftsman.51kupai.com/'
     },

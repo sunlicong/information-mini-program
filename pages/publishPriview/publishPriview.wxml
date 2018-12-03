@@ -18,6 +18,8 @@
     </view>
   </view>
   <view class="bottom_next {{isIpx?'iphonex':''}}">
-    <view class="publish_btn" bindtap="publish">立即发布</view>
+    <form bindsubmit="publish" report-submit="true">
+      <view class="publish_btn" formType="submit">立即发布</view>
+    </form>
   </view>
 </view>

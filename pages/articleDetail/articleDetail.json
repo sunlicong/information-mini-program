@@ -1,6 +1,6 @@
 {
-    "navigationBarTitleText": "详情",
     "usingComponents": {
-      "points-dialog": "/component/pointsDialog/pointsDialog"
+      "points-dialog": "/component/pointsDialog/pointsDialog",
+      "guid-mask": "/component/guidingMask/guidingMask"
     }
 }

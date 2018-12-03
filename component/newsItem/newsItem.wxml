@@ -6,7 +6,7 @@
         <view class='feed-title1 three_line'>
             {{item.title}}
         </view>
-        <image mode='aspectFill' src='{{filter.imgUrl(pics[0], "@imageView2/1/w/214/h/214")}}' class='feed-img1'></image>
+        <image lazy-load="true" mode='aspectFill' src='{{filter.imgUrl(pics[0], "@imageView2/1/w/214/h/214")}}' class='feed-img1'></image>
     </view>
     <!-- 一张图片以为的样式 -->
     <view wx:else class='style2'>
@@ -15,19 +15,19 @@
         </view>
         <!-- 图片 3张 -->
         <view class='feed-imgs2' wx:if="{{pics.length>0}}">
-            <image mode='aspectFill' wx:if="{{index<3}}" wx:for='{{pics}}' wx:key='*this' src='{{filter.imgUrl(item, "@imageView2/1/w/214/h/214")}}' class='feed-img2'></image>
+            <image lazy-load="true" mode='aspectFill' wx:if="{{index<3}}" wx:for='{{pics}}' wx:key='*this' src='{{filter.imgUrl(item, "@imageView2/1/w/214/h/214")}}' class='feed-img2'></image>
         </view>
     </view>
     <view wx:if="{{formType==0}}" class='feed-bottom'>
         <view class='feed-bottom-type'>
             {{item.source}}
         </view>
-        <view wx:if="{{false}}" class='feed-bottom-type'>
+        <view wx:if="{{false}}" class='feed-bottom-type ml-40'>
             <image src='/image/icon_item_praise_no.png' class='icon_opt size_16' mode='aspectFit'></image>
             <view>{{item.investAmount}}</view>
         </view>
-        <view class='feed-bottom-type'>
-            <image src='/image/icon_praise_non.png' class='icon_opt size_15' mode='aspectFit'></image>
+        <view class='feed-bottom-type ml-40'>
+            <image src='/image/icon_praise_non.png' class='icon_opt size_15 mt-10' mode='aspectFit'></image>
             <view>{{item.likeNum}}</view>
         </view>
     </view>

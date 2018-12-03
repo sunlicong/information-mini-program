@@ -9,6 +9,7 @@ Page({
     next: 0,
     yesterdayTokenTotal: 0,
     incomeTokenTotal: 0,
+    mask:{}//引导蒙层
   },
   onLoad: function() {
     wx.showLoading({
@@ -18,6 +19,7 @@ Page({
     this.getFeeds()
   },
   onShow() {
+    if (!app.globalData.token) return
     var token = app.globalData.registerTokenAmount
     if (token) {
       app.globalData.registerTokenAmount = 0
@@ -25,6 +27,28 @@ Page({
         pointDialog: {
           fromType: 1,
           points: token, //积分
+          show: true //是否显示
+        }
+      })
+    } else if(!wx.getStorageSync('homeGuid')){//首次引导蒙层的标识
+      wx.setStorageSync('homeGuid', true)
+      this.setData({
+        mask: {
+          fromType: 1,
+          show: true //是否显示
+        }
+      })
+    }
+  },
+  /**
+   * 关闭积分弹框后再判断一下是否显示引导
+   */
+  closeDialog(){
+    if (!wx.getStorageSync('homeGuid')) {//首次引导蒙层的标识
+      wx.setStorageSync('homeGuid', true)
+      this.setData({
+        mask: {
+          fromType: 1,
           show: true //是否显示
         }
       })
@@ -113,7 +137,8 @@ Page({
   /**
    * 跳转到累计收益
    */
-  goMyMining() {
+  goMyMining(e) {
+    if (e.detail.formId) app.collectFormId(e.detail.formId)
     wx.navigateTo({
       url: '/pages/myMining/myMining',
     })
@@ -121,7 +146,7 @@ Page({
 
   onShareAppMessage() {
     return {
-      title: '送你头条『股』份，天天有分红，快来领取！',
+      title: '送你大鱼股份，天天有分红，快来领取！s',
       path: 'pages/index/index?inviter=' + app.globalData.userInfo.uid,
       imageUrl: '/image/share_index_card.png'
     }

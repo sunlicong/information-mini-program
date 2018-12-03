@@ -1,7 +1,7 @@
 <!--index.wxml-->
 <wxs src="../../utils/filter.wxs" module="filter" />
 <view class="container">
-    <swiper class="swiper" indicator-dots autoplay="true">
+    <swiper class="swiper" indicator-dots="{{tips.length>1}}" autoplay="true">
         <block wx:for="{{tips}}" wx:key="{{index}}">
             <swiper-item>
                 <view class="swiper-item" bindtap='onBannerClick' data-link='{{item.link}}'>
@@ -37,6 +37,11 @@
     <view class='feed margin-top-2' wx:for="{{feeds}}" wx:key="{{index}}">
         <newsItem pop="{{item}}"></newsItem>
     </view>
-    <image class='my_mining' src="../../image/icon_mining.png" bindtap="goMyMining"></image>
+    <form report-submit="true" bindsubmit="goMyMining">
+      <button formType="submit">
+        <image class='my_mining' src="../../image/icon_index_mining.png"></image>
+      </button>
+    </form>   
 </view>
-<points-dialog data='{{pointDialog}}'></points-dialog>
+<points-dialog bind:closeDialog="closeDialog" data='{{pointDialog}}'></points-dialog>
+<guid-mask data='{{mask}}'></guid-mask>

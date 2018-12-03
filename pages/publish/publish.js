@@ -56,6 +56,7 @@ Page({
    * 预览
    */
   preview(e) {
+    if (e.detail.formId) app.collectFormId(e.detail.formId)
     var that = this
     var title = e.detail.value.title;
     var url = e.detail.value.url;

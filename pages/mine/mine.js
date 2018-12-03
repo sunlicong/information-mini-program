@@ -14,6 +14,7 @@ Page({
     fansCount: 0, //粉丝数
     totalToken: 0, //我的钱包总token数
     totalCommition: 0, //
+    mask: {}//引导蒙层
   },
 
   /**
@@ -25,6 +26,15 @@ Page({
       photo: app.globalData.userInfo.photo
     })
     this.queryProfileCounts()
+    if (!wx.getStorageSync('MineGuid')) {//首次引导蒙层的标识
+      wx.setStorageSync('MineGuid', true)
+      this.setData({
+        mask: {
+          fromType: 3,
+          show: true //是否显示
+        }
+      })
+    }
   },
   queryProfileCounts() {
     var that = this

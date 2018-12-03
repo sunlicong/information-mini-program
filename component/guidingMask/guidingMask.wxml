@@ -1,0 +1,30 @@
+<!--component/guidingMask/guidingMask.wxml-->
+<view class='container' catchtouchmove="preventTouchMove" wx:if="{{data.show}}">
+  <view class='body' wx:if="{{data.fromType == 1}}">
+    <image class='home1' src='/image/guid_home1.png'></image>
+    <image class='home_know' bindtap='closeDialog' src='/image/guid_know.png'></image>
+    <image class='home2' src='/image/guid_home2.png'></image>
+  </view>
+  <view class='body' wx:if="{{data.fromType == 2}}">
+    <view wx:if="{{detailIndex==0}}" class='guid_detail {{isIpx?"bottom_68":""}}'>
+      <image class='detail_know' bindtap='detailClick' src='/image/guid_know.png'></image>
+      <image class='detail1' src='/image/guid_detail1.png'></image>
+    </view>
+    <view wx:if="{{detailIndex==1}}" class='guid_detail {{isIpx?"bottom_68":""}}'>
+      <image class='detail_know' bindtap='detailClick' src='/image/guid_know.png'></image>
+      <image class='detail2' src='/image/guid_detail2.png'></image>
+    </view>
+  </view>
+  <view class='body' wx:if="{{data.fromType == 3}}">
+    <image class='mine1' src='/image/guid_mine.png'></image>
+    <image class='mine_know' bindtap='closeDialog' src='/image/guid_know.png'></image>
+  </view>
+  <view class='body' wx:if="{{data.fromType == 4}}">
+    <view class='guid_mining {{isIpx?"bottom_68":""}}'>
+      <image wx:if="{{miningIndex==0}}" class='mining1' src='/image/guid_mining1.png'></image>
+    <image wx:if="{{miningIndex==1}}" class='mining2' src='/image/guid_mining2.png'></image>
+    <image class='mining_know' bindtap='miningClick' src='/image/guid_know.png'></image>
+    </view>
+  </view>
+  <view class="bg"></view>
+</view>

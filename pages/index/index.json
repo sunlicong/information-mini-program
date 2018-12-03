@@ -3,6 +3,7 @@
   "backgroundTextStyle": "dark",
   "usingComponents": {
     "newsItem": "../../../component/newsItem/newsItem",
-    "points-dialog": "/component/pointsDialog/pointsDialog"
+    "points-dialog": "/component/pointsDialog/pointsDialog",
+    "guid-mask": "/component/guidingMask/guidingMask"
   }
 }

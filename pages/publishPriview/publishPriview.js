@@ -34,7 +34,8 @@ Page({
     WxParse.wxParse('article', 'html', text, this, 30);
   },
 
-  publish() {
+  publish(e) {
+    if (e.detail.formId) app.collectFormId(e.detail.formId)
     var that = this
     wx.showLoading({
       title: '加载中...',

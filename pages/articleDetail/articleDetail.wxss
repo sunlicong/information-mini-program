@@ -67,6 +67,7 @@
   font-size: 24rpx;
   color: #fff;
   text-align: center;
+  padding: 0;
 }
 
 .authorInfo .attitude_n {
@@ -80,8 +81,12 @@
   font-size: 24rpx;
   color: #a3aeba;
   text-align: center;
+  padding: 0;
 }
-
+.authorInfo button::after{
+  border: 0;
+  padding: 0;
+}
 .wxParse {
   padding-bottom: 10rpx;
   padding-left: 15px;
@@ -89,11 +94,17 @@
   margin-left: 0rpx;
   margin-right: 0rpx;
 }
-
-.readCount {
-  margin-left: 15rpx;
-  margin-top: 50rpx;
+.readTip{
+  margin-top: 56rpx;
   font-family: PingFangSC-Regular;
+  font-weight:400;
+  font-size: 28rpx;
+  color: #a3aeba;
+}
+.readCount {
+  margin-top: 40rpx;
+  font-family: PingFangSC-Regular;
+  font-weight:400;
   font-size: 28rpx;
   color: #a3aeba;
 }
@@ -184,10 +195,13 @@
   height: 28rpx;
   margin-right: 20rpx;
 }
-
+.relative_view{
+  height: 56rpx;
+  margin-top: -28rpx;
+}
 .attitudeCount {
   position: absolute;
-  margin-top: -28rpx;
+  margin-top: -2rpx;
   width: 43rpx;
   height: 26rpx;
   background: #0794fc;
@@ -218,12 +232,17 @@
 
 .bottom_praise {
   width: 230rpx;
-  height: 41rpx;
+  height: 100rpx;
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 0;
+  border-radius: 0;
+  background: #ffffff;
 }
-
+.bottom_praise::after{
+  border: 0;
+}
 .bottom_share {
   flex: 1;
   height: 100%;
@@ -233,18 +252,23 @@
   border-left: 1rpx solid #a3aeba;
   background: #fff;
   border: 0;
+}
+.bottom_text{
+  height: 40rpx;
+  line-height: 40rpx;
   font-size: 28rpx;
   font-family: PingFangSC-Regular;
   font-weight: 400;
   color: #a3aeba;
 }
-
 .bottom_share::after {
   border: 0;
 }
 
-.right_line {
-  border-right: 1rpx solid #a3aeba;
+.bottom_line {
+  height: 42rpx;
+  width: 1rpx;
+  background: #a3aeba;
 }
 
 .bottom_pay {

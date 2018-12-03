@@ -1,6 +1,7 @@
 {
     "navigationBarTitleText": "我的挖矿",
     "usingComponents": {
-      "tipDialog": "/component/tipDialog/tipDialog"
+      "tipDialog": "/component/tipDialog/tipDialog",
+      "guid-mask": "/component/guidingMask/guidingMask"
     }
 }

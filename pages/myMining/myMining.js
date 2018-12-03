@@ -13,6 +13,7 @@ Page({
     totalCommition: 0, //	分红数
     bonusDb: 0,//参与分红币
     randomXY: [],
+    mask: {}//引导蒙层
   },
 
   /**
@@ -21,6 +22,17 @@ Page({
   onLoad: function(options) {
     this.queryUnReceiveAssets()
     this.unReceiveDbList()
+  },
+  onShow(){
+    if (!wx.getStorageSync('miningGuid')) {//首次引导蒙层的标识
+      wx.setStorageSync('miningGuid', true)
+      this.setData({
+        mask: {
+          fromType: 4,
+          show: true //是否显示
+        }
+      })
+    }
   },
   /**
    * 邀请
@@ -156,6 +168,7 @@ Page({
    * 领取分红
    */
   getRmb(e) {
+    if (e.detail.formId) app.collectFormId(e.detail.formId)
     var that = this
     if (that.data.unReceiveMoney == 0) {
       wx.showToast({

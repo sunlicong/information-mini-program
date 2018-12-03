@@ -17,13 +17,13 @@
   top: 0;
   bottom: 0rpx;
   width: 619rpx;
-  height: 750rpx;
+  height: 780rpx;
   z-index: 101;
   margin: auto;
 }
 .content {
   width: 619rpx;
-  height: 750rpx;
+  height: 780rpx;
   border-radius: 20rpx;
   display: flex;
   flex-direction: column;

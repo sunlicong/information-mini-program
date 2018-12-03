@@ -1,0 +1,109 @@
+/* component/guidingMask/guidingMask.wxss */
+
+.body {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0rpx;
+  width: 100%;
+  height: 100%;
+  z-index: 101;
+  margin: auto;
+}
+
+.bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background: #000;
+  opacity: 0.75;
+  z-index: 99;
+}
+
+.home1 {
+  position: absolute;
+  left: 134rpx;
+  bottom: 60%;
+  width: 474rpx;
+  height: 100rpx;
+}
+.home2 {
+  position: absolute;
+  bottom: 82rpx;
+  right: 30rpx;
+  width: 209rpx;
+  height: 231rpx;
+}
+.home_know {
+  position: absolute;
+  left: 253rpx;
+  bottom: 380rpx;
+  width: 244rpx;
+  height: 128rpx;
+}
+.guid_detail{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.detail_know{
+  margin-left: 253rpx;
+  width: 244rpx;
+  height: 128rpx;
+}
+.detail1{
+  margin-left: 160rpx;
+  margin-top: 40rpx;
+  width: 416rpx;
+  height: 357rpx;
+}
+.detail2{
+  margin-left: 160rpx;
+  margin-top: 40rpx;
+  width: 554rpx;
+  height: 360rpx;
+}
+.bottom_68{
+  bottom: 68rpx;
+}
+.mine1{
+  margin-top: 580rpx;
+  width: 750rpx;
+  height: 320rpx;
+}
+.mine_know{
+  position: absolute;
+  left: 253rpx;
+  bottom: 80rpx;
+  width: 244rpx;
+  height: 128rpx;
+}
+.guid_mining{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.mining1{
+  margin-top: 610rpx;
+  margin-left: 169rpx;
+  width: 407rpx;
+  height: 381rpx;
+}
+.mining2{
+  margin-top: 20rpx;
+  width: 552rpx;
+  height: 426rpx;
+}
+.mining_know{
+  position: absolute;
+  left: 253rpx;
+  bottom: 80rpx;
+  width: 244rpx;
+  height: 128rpx;
+}

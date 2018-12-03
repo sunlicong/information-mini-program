@@ -83,3 +83,9 @@
   width: 30rpx;
   height: 30rpx;
 }
+.ml-40{
+  margin-left: 40rpx;
+}
+.mt-10{
+  margin-top: -10rpx;
+}

@@ -58,7 +58,10 @@
     <view class='title'>待领取分红</view>
     <view class='price'>{{tools.formatMoney(unReceiveMoney)}}元</view>
     <view class='coin'>参与分红点钻：{{bonusDb}}</view>
-    <button disabled='{{unReceiveMoney==0}}' class='get' bindtap='getRmb'>领取</button>
+    <form report-submit="true" bindsubmit="getRmb">
+      <button disabled='{{unReceiveMoney==0}}' class='get' formType="submit">领取</button>
+    </form>
   </view>
 </view>
 <tipDialog data='{{pointDialog}}'></tipDialog>
+<guid-mask data='{{mask}}'></guid-mask>

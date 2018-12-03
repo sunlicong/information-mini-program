@@ -82,7 +82,7 @@
     position: fixed;
     width: 95rpx;
     height: 95rpx;
-    bottom: 40rpx;
+    bottom: 82rpx;
     right: 30rpx;
 }
 .non{

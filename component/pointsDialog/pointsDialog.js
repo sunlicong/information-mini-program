@@ -28,14 +28,18 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    closeDialog() {
+    close(){
       this.setData({
         'data.show': false
       });
     },
+    closeDialog() {
+      this.close()
+      this.triggerEvent('closeDialog', null)
+    },
     preventTouchMove() {},
     shareGetPoints() {
-      this.closeDialog()
+      this.close()
       var that = this
       api.http({
         url: '/blockchain/v1/user/shareGetDb',

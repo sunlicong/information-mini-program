@@ -1,38 +1,59 @@
 /* pages/login/login.wxss */
-.top{
-    width: 100%;
-    height: 270rpx;
-    text-align: center;
+
+page {
+  background: #fff;
 }
-.logo{
-    width: 269rpx;
-    height: 117rpx;
-    margin-top: 76rpx;
+
+.top {
+  width: 100%;
+  height: 270rpx;
+  text-align: center;
 }
-.line{
-    background-color: #dbdbdb;
-    height: 1rpx;
-    margin-left: 45rpx;
-    margin-right: 45rpx;
-} 
-.text1{
-    font-size: 34rpx;
-    color: #000000;
-    margin-top: 50rpx;
-    margin-left: 45rpx;
+
+.logo {
+  width: 117rpx;
+  height: 117rpx;
+  margin-top: 151rpx;
 }
-.text2{
-    color: #999999;
-    font-size: 26rpx;
-    margin-top: 18rpx;
-    margin-left: 45rpx;
+
+.line {
+  background-color: #dbdbdb;
+  height: 1rpx;
+  margin-left: 45rpx;
+  margin-right: 45rpx;
 }
-#bt{
-    color: #ffffff;
-    background-color: #00C17D;
-    height: 100rpx;
-    width: 640rpx;
-    line-height: 100rpx;
-    border-radius: 50rpx;
-    margin: 50rpx auto 0;
+
+.text1 {
+  font-size:40rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color: #051426;
+  margin-top: 50rpx;
+  text-align: center;
+}
+
+.text2 {
+  color: #5C5C5C;
+  font-size:30rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  margin-top: 40rpx;
+  text-align: center;
+}
+
+#bt {
+  font-size:36rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color: #fff;
+  background-color: #3DBD32;
+  height: 100rpx;
+  width: 640rpx;
+  line-height: 100rpx;
+  margin: 209rpx auto 0;
+  border: 0;
+  border-radius: 0;
+}
+button::after{
+  border: 0;
 }
