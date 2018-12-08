@@ -16,15 +16,16 @@
   margin-left: 30rpx;
   margin-right: 30rpx;
   font-family: PingFangSC-Medium;
-  font-weight: 500;
-  font-size: 36rpx;
+  font-weight: 600;
+  font-size: 46rpx;
+  line-height:65rpx;
   color: #051426;
   text-align: justify;
 }
 
 .authorInfo {
   width: 100%;
-  height: 120rpx;
+  height: 140rpx;
   display: flex;
   align-items: center;
 }
@@ -77,6 +78,7 @@
   line-height: 50rpx;
   border: 1rpx solid #a3aeba;
   border-radius: 4rpx;
+  background: #ffffff;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #a3aeba;
@@ -91,8 +93,14 @@
   padding-bottom: 10rpx;
   padding-left: 15px;
   padding-right: 15px;
+  margin-top: 10rpx;
   margin-left: 0rpx;
   margin-right: 0rpx;
+  font-size:34rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:#051426;
+  line-height:50rpx;
 }
 .readTip{
   margin-top: 56rpx;

@@ -10,7 +10,9 @@ var imgUrl = function(id, mode) {
   if (!mode) mode = "";
   var n = id.indexOf(",");
   if (n > -1) id = id.slice(0, n);
-  if (id.indexOf('http') > -1) {
+  if (id.substring(0, 2) == "//") {
+    return 'https:' + id;
+  } else if (id.indexOf('http') > -1) {
     return id;
   } else {
     return 'http://51keli.ess.ejucloud.cn/' + id + mode;

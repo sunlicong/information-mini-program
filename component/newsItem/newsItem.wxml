@@ -2,7 +2,7 @@
 <wxs src="../../utils/filter.wxs" module="filter" />
 <view bindtap='goDetail' data-id='{{item.contentId}}' hover-class="hover-item">
     <!-- 一张图片 -->
-    <view wx:if="{{pics.length==1}}" class='style1'>
+    <view wx:if="{{pics.length==1||pics.length==2}}" class='style1'>
         <view class='feed-title1 three_line'>
             {{item.title}}
         </view>

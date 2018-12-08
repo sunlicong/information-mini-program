@@ -31,7 +31,7 @@ Page({
       createTime: prevPage.data.createTime
     })
     var text = prevPage.data.content.replace(/data-src/g, "src")
-    WxParse.wxParse('article', 'html', text, this, 30);
+    WxParse.wxParse('article', 'html', text, this, 15);
   },
 
   publish(e) {
@@ -72,13 +72,8 @@ Page({
           })
           prev3Page.getMyWorks()
         }
-        that.setData({
-          contentId: res.data.contentId,
-          coverPid: res.data.coverPid,
-          title: res.data.title
-        })
         wx.redirectTo({
-          url: '/pages/publishSuccess/publishSuccess',
+          url: '/pages/publishSuccess/publishSuccess?contentId=' + res.data.contentId + '&title=' + res.data.title + '&coverPid=' + res.data.coverPid,
         })
       },
     });

@@ -61,11 +61,12 @@ Page({
    * 关闭积分弹框后再判断一下是否显示引导
    */
   closeDialog() {
+    console.log('DetailGuid', wx.getStorageSync('DetailGuid'))
     if (!wx.getStorageSync('DetailGuid')) {//首次引导蒙层的标识
       wx.setStorageSync('DetailGuid', true)
       this.setData({
         mask: {
-          fromType: 1,
+          fromType: 2,
           show: true //是否显示
         }
       })
@@ -102,7 +103,7 @@ Page({
       }
     });
   },
-  closeDialog() {
+  closeCandyDialog() {
     this.setData({
       showDialog: false
     })

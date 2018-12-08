@@ -6,30 +6,34 @@ Page({
   data: {
     tips: [],
     feeds: [],
-    next: 0,
+    next: 100,
     yesterdayTokenTotal: 0,
     incomeTokenTotal: 0,
     mask:{}//引导蒙层
   },
   onLoad: function() {
-    // 登录之后的操作  callback 
-    app.userInfoReadyCallback = res => {
-      if (res.awardTokenAmount) {
-        this.setData({
-          pointDialog: {
-            fromType: 1,
-            points: res.awardTokenAmount, //积分
-            show: true //是否显示
-          }
-        })
-      } else if (!wx.getStorageSync('homeGuid')) {//首次引导蒙层的标识
-        wx.setStorageSync('homeGuid', true)
-        this.setData({
-          mask: {
-            fromType: 1,
-            show: true //是否显示
-          }
-        })
+    if (app.globalData.token) {
+      this.closeDialog()
+    }else{
+      // 登录之后的操作  callback 
+      app.userInfoReadyCallback = res => {
+        if (res.awardTokenAmount) {
+          this.setData({
+            pointDialog: {
+              fromType: 1,
+              points: res.awardTokenAmount, //积分
+              show: true //是否显示
+            }
+          })
+        } else if (!wx.getStorageSync('homeGuid')) {//首次引导蒙层的标识
+          wx.setStorageSync('homeGuid', true)
+          this.setData({
+            mask: {
+              fromType: 1,
+              show: true //是否显示
+            }
+          })
+        }
       }
     }
     wx.showLoading({
@@ -115,16 +119,16 @@ Page({
             icon: 'none',
             title: res.data.data.length ? '成功为你推荐' + res.data.data.length + '条新内容' : '暂无更多新内容哦',
           })
-          if (res.data.next == -1) {
+          // if (res.data.next == -1) {
             that.setData({
               feeds: res.data.data.concat(that.data.feeds)
             })
-          } else {
-            that.setData({
-              next: res.data.next,
-              feeds: res.data.data
-            })
-          }
+          // } else {
+          //   that.setData({
+          //     next: res.data.next,
+          //     feeds: res.data.data
+          //   })
+          // }
           wx.stopPullDownRefresh()
         } else {
           that.setData({
@@ -157,9 +161,9 @@ Page({
    * 下拉刷新
    */
   onPullDownRefresh() {
-    this.setData({
-      next: 0,
-    })
+    // this.setData({
+    //   next: 0,
+    // })
     this.getTips()
     this.getFeeds(this.data.feeds[0].contentId)
   },

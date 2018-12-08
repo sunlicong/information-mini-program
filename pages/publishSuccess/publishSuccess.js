@@ -16,12 +16,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var pages = getCurrentPages()
-    var prevPage = pages[pages.length - 2] //上一个页面
     this.setData({
-      contentId: prevPage.data.contentId,
-      coverPid: prevPage.data.coverPid,
-      title: prevPage.data.title
+      contentId: options.contentId,
+      coverPid: options.coverPid,
+      title: options.title
     })
   },
 
@@ -29,7 +27,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-    var covers = this.data.coverPid.split(',')
+    var covers = this.data.coverPid?this.data.coverPid.split(','):[]
     return {
       title: this.data.title,
       path: '/pages/articleDetail/articleDetail?contentId=' + this.data.contentId + '&inviter=' + app.globalData.userInfo.uid,

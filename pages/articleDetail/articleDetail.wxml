@@ -6,9 +6,9 @@
     <view class='title'>
       {{data.content.title}}
     </view>
-    <view class='authorInfo' bindtap='goProfile' data-uid='{{data.authorInfo.uid}}'>
-      <image class='cover' src="{{data.authorInfo.photo}}"></image>
-      <view class='info'>
+    <view class='authorInfo'>
+      <image class='cover' src="{{tools.imgUrl(data.authorInfo.photo)}}" bindtap='goProfile' data-uid='{{data.authorInfo.uid}}'></image>
+      <view class='info' bindtap='goProfile' data-uid='{{data.authorInfo.uid}}'>
         <text class='nick'>{{data.authorInfo.nick}}</text>
         <text class='time'>{{tools.formatDate(data.content.createTime,5)}}</text>
       </view>
@@ -16,7 +16,7 @@
         <button formType="submit" wx:if="{{!data.attentionStatus&&myUid!=data.authorInfo.uid}}" class='attitude'>关注</button>
       </form>
       <form report-submit="true" bindsubmit="deleteRelation" data-uid='{{data.authorInfo.uid}}'>
-        <button wx:if="{{data.attentionStatus&&myUid!=data.authorInfo.uid}}" class='attitude_n'>已关注</button>
+        <button formType="submit" wx:if="{{data.attentionStatus&&myUid!=data.authorInfo.uid}}" class='attitude_n'>已关注</button>
       </form>
     </view>
     <view class="wxParse">

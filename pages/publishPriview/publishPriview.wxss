@@ -64,6 +64,11 @@
   font-size: 34rpx;
   line-height: 98rpx;
   text-align: center;
+  border: 0;
+  border-radius: 0;
+}
+.publish_btn::after{
+  border: 0;
 }
 .bottom_next{
   position: fixed;
