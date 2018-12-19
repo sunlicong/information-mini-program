@@ -9,7 +9,7 @@
             <view class='text1'>
                 <text>恭喜获得{{data.points}}点钻</text>
             </view>
-            <view class='text2'>1钻1股份，持钻领分红</view>
+            <view class='text2'>1点钻=1股份，持钻领分红</view>
             <view class='text3'>分享再得5点钻</view>
         </view>
         <button open-type='share' class='share' bindtap='shareGetPoints'>立即分享</button>
@@ -23,7 +23,7 @@
             <view class='text1'>
                 <text>恭喜获得{{data.points}}点钻</text>
             </view>
-            <view class='text2'>1钻1股份，持钻领分红</view>
+            <view class='text2'>1点钻=1股份，持钻领分红</view>
         </view>
     </view>
     <view class="bg"></view>

@@ -25,9 +25,9 @@
 
 .home1 {
   position: absolute;
-  left: 134rpx;
+  left: 50rpx;
   bottom: 60%;
-  width: 474rpx;
+  width: 654rpx;
   height: 100rpx;
 }
 .home2 {

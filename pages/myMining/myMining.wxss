@@ -70,13 +70,32 @@
 
 .mining_non {
   text-align: center;
-  margin-top: 127rpx;
+  margin-top: 30rpx;
   height: 40rpx;
-  font-size: 28rpx;
+  font-size: 32rpx;
   font-family: PingFangSC-Medium;
   font-weight: 500;
-  color: #FFFFFF;
+  color: #fff;
   line-height: 40rpx;
+}
+
+.mining_non .img_mining {
+  width: 100rpx;
+  height: 100rpx;
+}
+
+.mining_non .text1 {
+  margin-top: 20rpx;
+}
+
+.mining_non .text2 {
+  margin-top: 15rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Semibold;
+  font-weight: 600;
+  color: #ffca02;
+  line-height: 40rpx;
+  height: 40rpx;
 }
 
 .mining {
@@ -90,8 +109,20 @@
   position: absolute;
   display: flex;
   flex-direction: column;
+  animation-name: zoomOutLeft;
 }
+@keyframes zoomOutLeft {
+  40% {
+    opacity: 1;
+    transform: scale3d(0.475, 0.475, 0.475) translate3d(42px, 0, 0);
+  }
 
+  to {
+    opacity: 0;
+    transform: scale(0.1) translate3d(-2000px, 0, 0);
+    transform-origin: left center;
+  }
+}
 .mining_item .img_mining {
   width: 90rpx;
   height: 90rpx;
@@ -203,4 +234,16 @@
 
 button::after {
   border: 0;
+}
+
+/*抛物线动画*/
+.good_box{
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  border-radius: 50%;
+  overflow: hidden;
+  left: 50%;
+  top: 50%;
+  z-index: +99;
 }

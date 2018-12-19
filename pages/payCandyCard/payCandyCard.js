@@ -76,6 +76,7 @@ Page({
       fail: function (res) {
         if (res.data.code == 30104){
           wx.hideToast()
+          wx.hideLoading();
           wx.showModal({
             title: '提示',
             content: '很抱歉，小程序暂不支持购卡',

@@ -34,8 +34,14 @@
         </view>
       </view>
       <view class='mining'>
-        <view wx:if="{{mineList.length==0}}" class='mining_non'>点钻正在产出中</view>
-        <view wx:if="{{!item.isHidden}}" class='mining_item' style='left:{{randomXY[index].left}}rpx;top:{{randomXY[index].top}}rpx' bindtap="getMining" wx:for="{{mineList}}" wx:key="{{index}}" bindtap='getCoin' data-id='{{item.id}}' data-index='{{index}}'>
+        <view wx:if="{{mineList.length==0}}" class='mining_non'>
+            <image class='img_mining' src="../../image/icon_mining.png"></image>
+            <view class='text1'>点钻正在产出</view>
+            <swiper class='text2' autoplay='{{true}}' interval='3000' vertical='{{true}}' circular='{{true}}'>
+              <swiper-item wx:for="{{notices}}" wx:key="{{index}}">{{item}}</swiper-item>
+            </swiper>
+        </view>
+        <view wx:if="{{!item.isHidden}}" class='mining_item' style='left:{{randomXY[index].left}}rpx;top:{{randomXY[index].top}}rpx' bindtap="getMining" wx:for="{{mineList}}" wx:key="{{index}}" bindtap='touchOnGoods' data-id='{{item.id}}' data-index='{{index}}'>
           <image class='img_mining' src="../../image/icon_mining.png"></image>
           <view class='num'>{{item.tokenamount}}</view>
           <view class='coin'>点钻</view>
@@ -65,3 +71,5 @@
 </view>
 <tipDialog data='{{pointDialog}}'></tipDialog>
 <guid-mask data='{{mask}}'></guid-mask>
+<!-- <image src="../../image/icon_mining.png" class="good_box" hidden="{{hide_good_box}}"  style="left: {{bus_x}}px; top: {{bus_y}}px;">
+</image> -->

@@ -12,7 +12,7 @@
     <view wx:if="{{list.length}}" class='height-120'>
         <view class='left margin-left-30'>被邀请人</view>
     </view>
-    <view bindtap='itemClick' class='height-120' wx:for="{{list}}" bindtap='goProfile' data-uid='{{item.uid}}'>
+    <view class='height-120' wx:for="{{list}}" bindtap='goProfile' data-uid='{{item.uid}}'>
         <image class='cover' src="{{item.photo}}"></image>
         <view class='left'>
             <view class='nick'>{{item.nick}}</view>

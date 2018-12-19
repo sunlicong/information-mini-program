@@ -13,7 +13,13 @@ Page({
     totalCommition: 0, //	分红数
     bonusDb: 0,//参与分红币
     randomXY: [],
-    mask: {}//引导蒙层
+    mask: {},//引导蒙层
+    hide_good_box: true,
+    notices:[
+      '点赞、分享、发布文章得点钻',
+      '每日0点可领昨日点钻',
+      '48小时内未领取的点钻，将不可领取'
+    ]
   },
 
   /**
@@ -22,6 +28,9 @@ Page({
   onLoad: function(options) {
     this.queryUnReceiveAssets()
     this.unReceiveDbList()
+    this.busPos = {};
+    this.busPos['x'] = 15;//购物车的位置
+    this.busPos['y'] = 300;
   },
   onShow(){
     if (!wx.getStorageSync('miningGuid')) {//首次引导蒙层的标识
@@ -219,5 +228,57 @@ Page({
         show: true //是否显示
       }
     })
-  }
+  },
+  touchOnGoods: function (e) {
+    this.getCoin(e)
+    this.finger = {}; var topPoint = {};
+    this.finger['x'] = e.touches["0"].clientX;//点击的位置
+    this.finger['y'] = e.touches["0"].clientY;
+
+    if (this.finger['y'] < this.busPos['y']) {
+      topPoint['y'] = this.finger['y'] - 10;
+    } else {
+      topPoint['y'] = this.busPos['y'] - 10;
+    }
+    topPoint['x'] = Math.abs(this.finger['x'] - this.busPos['x']) / 2;
+
+    if (this.finger['x'] > this.busPos['x']) {
+      topPoint['x'] = (this.finger['x'] - this.busPos['x']) / 2 + this.busPos['x'];
+    } else {//
+      topPoint['x'] = (this.busPos['x'] - this.finger['x']) / 2 + this.finger['x'];
+    }
+
+    this.linePos = app.bezier([this.busPos, topPoint, this.finger], 60);
+    this.startAnimation(e);
+  },
+  startAnimation: function (e) {
+    var currentIndex =  e.currentTarget.dataset.index
+    var index = 0, that = this,
+      bezier_points = that.linePos['bezier_points'];
+
+    this.setData({
+      // hide_good_box: false,
+      ['randomXY[' + currentIndex + '].left']: that.finger['x'],
+      ['randomXY[' + currentIndex + '].top']: that.finger['y'],
+      // bus_y: that.finger['y']
+    })
+    var len = bezier_points.length;
+    index = len
+    this.timer = setInterval(function () {
+      for (let i = index - 1; i > -1; i--) {
+        that.setData({
+          ['randomXY[' + currentIndex + '].left']: bezier_points[i]['x'],
+          ['randomXY[' + currentIndex + '].top']: bezier_points[i]['y']
+        })
+
+        if (i < 1) {
+          clearInterval(that.timer);
+          that.setData({
+            // hide_good_box: true
+            ['mineList[' + currentIndex + '].isHidden']: true
+          })
+        }
+      }
+    }, 50);
+  },
 })

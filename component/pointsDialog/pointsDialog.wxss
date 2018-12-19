@@ -57,10 +57,11 @@
 }
 .text2 {
     margin-left: -50rpx;
-    margin-top: 25rpx;
+    margin-top: 35rpx;
     font-family: PingFangSC-Regular;
+    font-weight:500;
     font-size: 28rpx;
-    color: #656566;
+    color: #333333;
 }
 .text3 {
     margin-top: 180rpx;

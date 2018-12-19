@@ -61,10 +61,10 @@
       </form>
       <view class='bottom_line'></view>
       <form report-submit="true" bindsubmit="like" data-opt='{{data.attitudeStatus?0:1}}'>
-        <button formType="submit" class='bottom_praise'>
+        <button formType="submit" data-opt='{{data.attitudeStatus?0:1}}' class='bottom_praise'>
           <view class='relative_view'>
             <view wx:if="{{data.attitudeOptCount}}" class='attitudeCount'>{{data.attitudeOptCount}}</view>
-            <image src='{{data.attitudeStatus?"/image/icon_praise_seleced.png":"/image/icon_praise_non.png"}}' class='icon_opt' mode='aspectFit'></image>
+            <image src='{{data.attitudeStatus?"/image/icon_praise_seleced.png":"/image/icon_praise_non.png"}}' class='icon_opt icon_praise' mode='aspectFit'></image>
           </view>
           <view class='bottom_text {{data.attitudeStatus?"color0794FC":""}}'>{{data.attitudeLikeCount}}</view>
         </button>
@@ -76,7 +76,10 @@
       </button>
     </view>
   </view>
-  <image wx:if="{{false}}" class="send_pay {{isIpx?'iphonex_send':''}}" src="/image/icon_send_pay.png" bindtap="pay"></image>
+  <view class='btn_opt'>
+    <image class="my_mining {{startShake?'swing':''}}" src="../../image/icon_index_mining.png" bindtap="goMyMining"></image>
+    <image hidden='{{true}}' class="send_pay {{isIpx?'iphonex_send':''}}" src="/image/icon_send_pay.png" bindtap="pay"></image>
+  </view>
 </view>
 <view>
   <view class="modal" wx:if="{{showDialog}}" bindtap="closeDialog"></view>
@@ -107,3 +110,6 @@
 </view>
 <points-dialog bind:closeDialog="closeDialog" data='{{pointDialog}}'></points-dialog>
 <guid-mask data='{{mask}}'></guid-mask>
+<!-- 动画图标 -->
+<image src="../../image/icon_mining.png" class="good_box" hidden="{{hide_good_box}}"  style="left: {{bus_x}}px; top: {{bus_y}}px;">
+</image>

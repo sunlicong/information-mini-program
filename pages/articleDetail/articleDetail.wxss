@@ -4,9 +4,11 @@
 .container {
   padding-bottom: 130rpx;
 }
-.container-iphonex{
+
+.container-iphonex {
   padding-bottom: 176rpx;
 }
+
 .content {
   background-color: #fff;
 }
@@ -18,7 +20,7 @@
   font-family: PingFangSC-Medium;
   font-weight: 600;
   font-size: 46rpx;
-  line-height:65rpx;
+  line-height: 65rpx;
   color: #051426;
   text-align: justify;
 }
@@ -78,17 +80,19 @@
   line-height: 50rpx;
   border: 1rpx solid #a3aeba;
   border-radius: 4rpx;
-  background: #ffffff;
+  background: #fff;
   font-family: PingFangSC-Regular;
   font-size: 24rpx;
   color: #a3aeba;
   text-align: center;
   padding: 0;
 }
-.authorInfo button::after{
+
+.authorInfo button::after {
   border: 0;
   padding: 0;
 }
+
 .wxParse {
   padding-bottom: 10rpx;
   padding-left: 15px;
@@ -96,23 +100,25 @@
   margin-top: 10rpx;
   margin-left: 0rpx;
   margin-right: 0rpx;
-  font-size:34rpx;
-  font-family:PingFangSC-Regular;
-  font-weight:400;
-  color:#051426;
-  line-height:50rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #051426;
+  line-height: 50rpx;
 }
-.readTip{
+
+.readTip {
   margin-top: 56rpx;
   font-family: PingFangSC-Regular;
-  font-weight:400;
+  font-weight: 400;
   font-size: 28rpx;
   color: #a3aeba;
 }
+
 .readCount {
   margin-top: 40rpx;
   font-family: PingFangSC-Regular;
-  font-weight:400;
+  font-weight: 400;
   font-size: 28rpx;
   color: #a3aeba;
 }
@@ -199,21 +205,29 @@
 }
 
 .icon_opt {
-  width: 28rpx;
-  height: 28rpx;
+  width: 40rpx;
+  height: 40rpx;
   margin-right: 20rpx;
 }
-.relative_view{
+.icon_praise{
+  padding-top: 10rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+.relative_view {
   height: 56rpx;
   margin-top: -28rpx;
+  padding-top: 10rpx;
 }
+
 .attitudeCount {
   position: absolute;
   margin-top: -2rpx;
+  margin-left: -25rpx;
   width: 43rpx;
   height: 26rpx;
   background: #0794fc;
-  border-radius: 30rpx;
+  border-radius: 15rpx 0rpx 15rpx 0rpx;
   font-size: 20rpx;
   color: #fff;
   text-align: center;
@@ -246,11 +260,13 @@
   justify-content: center;
   border: 0;
   border-radius: 0;
-  background: #ffffff;
+  background: #fff;
 }
-.bottom_praise::after{
+
+.bottom_praise::after {
   border: 0;
 }
+
 .bottom_share {
   flex: 1;
   height: 100%;
@@ -261,7 +277,8 @@
   background: #fff;
   border: 0;
 }
-.bottom_text{
+
+.bottom_text {
   height: 40rpx;
   line-height: 40rpx;
   font-size: 28rpx;
@@ -269,6 +286,7 @@
   font-weight: 400;
   color: #a3aeba;
 }
+
 .bottom_share::after {
   border: 0;
 }
@@ -409,15 +427,6 @@
   margin-left: 30rpx;
 }
 
-.send_pay {
-  z-index: 11;
-  position: fixed;
-  width: 95rpx;
-  height: 95rpx;
-  bottom: 140rpx;
-  right: 30rpx;
-}
-
 .iphonex_send {
   bottom: 208rpx;
 }
@@ -439,4 +448,52 @@
   line-height: 90rpx;
   text-align: center;
   margin-top: 121rpx;
+}
+
+.btn_opt {
+  z-index: 11;
+  position: fixed;
+  bottom: 180rpx;
+  right: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.send_pay {
+  width: 95rpx;
+  height: 95rpx;
+}
+
+.my_mining {
+  width: 95rpx;
+  height: 95rpx;
+  margin-bottom: 45rpx;
+}
+
+.shake{
+  animation: shake;
+}
+.swing {
+  animation: swing 0.5s linear infinite
+}
+@keyframes swing{
+  20% {
+    transform: rotate3d(0, 0, 1, 15deg);
+  }
+
+  40% {
+    transform: rotate3d(0, 0, 1, -10deg);
+  }
+
+  60% {
+    transform: rotate3d(0, 0, 1, 5deg);
+  }
+
+  80% {
+    transform: rotate3d(0, 0, 1, -5deg);
+  }
+
+  to {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
 }

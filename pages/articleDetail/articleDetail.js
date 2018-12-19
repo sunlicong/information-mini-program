@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    showPage:false,
+    showPage: false,
     showNo: false,
     isIpx: app.globalData.isIphoneX,
     contentId: '',
@@ -18,7 +18,9 @@ Page({
     data: {},
     candyCount: 0, //余额
     candyList: [], //购买的糖果列表
-    mask: {}//引导蒙层
+    hide_good_box: false,
+    startShake: false,
+    mask: {} //引导蒙层
   },
 
   /**
@@ -30,6 +32,12 @@ Page({
       inviter: options.inviter || '',
       myUid: app.globalData.userInfo.uid || ''
     })
+
+    //动画
+    this.busPos = {};
+    this.busPos['x'] = app.globalData.ww - 20;//终点的位置
+    this.busPos['y'] = app.globalData.hh-100;
+
     var that = this
     this.getArticleDetail()
     //可能会在 Page.onLoad 之后才返回
@@ -43,7 +51,7 @@ Page({
             show: true //是否显示
           }
         })
-      } else if (!wx.getStorageSync('DetailGuid')) {//首次引导蒙层的标识
+      } else if (!wx.getStorageSync('DetailGuid')) { //首次引导蒙层的标识
         wx.setStorageSync('DetailGuid', true)
         this.setData({
           mask: {
@@ -55,14 +63,14 @@ Page({
     }
   },
   onShow() {
-    
+
   },
   /**
    * 关闭积分弹框后再判断一下是否显示引导
    */
   closeDialog() {
     console.log('DetailGuid', wx.getStorageSync('DetailGuid'))
-    if (!wx.getStorageSync('DetailGuid')) {//首次引导蒙层的标识
+    if (!wx.getStorageSync('DetailGuid')) { //首次引导蒙层的标识
       wx.setStorageSync('DetailGuid', true)
       this.setData({
         mask: {
@@ -93,8 +101,8 @@ Page({
         WxParse.wxParse('article', 'html', text, that, 15);
         wx.hideLoading();
       },
-      fail: function(res){
-        if (res.data.code == 50003){
+      fail: function(res) {
+        if (res.data.code == 50003) {
           wx.hideToast()
           that.setData({
             showNo: true
@@ -196,9 +204,9 @@ Page({
           })
         }
       },
-      fail: function(res){
+      fail: function(res) {
         var that = this
-        if (res.data.code == 30101){
+        if (res.data.code == 30101) {
           wx.hideToast()
           wx.showModal({
             title: '提示',
@@ -210,13 +218,20 @@ Page({
                 wx.navigateTo({
                   url: '/pages/payCandyCard/payCandyCard',
                 })
-              } else if (res.cancel) {
-              }
+              } else if (res.cancel) {}
             }
           })
         }
       }
     });
+  },
+  /**
+   * 跳转到累计收益
+   */
+  goMyMining(e) {
+    wx.navigateTo({
+      url: '/pages/myMining/myMining',
+    })
   },
   /**
    * 回首页
@@ -236,7 +251,7 @@ Page({
   /**
    * 点赞
    */
-  like(e) {
+  like(e) { 
     if (e.detail.formId) app.collectFormId(e.detail.formId)
     var opt = e.currentTarget.dataset.opt
     var that = this
@@ -254,10 +269,16 @@ Page({
             title: '点赞成功，还剩' + res.data.remainedCount + '次点赞',
           })
           that.setData({
+            startShake: true,
             'data.attitudeStatus': 1,
             'data.attitudeLikeCount': that.data.data.attitudeLikeCount + 1,
             'data.attitudeOptCount': res.data.remainedCount,
           })
+          setTimeout(function () {
+            that.setData({
+              startShake: false
+            })
+          }, 1000)
         } else {
           that.setData({
             'data.attitudeStatus': 0,
@@ -351,5 +372,4 @@ Page({
       imageUrl: covers[0] || '/image/share_card.png'
     }
   }
-
 })
