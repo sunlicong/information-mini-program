@@ -35,10 +35,10 @@
     </view>
     <!-- feed -->
     <view class='feed margin-top-2' wx:for="{{feeds}}" wx:key="{{index}}">
-        <newsItem pop="{{item}}"></newsItem>
+        <newsItem isOpenPaySwitch="{{isOpenPaySwitch}}" pop="{{item}}"></newsItem>
     </view>
     <form report-submit="true" bindsubmit="goMyMining">
-      <button formType="submit">
+      <button wx:if="{{isOpenPaySwitch}}" formType="submit">
         <image class='my_mining' src="../../image/icon_index_mining.png"></image>
       </button>
     </form>   

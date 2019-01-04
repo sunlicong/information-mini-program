@@ -1,0 +1,23 @@
+<!--pages/cashAddressManager/cashAddressManager.wxml-->
+<view class="container">
+    <view wx:if="{{list.length==0}}" class="non">
+      <image src="/image/img_non.png"></image>
+      <view>暂时还没有提现地址哦～</view>
+    </view>
+    <view class="list">
+      <view class="height-267" wx:for="{{list}}" wx:key="{{index}}" bindtap="editAddress" data-item='{{item}}'>
+        <view class="item_title">
+          <image class="icon" src="/image/icon_trx.png"></image>
+          <text class="name">TRX</text>
+          <image class="arrow" src="/image/arrows_right.png"></image>
+        </view>
+        <view class="item_desc">
+          <view class="desc1">备注 {{item.remark}}</view>
+          <view class="desc2">{{item.withdrawAddress}}</view>
+        </view>
+      </view>
+    </view>
+    <form report-submit="true" bindsubmit="add">
+      <button wx:if="{{list.length==0}}" class="button" formType="submit">添加提现地址</button>
+    </form>
+  </view>

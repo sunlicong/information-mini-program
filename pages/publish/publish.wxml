@@ -3,7 +3,7 @@
   <form bindsubmit="preview" report-submit="true">
     <view class="item">
       <view>文章标题</view>
-      <input id="title" name="title" class="input" placeholder-class="input_class" type="text" maxlength='20' placeholder="最多20个字" value="{{title}}" bindinput='bindinput' />
+      <input id="title" name="title" class="input" placeholder-class="input_class" type="text" maxlength='50' placeholder="最多50个字" value="{{title}}" bindinput='bindinput' />
     </view>
     <view class="item">
       <view>添加文章链接</view>

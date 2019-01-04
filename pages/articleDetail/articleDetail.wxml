@@ -25,7 +25,7 @@
       <view class='readCount'>阅读 {{data.browserCount}}</view>
     </view>
   </view>
-  <view wx:if="{{false}}" class='praise'>
+  <view wx:if="{{isOpenReward}}" class='praise'>
     <image class='praise_cover' src="{{data.authorInfo.photo}}"></image>
     <view class='praise_text'>喜欢就给我赞赏吧</view>
     <form report-submit="true" bindsubmit="pay">
@@ -38,7 +38,7 @@
       </view>
     </view>
   </view>
-  <view wx:if="{{false}}" class='opt'>
+  <view wx:if="{{isOpenReward}}" class='opt'>
     <view class='opt_item' bindtap='like' data-opt='{{data.attitudeStatus?0:1}}'>
       <view class='relative_view'>
         <view wx:if="{{data.attitudeOptCount}}" class='attitudeCount'>{{data.attitudeOptCount}}</view>
@@ -76,13 +76,13 @@
       </button>
     </view>
   </view>
-  <view class='btn_opt'>
+  <view wx:if="{{isOpenPaySwitch}}" class='btn_opt'>
     <image class="my_mining {{startShake?'swing':''}}" src="../../image/icon_index_mining.png" bindtap="goMyMining"></image>
-    <image hidden='{{true}}' class="send_pay {{isIpx?'iphonex_send':''}}" src="/image/icon_send_pay.png" bindtap="pay"></image>
+    <image wx:if='{{isOpenReward}}' class="send_pay {{isIpx?'iphonex_send':''}}" src="/image/icon_send_pay.png" bindtap="pay"></image>
   </view>
 </view>
 <view>
-  <view class="modal" wx:if="{{showDialog}}" bindtap="closeDialog"></view>
+  <view class="modal" wx:if="{{showDialog}}" bindtap="closeCandyDialog"></view>
   <view class="dialog_box {{showDialog?'dialog_box_p':''}}">
     <!-- <view class="box_top">10糖果返还赞赏者8点钻，内容发布者2点钻</view> -->
     <scroll-view class="box_list" scroll-x>
@@ -108,8 +108,5 @@
     <view bindtap='goHome' class='goMore'>去看更多内容</view>
   </view>
 </view>
-<points-dialog bind:closeDialog="closeDialog" data='{{pointDialog}}'></points-dialog>
+<points-dialog bind:closeDialog="closePointDialog" data='{{pointDialog}}'></points-dialog>
 <guid-mask data='{{mask}}'></guid-mask>
-<!-- 动画图标 -->
-<image src="../../image/icon_mining.png" class="good_box" hidden="{{hide_good_box}}"  style="left: {{bus_x}}px; top: {{bus_y}}px;">
-</image>

@@ -9,7 +9,8 @@ Page({
     next: 100,
     yesterdayTokenTotal: 0,
     incomeTokenTotal: 0,
-    mask:{}//引导蒙层
+    mask:{},//引导蒙层
+    isOpenPaySwitch: 0
   },
   onLoad: function() {
     if (app.globalData.token) {
@@ -43,7 +44,14 @@ Page({
     this.getFeeds()
   },
   onShow() {
-    
+    this.setData({
+      isOpenPaySwitch: app.globalData.isOpenPaySwitch
+    })
+    app.checkPaySwitchCallback = res => {
+      this.setData({
+        isOpenPaySwitch: res
+      })
+    }
   },
   /**
    * 关闭积分弹框后再判断一下是否显示引导

@@ -1,68 +1,149 @@
 /* pages/walletItemDetail/walletItemDetail.wxss */
 
 .top {
-    width: 100%;
-    height: 374rpx;
-    position: relative;
+  width: 100%;
+  height: 374rpx;
+  position: relative;
 }
+
 .top_bg {
-    position: absolute;
-    width: 100%;
-    height: 374rpx;
+  position: absolute;
+  width: 100%;
+  height: 374rpx;
 }
+
 .top_content {
-    position: absolute;
-    width: 100%;
-    height: 374rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: absolute;
+  width: 100%;
+  height: 374rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
 .balance {
-    height: 100rpx;
-    line-height: 100rpx;
-    font-size: 100rpx;
-    color: #fff;
-    display: flex;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 70rpx;
+  color: #fff;
+  display: flex;
 }
-.yuan{
-    margin-left: 40rpx;
-    margin-top: 15rpx;
-    font-size: 36rpx;
+
+.yuan {
+  margin-left: 20rpx;
+  margin-top: 15rpx;
+  font-size: 36rpx;
 }
+
+.top_bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top_bottom .left {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #fff;
+}
+
+.top_bottom .right {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #fff;
+}
+
+.top_bottom .arrow {
+  width: 12rpx;
+  height: 21rpx;
+  margin-left: 12rpx;
+}
+
 .height-120 {
-    margin-top: 1rpx;
-    width: 100%;
-    height: 120rpx;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  margin-top: 1rpx;
+  width: 100%;
+  height: 120rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
 .left {
-    display: flex;
-    flex-direction: column;
-    margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  margin-left: 30rpx;
 }
-.left .title{
-    font-size: 32rpx;
-    color: #051426;
+
+.left .title {
+  font-size: 32rpx;
+  color: #051426;
 }
-.left .time{
-    font-size: 24rpx;
-    color: #A3AEBA;
+
+.left .time {
+  font-size: 24rpx;
+  color: #a3aeba;
 }
+
 .right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 30rpx;
 }
+
 .margin-left-30 {
-    margin-left: 30rpx;
+  margin-left: 30rpx;
 }
+
 .num {
-    line-height: 45rpx;
-    font-size: 32rpx;
-    color: #FE6503;
+  line-height: 45rpx;
+  font-size: 32rpx;
+  color: #fe6503;
+}
+.list {
+  padding-bottom: 120rpx;
+}
+.bottom_menu {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.bottom_menu .recharge {
+  margin-left: 30rpx;
+  width: 330rpx;
+  height: 90rpx;
+  background: #ff6700;
+  border-radius: 8rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #fff;
+  line-height: 90rpx;
+}
+
+.bottom_menu .withdrawal {
+  margin-left: 30rpx;
+  width: 330rpx;
+  height: 90rpx;
+  border: 2rpx solid #ff6700;
+  background: #fff;
+  border-radius: 8rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #ff6700;
+  line-height: 90rpx;
 }

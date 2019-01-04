@@ -10,7 +10,9 @@ Page({
     mineList: [],
     next: 0,
     unReceiveMoney: 0, //待领取的人民币
+    unReceiveTrx: 0,//待领取的TRX
     totalCommition: 0, //	分红数
+    incomeTrxToken: 0, //分红 trx
     bonusDb: 0,//参与分红币
     randomXY: [],
     mask: {},//引导蒙层
@@ -55,8 +57,11 @@ Page({
    * 攻略
    */
   raiders() {
+    // wx.navigateTo({
+    //   url: '/pages/raiders/raiders',
+    // })
     wx.navigateTo({
-      url: '/pages/raiders/raiders',
+      url: '/pages/webViewPage/webViewPage?srcUrl=https://bigfish.51kupai.com/dayu/Raiders?wxMiniApp=1'
     })
   },
   /**
@@ -128,7 +133,9 @@ Page({
         wx.hideLoading();
         that.setData({
           unReceiveMoney: res.data.unReceiveMoney,
+          unReceiveTrx: res.data.unReceiveTrx,
           totalCommition: res.data.totalCommition,
+          incomeTrxToken: res.data.incomeTrxToken,
           bonusDb: res.data.bonusDb
         })
       }
@@ -179,7 +186,7 @@ Page({
   getRmb(e) {
     if (e.detail.formId) app.collectFormId(e.detail.formId)
     var that = this
-    if (that.data.unReceiveMoney == 0) {
+    if (that.data.unReceiveMoney == 0 && that.data.unReceiveTrx == 0) {
       wx.showToast({
         icon: 'none',
         title: '没有可领取的分红',
@@ -198,10 +205,7 @@ Page({
           icon: 'success',
           title: '领取成功',
         })
-        that.setData({
-          totalCommition: that.data.totalCommition + that.data.unReceiveMoney,
-          unReceiveMoney: 0,
-        })
+        that.queryUnReceiveAssets()
       },
       fail: function(res) {
         wx.hideLoading();
@@ -217,8 +221,11 @@ Page({
     })
   },
   itemClick() {
+    // wx.navigateTo({
+    //   url: '/pages/walletItemDetail/walletItemDetail?formType=2&num=' + this.data.totalCommition,
+    // })
     wx.navigateTo({
-      url: '/pages/walletItemDetail/walletItemDetail?formType=2&num=' + this.data.totalCommition,
+      url: '/pages/wallet/wallet',
     })
   },
   showTip() {

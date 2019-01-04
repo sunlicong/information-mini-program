@@ -8,6 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isOpenReward: false,//是否显示是赞赏
+    isOpenPaySwitch: 0,
     showPage: false,
     showNo: false,
     isIpx: app.globalData.isIphoneX,
@@ -18,7 +20,6 @@ Page({
     data: {},
     candyCount: 0, //余额
     candyList: [], //购买的糖果列表
-    hide_good_box: false,
     startShake: false,
     mask: {} //引导蒙层
   },
@@ -28,15 +29,15 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
+      isOpenPaySwitch: app.globalData.isOpenPaySwitch,
       contentId: options.contentId,
       inviter: options.inviter || '',
       myUid: app.globalData.userInfo.uid || ''
     })
-
     //动画
     this.busPos = {};
-    this.busPos['x'] = app.globalData.ww - 20;//终点的位置
-    this.busPos['y'] = app.globalData.hh-100;
+    this.busPos['x'] = app.globalData.ww - 20; //终点的位置
+    this.busPos['y'] = app.globalData.hh - 100;
 
     var that = this
     this.getArticleDetail()
@@ -61,6 +62,16 @@ Page({
         })
       }
     }
+    // wx.getSystemInfo({
+    //   success(res) {
+    //     console.log(res.platform)
+    //     if (res.platform == 'android' || res.platform == 'devtools') {
+    //       that.setData({
+    //         isOpenReward: true
+    //       })
+    //     }
+    //   }
+    // })
   },
   onShow() {
 
@@ -68,7 +79,7 @@ Page({
   /**
    * 关闭积分弹框后再判断一下是否显示引导
    */
-  closeDialog() {
+  closePointDialog() {
     console.log('DetailGuid', wx.getStorageSync('DetailGuid'))
     if (!wx.getStorageSync('DetailGuid')) { //首次引导蒙层的标识
       wx.setStorageSync('DetailGuid', true)
@@ -208,6 +219,7 @@ Page({
         var that = this
         if (res.data.code == 30101) {
           wx.hideToast()
+          wx.hideLoading();
           wx.showModal({
             title: '提示',
             content: '糖果不足，去购买糖果卡？',
@@ -251,7 +263,7 @@ Page({
   /**
    * 点赞
    */
-  like(e) { 
+  like(e) {
     if (e.detail.formId) app.collectFormId(e.detail.formId)
     var opt = e.currentTarget.dataset.opt
     var that = this
@@ -274,7 +286,7 @@ Page({
             'data.attitudeLikeCount': that.data.data.attitudeLikeCount + 1,
             'data.attitudeOptCount': res.data.remainedCount,
           })
-          setTimeout(function () {
+          setTimeout(function() {
             that.setData({
               startShake: false
             })

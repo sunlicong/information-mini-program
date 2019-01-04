@@ -1,0 +1,38 @@
+<!--pages/cashWithdrawal/cashWithdrawal.wxml-->
+<view class="container">
+  <form report-submit="true" bindsubmit="withdraw">
+    <view class="title">
+      <image class="icon" src="/image/icon_trx.png"></image>
+      <text class="name">TRX</text>
+    </view>
+    <view class="address_view">
+      <view class="address_title">
+        <view class="text1">提现地址</view>
+        <view class="text2" bindtap="addManager">管理提现地址</view>
+      </view>
+      <view class="content">
+        <view>
+          <text>备注</text>
+          <text>{{userWithDrawAddress.remark}}</text>
+        </view>
+        <view class="address">{{userWithDrawAddress.withdrawAddress}}</view>
+      </view>
+    </view>
+    <view class="amount_view">
+      <view class="amount_input">
+        <view class="text">提现金额</view>
+        <view class="price_view">
+          <text>￥</text>
+          <input name="price" type="digit" placeholder="最小提现金额为100TRX" value="{{price}}" bindinput='bindinput'></input>
+        </view>
+      </view>
+      <view class="desc">
+        <view class="text1">可提现金额：{{balance}}TRX</view>
+        <view class="text1">手续费：1TRX,以实际交易为准</view>
+        <view class="text3">实际到账金额：{{price>0?price-1:0}}</view>
+      </view>
+    </view>
+    <button class='button' formType="submit">确认提现</button>
+  </form>
+  <view class="tip">收到提现申请并审核后实时提现，具体到账时间以区块为准</view>
+</view>

@@ -1,49 +1,64 @@
 <!--pages/wallet/wallet.wxml-->
 <view class="container">
-    <view class='top'>
-        <image src='/image/bg_wallet.png' class='top_bg' mode='aspectFit'></image>
-        <view class='top_content'>
-            <view class='balance'>{{total?total:'0.00'}}
-              <text class='yuan'>元</text>
-            </view>
-            <view class='all'>
-                <view>总资产折合人民币</view>
-                <!-- <image class='look' src='/image/icon_lookme.png'></image> -->
-            </view>
-        </view>
+  <view class='top'>
+    <image src='/image/bg_wallet.png' class='top_bg' mode='aspectFit'></image>
+    <view class='top_content'>
+      <view class='balance'>{{total?total:'0.00'}}
+        <text class='yuan'>元</text>
+      </view>
+      <view class='all'>
+        <view>总资产折合人民币</view>
+        <!-- <image class='look' src='/image/icon_lookme.png'></image> -->
+      </view>
     </view>
-    <view bindtap='itemClick' data-name='db' class='height-120'>
-        <view class='left'>
-            <view class='margin-left-20'>点钻</view>
-        </view>
-        <view class='right'>
-            <view class='right_text'>
-                <view class='balance_num'>{{token}}</view>
-                <!-- <view class='balance_rmb'>¥128.00</view> -->
-            </view>
-            <image class='arrow' src='/image/arrows_right.png'></image>
-        </view>
+  </view>
+  <view bindtap='itemClick' data-name='db' class='height-120'>
+    <view class='left'>
+      <image class='icon' src='/image/icon_db.png'></image>
+      <view class='margin-left-20'>点钻</view>
     </view>
-    <view bindtap='itemClick' data-name='rmb' class='height-120'>
-        <view class='left'>
-            <view class='margin-left-20'>人民币</view>
-        </view>
-        <view class='right'>
-            <view class='right_text'>
-                <view class='balance_num'>{{rmb?rmb:'0.00'}}</view>
-            </view>
-            <image class='arrow' src='/image/arrows_right.png'></image>
-        </view>
+    <view class='right'>
+      <view class='right_text'>
+        <view class='balance_num'>{{token}}</view>
+        <!-- <view class='balance_rmb'>¥128.00</view> -->
+      </view>
+      <image class='arrow' src='/image/arrows_right.png'></image>
     </view>
-    <view wx:if="{{false}}" bindtap='itemClick' data-name='candy' class='height-120'>
-        <view class='left'>
-            <view class='margin-left-20'>糖果卡</view>
-        </view>
-        <view class='right'>
-            <view class='right_text'>
-                <view class='balance_num'>{{candy?candy:'0.00'}}</view>
-            </view>
-            <image class='arrow' src='/image/arrows_right.png'></image>
-        </view>
+  </view>
+  <view bindtap='itemClick' data-name='rmb' class='height-120'>
+    <view class='left'>
+      <image class='icon' src='/image/icon_rmb.png'></image>
+      <view class='margin-left-20'>人民币</view>
     </view>
+    <view class='right'>
+      <view class='right_text'>
+        <view class='balance_num'>{{rmb?rmb:'0.00'}}</view>
+      </view>
+      <image class='arrow' src='/image/arrows_right.png'></image>
+    </view>
+  </view>
+  <view wx:if="{{isShowCandy}}" bindtap='itemClick' data-name='candy' class='height-120'>
+    <view class='left'>
+      <image class='icon' src='/image/icon_candy.png'></image>
+      <view class='margin-left-20'>糖果卡</view>
+    </view>
+    <view class='right'>
+      <view class='right_text'>
+        <view class='balance_num'>{{candy?candy:'0.00'}}</view>
+      </view>
+      <image class='arrow' src='/image/arrows_right.png'></image>
+    </view>
+  </view>
+  <view bindtap='itemClick' data-name='trx' class='height-120'>
+    <view class='left'>
+      <image class='icon' src='/image/icon_trx.png'></image>
+      <view class='margin-left-20'>TRX</view>
+    </view>
+    <view class='right'>
+      <view class='right_text'>
+        <view class='balance_num'>{{trx?trx:'0.00'}}</view>
+      </view>
+      <image class='arrow' src='/image/arrows_right.png'></image>
+    </view>
+  </view>
 </view>

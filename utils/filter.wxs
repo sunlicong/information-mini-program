@@ -15,7 +15,7 @@ var imgUrl = function(id, mode) {
   } else if (id.indexOf('http') > -1) {
     return id;
   } else {
-    return 'http://51keli.ess.ejucloud.cn/' + id + mode;
+    return 'https://ess.jieyunshop.com/' + id + mode;
   }
 }
 var checkTime = function(i) {

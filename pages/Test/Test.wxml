@@ -1,0 +1,9 @@
+<!--pages/Test/Test.wxml-->
+<view class="box">
+	<view>
+        <button bindtap="handleClick">点击</button>
+    </view>
+    <view animation="{{animationY}}" style="position:fixed;top:{{ballY}}px;" >
+        <view class="ball" animation="{{animationX}}" style="position:fixed;left:{{ballX}}px;"></view>
+    </view>
+</view>

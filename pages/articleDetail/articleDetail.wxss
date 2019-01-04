@@ -467,12 +467,9 @@
 .my_mining {
   width: 95rpx;
   height: 95rpx;
-  margin-bottom: 45rpx;
+  margin-bottom: 25rpx;
 }
 
-.shake{
-  animation: shake;
-}
 .swing {
   animation: swing 0.5s linear infinite
 }

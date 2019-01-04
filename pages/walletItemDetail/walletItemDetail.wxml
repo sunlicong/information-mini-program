@@ -1,67 +1,137 @@
 <!--pages/walletItemDetail/walletItemDetail.wxml-->
 <wxs src="../../utils/filter.wxs" module="tools" />
 <wxs module="filter">
-    var getTypeName = function(type) {
-        var name = ''
-        switch(type){
-            case 1: name='充值';
-            break;
-            case 2: name='提现';
-            break;
-            case 4: name='赞赏奖励';
-            break;
-            case 5: name='消费';
-            break;
-            case 6: name='点赞奖励';
-            break;
-            case 7: name='购买';
-            break;
-            case 8: name='奖池奖励';
-            break;
-            case 9: name='邀请奖励';
-            break;
-            case 10: name='分红';
-            break;
-            case 11: name='作品赞赏奖励';
-            break;
-            case 12: name='作品点赞奖励';
-            break;
-            case 13: name='分享作品奖励';
-            break;
-            case 14: name='邀请注册奖励';
-            break;
-            case 15: name='注册奖励';
-            break;
-            case 16: name='注册分享奖励';
-            break;
-        }
-        return name;
+  var getTypeName = function(type) {
+    var name = ''
+    switch (type) {
+      case 1:
+        name = "充值";
+        break;
+      case 2:
+        name = "提现";
+        break;
+      case 4:
+        name = "赞赏奖励";
+        break;
+      case 5:
+        name = "消费";
+        break;
+      case 6:
+        name = "点赞奖励";
+        break;
+      case 7:
+        name = "购买";
+        break;
+      case 8:
+        name = "奖池奖励";
+        break;
+      case 9:
+        name = "邀请奖励";
+        break;
+      case 10:
+        name = "分红";
+        break;
+      case 11:
+        name = "作品赞赏奖励";
+        break;
+      case 12:
+        name = "作品点赞奖励";
+        break;
+      case 13:
+        name = "分享作品奖励";
+        break;
+      case 14:
+        name = "邀请注册奖励";
+        break;
+      case 15:
+        name = "注册奖励";
+        break;
+      case 16:
+        name = "注册分享奖励";
+        break;
+      case 17:
+        name = "";
+        break;
+      case 18:
+        name = "提现";
+        break;
+      case 19:
+        name = "分红";
+        break;
+      case 20:
+        name = "分红提取";
+        break;
+      case 21:
+        name = "手续费";
+        break;
+      case 24:
+        name = "购买糖果卡";
+        break;
     }
-    module.exports = {
-        getTypeName: getTypeName,
+    return name;
+  }
+  var getTypeUnit = function(type) {
+    var str = ''
+    switch (type) {
+      case '1':
+        str = '点钻';
+        break;
+      case '2':
+        str = '元';
+        break;
+      case '3':
+        str = 'TRX';
+        break;
     }
+    return str;
+  }
+  module.exports = {
+    getTypeName: getTypeName,
+    getTypeUnit: getTypeUnit
+  }
 </wxs>
 <view class="container">
-    <view class='top'>
-        <image src='/image/bg_wallet.png' class='top_bg' mode='aspectFit'></image>
-        <view class='top_content'>
-            <view class='balance one_line'>
-                <view>{{num?num:'0.00'}}</view>
-                <text class='yuan'>{{formType==1?'点钻':'元'}}</text>
-            </view>
+  <view class='top'>
+    <image src='/image/bg_wallet.png' class='top_bg' mode='aspectFit'></image>
+    <view class='top_content'>
+      <view class='balance one_line'>
+        <view>{{num?num:'0.00'}}</view>
+        <text class='yuan'>{{filter.getTypeUnit(formType)}}</text>
+      </view>
+    </view>
+    <view wx:if="{{formType==3}}" class="top_bottom" bindtap='goBonus'>
+      <view class="left">
+        <view class="margin-left-20">待提取分红</view>
+      </view>
+      <view class="right">
+        <view class="right_text">
+          <view class="balance_num">{{pedingDrawAmount?pedingDrawAmount:'0.00'}}TRX</view>
         </view>
+        <image class="arrow" src="/image/icon_next.png"></image>
+      </view>
     </view>
-    <view wx:if="{{list.length==0}}" class='non'>
-      <image src="/image/img_non.png"></image>
-      <view>暂时还没有数据哦～</view>
-    </view>
+  </view>
+  <view wx:if="{{list.length==0}}" class='non'>
+    <image src="/image/img_non.png"></image>
+    <view>暂时还没有数据哦～</view>
+  </view>
+  <view class='list'>
     <view bindtap='itemClick' class='height-120' wx:for="{{list}}" wx:key="{{index}}">
-        <view class='left margin-left-30'>
-            <view class='title'>{{filter.getTypeName(item.type)}}</view>
-            <view class='time'>{{tools.formatDate(item.time,1)}}</view>
-        </view>
-        <view class='right'>
-            <view class='num'>{{item.type==2||item.type==5?'-':'+'}}{{item.count}}{{formType==1?'点钻':'元'}}</view>
-        </view>
+      <view class='left margin-left-30'>
+        <view class='title'>{{filter.getTypeName(item.type)}}</view>
+        <view class='time'>{{tools.formatDate(item.time,1)}}</view>
+      </view>
+      <view class='right'>
+        <view class='num'>{{item.type==2||item.type==5||item.type==18||item.type==20||item.type==21||item.type==24?'-':'+'}}{{item.count}}{{filter.getTypeUnit(formType)}}</view>
+      </view>
     </view>
+  </view>
+  <view wx:if="formType==3" class='bottom_menu'>
+    <form report-submit="true" bindsubmit="recharge">
+      <button class='recharge' formType="submit">充值</button>
+    </form>
+    <form report-submit="true" bindsubmit="withdrawal">
+      <button class='withdrawal' formType="submit">提现</button>
+    </form>
+  </view>
 </view>

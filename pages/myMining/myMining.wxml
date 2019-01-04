@@ -56,16 +56,26 @@
       <image src='/image/icon_tip.png' class='size-30' mode='aspectFit' bindtap='showTip'></image>
     </view>
     <view class='right' bindtap='itemClick'>
-      <view class='quan-total'>{{tools.formatMoney(totalCommition)}}元</view>
+      <view class='quan-total'>
+        <text wx:if="{{incomeTrxToken>0}}">{{tools.formatMoney(incomeTrxToken)}}TRX</text>
+        <text wx:if="{{incomeTrxToken>0&&totalCommition>0}}">+</text>
+        <text wx:if="{{totalCommition>0}}">{{tools.formatMoney(totalCommition)}}元</text>
+        <text wx:if="{{incomeTrxToken==0&&totalCommition==0}}">0.00</text>
+      </view>
       <image class='arrow' src='/image/arrows_right.png'></image>
     </view>
   </view>
   <view class='divid_content'>
     <view class='title'>待领取分红</view>
-    <view class='price'>{{tools.formatMoney(unReceiveMoney)}}元</view>
+    <view class='price'>
+      <text wx:if="{{unReceiveTrx>0}}">{{tools.formatMoney(unReceiveTrx)}}TRX</text>
+      <text wx:if="{{unReceiveTrx>0&&unReceiveMoney>0}}">+</text>
+      <text wx:if="{{unReceiveMoney>0}}">{{tools.formatMoney(unReceiveMoney)}}元</text>
+      <text wx:if="{{unReceiveTrx==0&&unReceiveMoney==0}}">0.00</text>
+    </view>
     <view class='coin'>参与分红点钻：{{bonusDb}}</view>
     <form report-submit="true" bindsubmit="getRmb">
-      <button disabled='{{unReceiveMoney==0}}' class='get' formType="submit">领取</button>
+      <button disabled='{{unReceiveMoney==0&&unReceiveTrx==0}}' class='get' formType="submit">领取</button>
     </form>
   </view>
 </view>

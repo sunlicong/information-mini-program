@@ -21,7 +21,7 @@ Page({
     this.getMyWorks()
     this.queryWorkDataByUser()
   },
-  onShow(e){
+  onShow(e) {
     console.log(e)
   },
   getMyWorks() {
@@ -98,28 +98,38 @@ Page({
   /**
    * 删除
    */
-  delete(e){
+  delete(e) {
     var id = e.currentTarget.dataset.id
     var index = e.currentTarget.dataset.index
     var that = this
-    api.http({
-      url: '/blockchain/v1/content/del',
-      method: 'GET',
-      data: {
-        contentId: id
-      },
-      success: function (res) {
-        wx.hideLoading();
-        wx.showToast({
-          title: '删除成功',
-        })
-        var works = that.data.works
-        works.splice(index, 1)
-        that.setData({
-          works: works
-        })
+    wx.showModal({
+      title: '提示',
+      content: '确认删除文章吗？',
+      confirmText: '确定删除',
+      confirmColor: '#0794FC',
+      success(res) {
+        if (res.confirm) {
+          api.http({
+            url: '/blockchain/v1/content/del',
+            method: 'GET',
+            data: {
+              contentId: id
+            },
+            success: function(res) {
+              wx.hideLoading();
+              wx.showToast({
+                title: '删除成功',
+              })
+              var works = that.data.works
+              works.splice(index, 1)
+              that.setData({
+                works: works
+              })
+            }
+          });
+        }
       }
-    });
+    })
   },
   /**
    * 页面上拉触底事件的处理函数

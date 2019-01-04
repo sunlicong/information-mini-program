@@ -1,0 +1,9 @@
+/* pages/Test/Test.wxss */
+
+.ball {
+  width: 12px;
+  height: 12px;
+  background: #5ea345;
+  border-radius: 50%;
+  position: fixed;
+}

@@ -1,92 +1,112 @@
 /* pages/wallet/wallet.wxss */
 
 .top {
-    width: 100%;
-    height: 374rpx;
-    position: relative;
+  width: 100%;
+  height: 374rpx;
+  position: relative;
 }
+
 .top_bg {
-    position: absolute;
-    width: 100%;
-    height: 374rpx;
+  position: absolute;
+  width: 100%;
+  height: 374rpx;
 }
+
 .top_content {
-    position: absolute;
-    width: 100%;
-    height: 374rpx;
+  position: absolute;
+  width: 100%;
+  height: 374rpx;
 }
+
 .balance {
-    height: 100rpx;
-    line-height: 100rpx;
-    margin-top: 100rpx;
-    text-align: center;
-    font-size: 100rpx;
-    color: #fff;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-top: 100rpx;
+  text-align: center;
+  font-size: 100rpx;
+  color: #fff;
 }
-.yuan{
+
+.yuan {
   font-size: 50rpx;
 }
+
 .all {
-    margin-top: 20rpx;
-    text-align: center;
-    font-size: 28rpx;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  margin-top: 20rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.look{
-    width: 41rpx;
-    height: 26rpx;
-    margin-left: 27rpx;
+
+.look {
+  width: 41rpx;
+  height: 26rpx;
+  margin-left: 27rpx;
 }
+
 .height-120 {
-    margin-top: 1rpx;
-    width: 100%;
-    height: 120rpx;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  margin-top: 1rpx;
+  width: 100%;
+  height: 120rpx;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
+
 .left {
-    display: flex;
-    align-items: center;
-    margin-left: 30rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
 }
+
+.left .icon {
+  width: 60rpx;
+  height: 60rpx;
+}
+
 .right {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 30rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 30rpx;
 }
+
 .right_text {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .arrow {
-    width: 12rpx;
-    height: 21rpx;
-    margin-left: 12rpx;
+  width: 12rpx;
+  height: 21rpx;
+  margin-left: 12rpx;
 }
+
 .margin-left-20 {
-    margin-left: 20rpx;
-    font-family: PingFangSC-Regular;
-    font-size: 32rpx;
-    color: #051426;
+  margin-left: 20rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  color: #051426;
 }
+
 .size-50 {
-    width: 50rpx;
-    height: 50rpx;
+  width: 50rpx;
+  height: 50rpx;
 }
+
 .balance_num {
-    line-height: 45rpx;
-    font-size: 32rpx;
-    color: #051426;
+  line-height: 45rpx;
+  font-size: 32rpx;
+  color: #051426;
 }
+
 .balance_rmb {
-    line-height: 33rpx;
-    font-size: 24rpx;
-    color: #A3AEBA;
+  line-height: 33rpx;
+  font-size: 24rpx;
+  color: #a3aeba;
 }

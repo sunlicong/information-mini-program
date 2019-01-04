@@ -3,7 +3,7 @@
     <view class='top'>
         <image mode='aspectFill' class='logo' src='/image/login_logo.png'></image>
     </view>
-    <view class="text1">大鱼快报</view>
+    <view class="text1">大鱼看点</view>
     <view class="text2">让信息更具价值</view>
     <button wx:if="{{canIUse}}" id='bt' type="default"  open-type='getUserInfo' bindgetuserinfo='getUserInfo'>账号登录</button>
     <view wx:else>请升级微信版本</view>

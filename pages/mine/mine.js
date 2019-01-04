@@ -14,6 +14,8 @@ Page({
     fansCount: 0, //粉丝数
     totalToken: 0, //我的钱包总token数
     totalCommition: 0, //
+    incomeTrxToken: 0,
+    isOpenPaySwitch: 0,
     mask: {}//引导蒙层
   },
 
@@ -22,6 +24,7 @@ Page({
    */
   onShow: function(options) {
     this.setData({
+      isOpenPaySwitch: app.globalData.isOpenPaySwitch,
       nick: app.globalData.userInfo.nick,
       photo: app.globalData.userInfo.photo
     })
@@ -49,6 +52,7 @@ Page({
           fansCount: res.data.fansCount,
           totalToken: res.data.totalToken,
           totalCommition: res.data.totalCommition,
+          incomeTrxToken: res.data.incomeTrxToken,
           invitation: res.data.invitation
         })
       },

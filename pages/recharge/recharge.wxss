@@ -1,0 +1,90 @@
+/* pages/recharge/recharge.wxss */
+
+.name {
+  background: #fff;
+  display: flex;
+  width: 100%;
+  height: 110rpx;
+  align-items: center;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: #2a2e3f;
+}
+
+.icon {
+  margin-left: 30rpx;
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.margin-left-20 {
+  margin-left: 20rpx;
+}
+
+.content {
+  margin-top: 2rpx;
+  padding-top: 30rpx;
+  padding-bottom: 54rpx;
+  width: 100%;
+  text-align: center;
+  background: #fff;
+}
+
+.text1 {
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(5, 20, 38, 1);
+  line-height: 45rpx;
+}
+
+.text2 {
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(5, 20, 38, 1);
+  line-height: 40rpx;
+}
+
+.qr {
+  margin-top: 20rpx;
+  width: 300rpx;
+  height: 300rpx;
+  border: 2rpx solid #f4f4ff;
+}
+
+.copy {
+  margin-top: 40rpx;
+  width: 190rpx;
+  height: 51rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid rgba(224, 224, 224, 1);
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(5, 20, 38, 1);
+  line-height: 51rpx;
+  background: #fff;
+}
+
+.tip .title {
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 103, 0, 1);
+  line-height: 45rpx;
+}
+
+.tip .text {
+  margin-top: 10rpx;
+  margin-left: 30rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(163, 174, 186, 1);
+  line-height: 40rpx;
+}

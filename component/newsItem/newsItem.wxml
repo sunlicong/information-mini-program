@@ -22,7 +22,7 @@
         <view class='feed-bottom-type'>
             {{item.source}}
         </view>
-        <view wx:if="{{false}}" class='feed-bottom-type ml-40'>
+        <view wx:if="{{isOpenPaySwitch}}" class='feed-bottom-type ml-40'>
             <image src='/image/icon_item_praise_no.png' class='icon_opt size_16' mode='aspectFit'></image>
             <view>{{item.investAmount}}</view>
         </view>

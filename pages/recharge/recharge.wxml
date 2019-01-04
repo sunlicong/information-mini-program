@@ -1,0 +1,20 @@
+<!--pages/recharge/recharge.wxml-->
+<wxs src="../../utils/filter.wxs" module="tools" />
+<view class="container">
+  <view class="name">
+    <image src="/image/icon_trx.png" class='icon' mode='aspectFit'></image>
+    <view class="margin-left-20">TRX</view>
+  </view>
+  <view class="content">
+    <view class="text1">TRX充值地址</view>
+    <image class="qr" src="{{tools.imgUrl(qrCode)}}" mode='aspectFit' bindtap='previewImage' data-img='{{tools.imgUrl(qrCode)}}'></image>
+    <view class="text2">{{rechargeAddress}}</view>
+    <form report-submit="true" bindsubmit="copy">
+      <button class='copy' formType="submit">复制地址</button>
+    </form>
+  </view>
+  <view class="tip">
+    <view class="title">充值须知</view>
+    <view class="text">1、充值后需5-10分钟才能到账，任何非TRX资产充值到TRX地址后将不可找回</view>
+  </view>
+</view>

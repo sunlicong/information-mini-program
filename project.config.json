@@ -11,7 +11,7 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.4.2",
 	"appid": "wx0a2ca081e6923bb0",
 	"projectname": "information-mini-program",
 	"isGameTourist": false,
@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 21,
+			"current": 25,
 			"list": [
 				{
 					"id": 0,
@@ -129,7 +129,7 @@
 					"id": 15,
 					"name": "articleDetail",
 					"pathName": "pages/articleDetail/articleDetail",
-					"query": "contentId=218"
+					"query": "contentId=3902"
 				},
 				{
 					"id": -1,
@@ -166,6 +166,29 @@
 					"name": "publish",
 					"pathName": "pages/publish/publish",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "Test",
+					"pathName": "pages/Test/Test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "walletItemBonus",
+					"pathName": "pages/walletItemBonus/walletItemBonus",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "cashAddressAdd",
+					"pathName": "pages/cashAddressAdd/cashAddressAdd",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "cashWithdrawal",
+					"pathName": "pages/cashWithdrawal/cashWithdrawal"
 				}
 			]
 		}

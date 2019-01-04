@@ -1,57 +1,63 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/mine/mine",
-        "pages/mineEdit/mineEdit",
-        "pages/investment/investment",
-        "pages/login/login",
-        "pages/wallet/wallet",
-        "pages/walletItemDetail/walletItemDetail",
-        "pages/miningRevenue/miningRevinue",
-        "pages/publish/publish",
-        "pages/publishSelectLabel/publishSelectLabel",
-        "pages/publishPriview/publishPriview",
-        "pages/publishSuccess/publishSuccess",
-        "pages/articleDetail/articleDetail",
-        "pages/myWorks/myWorks",
-        "pages/myMining/myMining",
-        "pages/inviteFriend/inviteFriend",
-        "pages/inviteList/inviteList",
-        "pages/myProfile/myProfile",
-        "pages/payCandyCard/payCandyCard",
-        "pages/candyDetail/candyDetail",
-        "pages/raiders/raiders",
-        "pages/myFans/myFans",
-        "pages/webViewPage/webViewPage"
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/mineEdit/mineEdit",
+    "pages/investment/investment",
+    "pages/login/login",
+    "pages/wallet/wallet",
+    "pages/walletItemDetail/walletItemDetail",
+    "pages/walletItemBonus/walletItemBonus",
+    "pages/miningRevenue/miningRevinue",
+    "pages/publish/publish",
+    "pages/publishSelectLabel/publishSelectLabel",
+    "pages/publishPriview/publishPriview",
+    "pages/publishSuccess/publishSuccess",
+    "pages/articleDetail/articleDetail",
+    "pages/myWorks/myWorks",
+    "pages/myMining/myMining",
+    "pages/inviteFriend/inviteFriend",
+    "pages/inviteList/inviteList",
+    "pages/myProfile/myProfile",
+    "pages/payCandyCard/payCandyCard",
+    "pages/candyDetail/candyDetail",
+    "pages/raiders/raiders",
+    "pages/myFans/myFans",
+    "pages/webViewPage/webViewPage",
+    "pages/recharge/recharge",
+    "pages/cashWithdrawal/cashWithdrawal",
+    "pages/cashAddressAdd/cashAddressAdd",
+    "pages/cashAddressManager/cashAddressManager",
+    "pages/Test/Test"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "大鱼看点",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#F4F4F4"
+  },
+  "requiredBackgroundModes": [
+    "audio"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/index_n.png",
+        "selectedIconPath": "image/index_s.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "image/me_n.png",
+        "selectedIconPath": "image/me_s.png"
+      }
     ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "大鱼快报",
-        "navigationBarTextStyle": "black",
-        "backgroundColor": "#F4F4F4"
-    },
-    "requiredBackgroundModes": [
-      "audio"
-    ],
-    "tabBar": {
-        "list": [
-            {
-                "pagePath": "pages/index/index",
-                "text": "首页",
-                "iconPath": "image/index_n.png",
-                "selectedIconPath": "image/index_s.png"
-            },
-            {
-                "pagePath": "pages/mine/mine",
-                "text": "我的",
-                "iconPath": "image/me_n.png",
-                "selectedIconPath": "image/me_s.png"
-            }
-        ],
-        "color": "#A3AEBA",
-        "selectedColor": "#0794FC",
-        "backgroundColor": "#FFF",
-        "borderStyle": "black"
-    }
+    "color": "#A3AEBA",
+    "selectedColor": "#0794FC",
+    "backgroundColor": "#FFF",
+    "borderStyle": "black"
+  }
 }

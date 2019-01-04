@@ -7,8 +7,8 @@ App({
     let debug = this.globalData.debug;
     if (debug) {
       // 测试接口地址
-      this.globalData.config.apiDomain = 'http://192.168.33.250:8181';
-      this.globalData.config.imgDomain = 'http://51keli.ess.ejucloud.cn/'
+      this.globalData.config.apiDomain = 'http://10.207.2.37:8181';
+      this.globalData.config.imgDomain = 'https://ess.jieyunshop.com/'
       // 打开调试模式
       wx.setEnableDebug({
         enableDebug: true
@@ -42,6 +42,7 @@ App({
 
       }
     })
+    this.checkPaySwitch()//检查开关
   },
   //检查是否登录，token是否有效
   checkIsLogin() {
@@ -173,6 +174,27 @@ App({
       success: function (res) { }
     });
   },
+  /**
+   * 检查支付类显示的开关
+   */
+  checkPaySwitch(){
+    var that = this
+    wx.request({
+      url: that.globalData.config.apiDomain + '/blockchain/v1/home/paySwitchV1',
+      method: 'GET',
+      header: {
+        'x-app-id': 10001,
+        'content-type': 'application/json',
+        'Authorization': wx.getStorageSync('token')
+      },
+      success: function (res) {
+        that.globalData.isOpenPaySwitch = res.data.data
+        if (that.checkPaySwitchCallback) {
+          that.checkPaySwitchCallback(res.data.data)
+        }
+      }
+    });
+  },
   bezier: function (pots, amount) {
     var pot;
     var lines;
@@ -216,7 +238,8 @@ App({
   },
   globalData: {
     // 调试模式
-    debug: false,
+    debug: true,
+    isOpenPaySwitch: 0,//支付相关功能开关，暂时为了审核小程序虚拟支付相关
     token: "",
     // 用户数据
     userInfo: null,
@@ -227,9 +250,9 @@ App({
     // 全局配置
     config: {
       // 接口域名
-      apiDomain: 'http://47.104.159.109:8181',
+      apiDomain: 'https://bigfish.51kupai.com',
       // 图片存储域名
-      imgDomain: 'http://51keli.ess.ejucloud.cn/'
+      imgDomain: 'https://ess.jieyunshop.com/'
     },
   },
   /**

@@ -1,0 +1,26 @@
+<!--pages/cashAddressAdd/cashAddressAdd.wxml-->
+<view class="container">
+  <form report-submit="true" bindsubmit="save">
+    <view>
+      <view class="title">
+        <image class="icon" src="/image/icon_trx.png"></image>
+        <text class="name">TRX</text>
+      </view>
+      <view class="item">
+        <input name="address" type="text" placeholder="请输入提现地址" value="{{address}}"></input>
+      </view>
+      <view class="item">
+        <input name="remark" type="text" placeholder="地址备注" value="{{remark}}"></input>
+      </view>
+      <view class="item">
+        <input name="password" type="number" password="{{true}}" placeholder="请输入6位纯数字地址密码" maxlength="6" value="{{password}}"></input>
+      </view>
+    </view>
+    <view>
+      <view class="tip_title">添加须知</view>
+      <view class="tip1">1、为保证资产安全，添加地址后，仅能提现到账该地址，请勿随意添加</view>
+      <view class="tip1">2、修改提现地址时验证地址密码，请妥善保存，遗失或泄漏造成的资产，平台概不负责</view>
+    </view>
+    <button class="button" formType="submit">保存</button>
+  </form>
+</view>

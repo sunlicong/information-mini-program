@@ -12,8 +12,8 @@
         <view catchtap='itemClick' data-name='fans'>粉丝:   {{fansCount}}</view>
       </view>
     </view>
-    <image class='bg_assets' src="/image/bg_assets.png"></image>
-    <view class='my_assets'>
+    <image wx:if="{{isOpenPaySwitch}}" class='bg_assets' src="/image/bg_assets.png"></image>
+    <view wx:if="{{isOpenPaySwitch}}" class='my_assets'>
       <view class="num-item" bindtap='itemClick' data-name='wallet'>
         <view>
           <text>我的钱包</text>
@@ -25,14 +25,16 @@
         </view>
       </view>
       <view class="line"></view>
-      <view class="num-item" bindtap='itemClick' data-name='rmb'>
+      <view class="num-item" bindtap='itemClick' data-name='wallet'>
         <view>
           <text>累计分红</text>
           <text class='color_009'></text>
         </view>
         <view class="text">
-          <text>{{tools.formatMoney(totalCommition,1)}}</text>
-          <text class='coin'>元</text>
+          <text wx:if="{{incomeTrxToken>0}}">{{tools.formatMoney(incomeTrxToken)}}TRX</text>
+          <text wx:if="{{incomeTrxToken>0&&totalCommition>0}}">+</text>
+          <text wx:if="{{totalCommition>0}}">{{tools.formatMoney(totalCommition)}}元</text>
+          <text wx:if="{{incomeTrxToken==0&&totalCommition==0}}">0.00</text>
         </view>
       </view>
     </view>
