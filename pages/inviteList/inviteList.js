@@ -9,7 +9,7 @@ Page({
   data: {
     count: 0,
     award: 0,
-    cursor: 0,
+    next: 0,
     list: []
   },
 
@@ -45,11 +45,14 @@ Page({
     api.http({
       url: '/blockchain/v1/invitation/record/list',
       method: 'GET',
+      data:{
+        next: that.data.next
+      },
       success: function(res) {
         wx.hideLoading();
         that.setData({
-          cursor: res.data.cursor,
-          list: res.data.data
+          next: res.data.next,
+          list: that.data.list.concat(res.data.data)
         })
       }
     });

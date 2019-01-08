@@ -216,8 +216,13 @@ Page({
    * 钱包
    */
   goWallet() {
-    wx.navigateTo({
-      url: '/pages/wallet/wallet',
+    // wx.navigateTo({
+    //   url: '/pages/wallet/wallet',
+    // })
+    this.setData({
+      kefuDialog: {
+        show: true //是否显示
+      }
     })
   },
   itemClick() {

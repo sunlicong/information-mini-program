@@ -1,5 +1,4 @@
-/* component/tipDialog/tipDialog.wxss */
-
+/* component/showKefuDialog/showKefuDialog.wxss */
 .bg {
   position: fixed;
   left: 0;
@@ -16,19 +15,18 @@
   right: 0;
   top: 0;
   bottom: 0rpx;
-  width: 619rpx;
-  height: 780rpx;
+  width: 540rpx;
+  height: 280rpx;
   z-index: 101;
   margin: auto;
 }
 .content {
-  width: 619rpx;
-  height: 780rpx;
+  width: 540rpx;
+  height: 280rpx;
   border-radius: 20rpx;
   display: flex;
   flex-direction: column;
   background: #fff;
-  opacity: 0.9;
 }
 .title{
   margin-top: 20rpx;
@@ -39,12 +37,17 @@
   text-align: center;
 }
 .text{
-  margin-left: 28rpx;
-  margin-right: 28rpx;
+  margin-top: 50rpx;
+  margin-left: 40rpx;
+  margin-right: 40rpx;
   font-family: PingFangSC-Regular;
   font-size: 30rpx;
   color: #2D3232;
   line-height: 42rpx;
+  text-align: center;
+}
+.col_red{
+  color: #C7372F;
 }
 .confirm{
   position: absolute;
@@ -57,5 +60,13 @@
   font-family: PingFangSC-Regular;
   font-size: 34rpx;
   color: #29A3FD;
-  border-top: 2rpx solid #DDDDDD;
+  border: 0;
+  border-radius: 0 0 20rpx 20rpx;
+  border-top: 1rpx solid #DDDDDD;
+  background: #ffffff;
+}
+.confirm::after{
+  border: 0;
+  border-top: 1rpx solid #DDDDDD;
+  border-radius: 0 0 20rpx 20rpx;
 }

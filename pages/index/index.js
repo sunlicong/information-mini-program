@@ -9,13 +9,14 @@ Page({
     next: 100,
     yesterdayTokenTotal: 0,
     incomeTokenTotal: 0,
-    mask:{},//引导蒙层
-    isOpenPaySwitch: 0
+    mask: {}, //引导蒙层
+    isOpenPaySwitch: 0,
+    feedUrl: ""
   },
   onLoad: function() {
     if (app.globalData.token) {
       this.closeDialog()
-    }else{
+    } else {
       // 登录之后的操作  callback 
       app.userInfoReadyCallback = res => {
         if (res.awardTokenAmount) {
@@ -26,7 +27,7 @@ Page({
               show: true //是否显示
             }
           })
-        } else if (!wx.getStorageSync('homeGuid')) {//首次引导蒙层的标识
+        } else if (!wx.getStorageSync('homeGuid')) { //首次引导蒙层的标识
           wx.setStorageSync('homeGuid', true)
           this.setData({
             mask: {
@@ -41,7 +42,29 @@ Page({
       title: '加载中...',
     })
     this.getTips()
-    this.getFeeds()
+    this.feedsCheckV1()
+  },
+  /**
+   * 根据开关请求接口不同feed接口
+   */
+  feedsCheckV1() {
+    var that = this
+    api.http({
+      url: '/blockchain/v1/home/paySwitchV1',
+      method: 'GET',
+      success: function(res) {
+        if (res.data) {
+          that.setData({
+            feedUrl: "/blockchain/v1/home/feedsV1"
+          })
+        } else {
+          that.setData({
+            feedUrl: "/blockchain/v1/home/feedsCheckV1"
+          })
+        }
+        that.getFeeds()
+      }
+    });
   },
   onShow() {
     this.setData({
@@ -56,8 +79,8 @@ Page({
   /**
    * 关闭积分弹框后再判断一下是否显示引导
    */
-  closeDialog(){
-    if (!wx.getStorageSync('homeGuid')) {//首次引导蒙层的标识
+  closeDialog() {
+    if (!wx.getStorageSync('homeGuid')) { //首次引导蒙层的标识
       wx.setStorageSync('homeGuid', true)
       this.setData({
         mask: {
@@ -72,6 +95,9 @@ Page({
     api.http({
       url: '/blockchain/v1/home/tips',
       method: 'GET',
+      data: {
+        type: 2 //2 小程序 3 公众号
+      },
       success: function(res) {
         that.setData({
           currentIndex: 0,
@@ -80,7 +106,7 @@ Page({
       }
     });
   },
-  onBannerClick(e){
+  onBannerClick(e) {
     var link = e.currentTarget.dataset.link
     if (link.indexOf('http') > -1) {
       wx.navigateTo({
@@ -113,7 +139,7 @@ Page({
   getFeeds(lastContentId) {
     var that = this
     api.http({
-      url: '/blockchain/v1/home/feedsV1',
+      url: that.data.feedUrl,
       method: 'GET',
       data: {
         next: that.data.next,
@@ -128,9 +154,9 @@ Page({
             title: res.data.data.length ? '成功为你推荐' + res.data.data.length + '条新内容' : '暂无更多新内容哦',
           })
           // if (res.data.next == -1) {
-            that.setData({
-              feeds: res.data.data.concat(that.data.feeds)
-            })
+          that.setData({
+            feeds: res.data.data.concat(that.data.feeds)
+          })
           // } else {
           //   that.setData({
           //     next: res.data.next,
@@ -173,7 +199,8 @@ Page({
     //   next: 0,
     // })
     this.getTips()
-    this.getFeeds(this.data.feeds[0].contentId)
+    var contentId = this.data.feeds.length ? this.data.feeds[0].contentId : 0
+    this.getFeeds(contentId)
   },
   /**
    * 页面上拉触底事件的处理函数

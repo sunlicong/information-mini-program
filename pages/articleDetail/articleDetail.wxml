@@ -1,6 +1,9 @@
 <!--pages/articleDetail/articleDetail.wxml-->
 <import src="/utils/wxParse/wxParse.wxml" />
 <wxs src="../../utils/filter.wxs" module="tools" />
+<view wx:if="{{!showPage}}">
+  <image class='body' mode="widthFix" src="/image/body-placeholder.png"></image>
+</view>
 <view wx:if="{{showPage}}" class="container {{isIpx?'container-iphonex':''}}">
   <view class='content'>
     <view class='title'>
@@ -86,7 +89,7 @@
   <view class="dialog_box {{showDialog?'dialog_box_p':''}}">
     <!-- <view class="box_top">10糖果返还赞赏者8点钻，内容发布者2点钻</view> -->
     <scroll-view class="box_list" scroll-x>
-      <view class='card {{index==0? "ml-30":""}}' wx:for="{{candyList}}" bindtap='selectCandy' data-index='{{index}}'>
+      <view class='card {{index==0? "ml-30":""}}' wx:for="{{candyList}}" wx:key="{{index}}" bindtap='selectCandy' data-index='{{index}}'>
         <image class='bg {{index==selectCandyIndex?"select":""}}' src="{{index<3?'/image/'+(index+1)+'_candy.png':'/image/4_candy.png'}}"></image>
         <view class='candyCount'>{{item.candyCount}}糖果</view>
       </view>

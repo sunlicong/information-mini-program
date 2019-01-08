@@ -29,15 +29,15 @@ Page({
       photo: app.globalData.userInfo.photo
     })
     this.queryProfileCounts()
-    if (!wx.getStorageSync('MineGuid')) {//首次引导蒙层的标识
-      wx.setStorageSync('MineGuid', true)
-      this.setData({
-        mask: {
-          fromType: 3,
-          show: true //是否显示
-        }
-      })
-    }
+    // if (!wx.getStorageSync('MineGuid')) {//首次引导蒙层的标识
+    //   wx.setStorageSync('MineGuid', true)
+    //   this.setData({
+    //     mask: {
+    //       fromType: 3,
+    //       show: true //是否显示
+    //     }
+    //   })
+    // }
   },
   queryProfileCounts() {
     var that = this

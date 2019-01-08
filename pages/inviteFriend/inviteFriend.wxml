@@ -7,7 +7,7 @@
       <view class='card1_text'>
         <view class='view1'>每邀请1位好友</view>
         <view class='view2'>
-          立得<text class='text3'>50</text><text class='text2'>点钻</text>
+          立得<text class='text3'>{{invitingWard}}</text><text class='text2'>点钻</text>
         </view>
         <view class='view3'>后续还有更多关联收益</view>
       </view>
@@ -19,10 +19,10 @@
         <view class='card2_text2'>
           <view class='card2_text3'>
             <text>好友可得额外</text>
-            <text class='card2_text4'>20</text>
+            <text class='card2_text4'>{{invitedWard}}</text>
             <text>点钻</text>
           </view>
-          <view class='card2_text5'>未邀请用户10点钻</view>
+          <view class='card2_text5'>未邀请用户{{registerWard}}点钻</view>
         </view>
       </view>
     </view>
@@ -36,7 +36,7 @@
     </view>
     <view class='tip1'>
       <image src='/image/invite_img_2.png' class='tip_img' mode='aspectFit'></image>
-      <view class='tip_text'>好友获得20点钻</view>
+      <view class='tip_text'>好友获得{{invitedWard}}点钻</view>
     </view>
     <view class='tip1'>
       <image src='/image/invite_img_3.png' class='tip_img' mode='aspectFit'></image>

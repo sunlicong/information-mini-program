@@ -23,7 +23,7 @@
       <view class='list_card {{selectCandy!=index?"border":"border-none"}}' wx:for="{{candyList}}" wx:key="{{index}}" bindtap='selectCandy' data-index='{{index}}'>
         <image wx:if="{{selectCandy==index}}" class='box_bg' src='/image/icon_select_box.png'></image>
         <view class='text1'>
-          <text>{{item.price}}</text>
+          <text>{{item.count}}</text>
           <text class='text2'>糖果</text>
         </view>
         <!-- <view>赠送5糖果</view> -->

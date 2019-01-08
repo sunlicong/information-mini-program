@@ -238,7 +238,7 @@ App({
   },
   globalData: {
     // 调试模式
-    debug: true,
+    debug: false,
     isOpenPaySwitch: 0,//支付相关功能开关，暂时为了审核小程序虚拟支付相关
     token: "",
     // 用户数据

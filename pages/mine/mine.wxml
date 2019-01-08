@@ -12,8 +12,8 @@
         <view catchtap='itemClick' data-name='fans'>粉丝:   {{fansCount}}</view>
       </view>
     </view>
-    <image wx:if="{{isOpenPaySwitch}}" class='bg_assets' src="/image/bg_assets.png"></image>
-    <view wx:if="{{isOpenPaySwitch}}" class='my_assets'>
+    <image wx:if="{{false}}" class='bg_assets' src="/image/bg_assets.png"></image>
+    <view wx:if="{{false}}" class='my_assets'>
       <view class="num-item" bindtap='itemClick' data-name='wallet'>
         <view>
           <text>我的钱包</text>
@@ -40,7 +40,7 @@
     </view>
   </view>
   <!--  邀请  -->
-  <view bindtap='itemClick' data-name='invite' class='height-120, margintop-20'>
+  <view bindtap='itemClick' data-name='invite' class='height-120 margintop20'>
     <view class='left'>
       <image src='/image/icon_invite.png' class='size-33' mode='aspectFit'></image>
       <view class='margin-left-20'>邀请好友得点钻</view>
@@ -61,7 +61,7 @@
     </view>
   </view>
   <!--  发布  -->
-  <view bindtap='itemClick' data-name='publish' class='height-120, margintop-20'>
+  <view wx:if="{{false}}" bindtap='itemClick' data-name='publish' class='height-120, margintop-20'>
     <view class='left'>
       <image src='/image/icon_publish.png' class='size-33' mode='aspectFit'></image>
       <view class='margin-left-20'>发布作品</view>
@@ -72,7 +72,7 @@
     </view>
   </view>
   <!--  作品管理  -->
-  <view bindtap='itemClick' data-name='manager' class='height-120, margintop-1'>
+  <view wx:if="{{false}}" bindtap='itemClick' data-name='manager' class='height-120, margintop-1'>
     <view class='left'>
       <image src='/image/icon_works_manager.png' class='size-33' mode='aspectFit'></image>
       <view class='margin-left-20'>作品管理</view>

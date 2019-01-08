@@ -55,7 +55,7 @@
       <view class='margin-left-20' bindtap='showTip'>累计分红</view>
       <image src='/image/icon_tip.png' class='size-30' mode='aspectFit' bindtap='showTip'></image>
     </view>
-    <view class='right' bindtap='itemClick'>
+    <view class='right' bindtap='goWallet'>
       <view class='quan-total'>
         <text wx:if="{{incomeTrxToken>0}}">{{tools.formatMoney(incomeTrxToken)}}TRX</text>
         <text wx:if="{{incomeTrxToken>0&&totalCommition>0}}">+</text>
@@ -80,6 +80,7 @@
   </view>
 </view>
 <tipDialog data='{{pointDialog}}'></tipDialog>
+<kefuDialog data='{{kefuDialog}}'></kefuDialog>
 <guid-mask data='{{mask}}'></guid-mask>
 <!-- <image src="../../image/icon_mining.png" class="good_box" hidden="{{hide_good_box}}"  style="left: {{bus_x}}px; top: {{bus_y}}px;">
 </image> -->

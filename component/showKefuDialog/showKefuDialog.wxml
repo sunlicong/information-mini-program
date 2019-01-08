@@ -1,0 +1,14 @@
+<!--component/showKefuDialog/showKefuDialog.wxml-->
+<view class='container' catchtouchmove="preventTouchMove" wx:if="{{data.show}}">
+    <view class='body'>
+      <view class='content'>
+        <view class='text'>
+          <text>进入客服消息后，</text>
+          <text class='col_red'>回复"1"</text>
+          <text>进入钱包查看领取的点钻和分红</text>
+        </view>
+        <button open-type="contact" class='confirm' bindtap='closeDialog'>知道了</button>
+      </view>
+    </view>
+    <view class="bg"></view>
+</view>

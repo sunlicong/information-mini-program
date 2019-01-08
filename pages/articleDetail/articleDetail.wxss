@@ -9,6 +9,11 @@
   padding-bottom: 176rpx;
 }
 
+.body {
+  width: 100%;
+  height: 100%;
+}
+
 .content {
   background-color: #fff;
 }
@@ -209,11 +214,13 @@
   height: 40rpx;
   margin-right: 20rpx;
 }
-.icon_praise{
+
+.icon_praise {
   padding-top: 10rpx;
   width: 36rpx;
   height: 36rpx;
 }
+
 .relative_view {
   height: 56rpx;
   margin-top: -28rpx;
@@ -471,9 +478,10 @@
 }
 
 .swing {
-  animation: swing 0.5s linear infinite
+  animation: swing 0.5s linear infinite;
 }
-@keyframes swing{
+
+@keyframes swing {
   20% {
     transform: rotate3d(0, 0, 1, 15deg);
   }
