@@ -1,0 +1,11 @@
+<wxs src="../../utils/filter.wxs" module="tools" />
+<view class="container" wx:if="{{isStatus}}">
+    <image src="/image/share_bg.png" class="share_img_bg" style="height:{{height}}px"/>
+    <view class="shareRedPack">
+		<image src="{{tools.imgUrl(coderUrl)}}" class="share_img" mode="widthFix"/>
+		<view class="bottom_btn">
+			<button open-type="share">分享给好友</button>
+			<view bindtap="saveImg">生成海报</view>
+		</view>
+    </view>
+</view>

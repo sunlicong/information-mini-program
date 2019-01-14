@@ -1,0 +1,42 @@
+.shareRedPack{
+    height: 700px;
+	background-size: 100% 100%;
+	text-align: center;
+    padding-top: 35px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+.share_img_bg{
+    width: 100%;
+    display: block;
+}
+.share_img{
+    width: 74.9%;
+}
+.bottom_btn{
+    height: 90rpx;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 67rpx;
+    padding: 0 30rpx;
+}
+.bottom_btn button,.bottom_btn view{
+    width: 47.3%;
+    height: 90rpx;
+    font-size: 32rpx;
+    line-height: 90rpx;
+    text-align: center;
+}
+.bottom_btn button{
+    background:rgba(242,93,76,1);
+    border-radius:8rpx;
+    color: #ffffff;
+}
+.bottom_btn view{
+    border-radius:8rpx;
+    border:2rpx solid rgba(242,93,76,1);
+    color: #F25D4C;
+}

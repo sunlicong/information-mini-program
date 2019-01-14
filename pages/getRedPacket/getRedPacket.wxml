@@ -1,0 +1,63 @@
+<view class="container">
+   <view class="GetRedPacket">
+        <view class="header">
+            <image src="/image/invite_img_1.png" class="head_portrait"/>
+            <view class="name_packet">
+                <text>小李飞刀的红包</text>
+                <text>拼</text>
+            </view>
+            <view class="packet_text">重拾信心，坚持留下！领</view>
+            <!-- <view class="money">
+                <text>0.77</text>
+                <text>TRX</text>
+            </view> -->
+            <view class="run_out">你来晚了，红包都被领完了</view>
+            <view class="hint">已存入云钱包，可直接提现</view>
+            <view class="bottom">
+                <view bindtap="goTo" id="1">
+                    <image src="/image/bottom_packet1.png" class="bottom_packet1"/>
+                    <text>去抽龙猪卡</text>
+                </view>
+                <view bindtap="goTo" id="2">
+                    <image src="/image/bottom_packet2.png" class="bottom_packet2"/>
+                    <text>去发红包</text>
+                </view>
+                <view bindtap="goTo" id="3">
+                    <image src="/image/bottom_packet3.png" class="bottom_packet3"/>
+                    <text>继续转发</text>
+                </view>
+            </view>
+        </view>
+        <view class="draw">
+            已领取15/17个，共<text>123</text>TRX
+        </view>
+        <view class="packet">
+            <view class="li" wx:for="{{4}}">
+                <image src="/image/invite_img_1.png"/>
+                <view class="center">
+                    <view class="center_top">
+                        <text>小太阳</text>
+                        <text>拼</text>
+                    </view>
+                    <view class="center_bottom">17:54:30</view>
+                </view>
+                <view class="right">
+                    <view>0.1TRX</view>
+                    <view>手气最佳</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="message">
+        <view class="title">区块信息</view>
+        <view bindtap="copy">
+            <text class="key">交易ID：</text>
+            <text class="value">0xoa99…ff62d2</text>
+            <image src="/image/copy.png" class="copy"></image>
+        </view>
+        <view>
+            <text class="key">区块高度：</text>
+            <text class="value">5602661</text>
+        </view>
+    </view>
+</view>
