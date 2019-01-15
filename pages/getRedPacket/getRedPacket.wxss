@@ -60,7 +60,7 @@
     padding: 11rpx 0 21rpx 0;
     flex: 1;
     display: flex;
-  justify-content: center;
+    justify-content: center;
     align-items: center;
 }
 .bottom image{

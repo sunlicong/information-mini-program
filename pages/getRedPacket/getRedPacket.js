@@ -15,11 +15,13 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad(options) {
+		wx.showLoading({
+			title: '加载中...',
+		})
 		this.setData({
 			redpackId:options.redpackId || 40
 		})
 		this.receiveRedpack();
-		
 	},
 	receiveRedpack(){
 		$.http({
@@ -34,6 +36,7 @@ Page({
 				})
 			},
 			complete:res=>{
+				wx.hideLoading();
 				this.getRedpackList(1);
 			}
 		});

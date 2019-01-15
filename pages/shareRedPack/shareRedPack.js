@@ -100,7 +100,7 @@ Page({
 		return {
             title:app.globalData.userInfo.nick+'发了一个红包，祝你新年快乐！',
             path: '/pages/getRedPacket/getRedPacket',
-            imageUrl: app.globalData.config.imgDomain + minCoderUrl
+            imageUrl: app.globalData.config.imgDomain + this.data.minCoderUrl
         }
 	}
 })
