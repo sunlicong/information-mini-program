@@ -19,7 +19,7 @@ Page({
 			title: '加载中...',
 		})
 		this.setData({
-			redpackId:options.redpackId || 53
+			redpackId:options.redpackId || 60
 		})
 		this.receiveRedpack();
 	},

@@ -41,7 +41,7 @@
             <text wx:if="{{message.assetType==4}}">TRX</text>
         </view>
         <view class="packet">
-            <view class="li" wx:for="{{list}}">
+            <view class="li" wx:for="{{list}}" wx:if="{{message.type==1}}">
                 <image src="{{tools.imgUrl(item.photo)}}"/>
                 <view class="center">
                     <view class="center_top">
