@@ -87,7 +87,7 @@ Page({
 	},
 	copy(){
 		wx.setClipboardData({
-			data: 'data',
+			data: this.data.message.txId,
 			success(res) {
 			  console.log(res)
 			}

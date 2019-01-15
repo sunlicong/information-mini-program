@@ -61,12 +61,12 @@
         <view class="title">区块信息</view>
         <view bindtap="copy">
             <text class="key">交易ID：</text>
-            <text class="value">0xoa99…ff62d2</text>
+            <text class="value">{{message.txId}}</text>
             <image src="/image/copy.png" class="copy"></image>
         </view>
         <view>
             <text class="key">区块高度：</text>
-            <text class="value">5602661</text>
+            <text class="value">{{message.refBlock}}</text>
         </view>
     </view>
 </view>
