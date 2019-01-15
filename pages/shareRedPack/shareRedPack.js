@@ -55,7 +55,7 @@ Page({
 			},
 			success:res=>{
 				this.setData({
-					minCoderUrl:res.data.minCoderUrl
+					minCoderUrl:res.data.coderUrl
 				})
 			}
 		});
