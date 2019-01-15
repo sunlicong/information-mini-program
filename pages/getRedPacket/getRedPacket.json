@@ -1,1 +1,5 @@
-{}
+{
+    "usingComponents": {
+        "kefuDialog": "/component/showKefuDialog/showKefuDialog"
+      }
+}

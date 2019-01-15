@@ -7,7 +7,8 @@ Page({
 	data: {
 		redpackId:'',
 		next: 0,
-		list:[]
+		list:[],
+		message:{}
 	},
 
 	/**
@@ -15,18 +16,22 @@ Page({
 	 */
 	onLoad(options) {
 		this.setData({
-			redpackId:options.redpackId
+			redpackId:options.redpackId || 40
 		})
+		this.receiveRedpack();
+		
 	},
 	receiveRedpack(){
 		$.http({
-			method:'GET',
+			method:'POST',
 			url:'/blockchain/v1/redpack/receiveRedpack',
 			data:{
 				redpackId:this.data.redpackId
 			},
 			success:res=>{
-				
+				this.setData({
+					message:res.data
+				})
 			},
 			complete:res=>{
 				this.getRedpackList(1);
@@ -58,9 +63,19 @@ Page({
 	goTo(e){
 		var id = e.currentTarget.id;
 		if(id == 1){
-
+			this.setData({
+				kefuDialog:{
+					show:true,
+					type:3
+				}
+			})
 		}else if(id == 2){
-
+			this.setData({
+				kefuDialog:{
+					show:true,
+					type:2
+				}
+			})
 		}else{
 			wx.navigateTo({
 				url: '/pages/shareRedPack/shareRedPack'

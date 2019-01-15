@@ -1,54 +1,63 @@
+<wxs src="../../utils/filter.wxs" module="tools" />
 <view class="container">
    <view class="GetRedPacket">
         <view class="header">
-            <image src="/image/invite_img_1.png" class="head_portrait"/>
+            <image src="{{tools.imgUrl(message.photo)}}" class="head_portrait"/>
             <view class="name_packet">
-                <text>小李飞刀的红包</text>
-                <text>拼</text>
+                <text>{{message.nick}}的红包</text>
+                <text class="pin">拼</text>
             </view>
-            <view class="packet_text">重拾信心，坚持留下！领</view>
-            <!-- <view class="money">
-                <text>0.77</text>
-                <text>TRX</text>
-            </view> -->
-            <view class="run_out">你来晚了，红包都被领完了</view>
-            <view class="hint">已存入云钱包，可直接提现</view>
+            <view class="packet_text">{{message.description}}</view>
+            <view class="money" wx:if="{{message.status==1}}">
+                <text>{{message.giveOutAmount}}</text>
+                <text wx:if="{{message.assetType==1}}">糖果</text>
+                <text wx:if="{{message.assetType==2}}">元</text>
+                <text wx:if="{{message.assetType==3}}">点钻</text>
+                <text wx:if="{{message.assetType==4}}">TRX</text>
+            </view>
+            <view class="run_out" wx:if="{{message.status==2||message.status==3}}">{{message.receive}}</view>
+            <view class="hint" wx:if="{{message.status==1}}">已存入云钱包，可直接提现</view>
+            <view class="hint" wx:if="{{message.status==2&&message.sendUser}}">未领取的红包，已返还至云钱包</view>
             <view class="bottom">
                 <view bindtap="goTo" id="1">
                     <image src="/image/bottom_packet1.png" class="bottom_packet1"/>
-                    <text>去抽龙猪卡</text>
+                    <text>去提现</text>
                 </view>
                 <view bindtap="goTo" id="2">
                     <image src="/image/bottom_packet2.png" class="bottom_packet2"/>
                     <text>去发红包</text>
                 </view>
-                <view bindtap="goTo" id="3">
+                <view bindtap="goTo" id="3" wx:if="{{message.sendUser}}">
                     <image src="/image/bottom_packet3.png" class="bottom_packet3"/>
                     <text>继续转发</text>
                 </view>
             </view>
         </view>
         <view class="draw">
-            已领取15/17个，共<text>123</text>TRX
+            已领取{{message.receiveCount}}/{{message.count}}个，共<text class="text">{{message.amount}}</text>
+            <text wx:if="{{message.assetType==1}}">糖果</text>
+            <text wx:if="{{message.assetType==2}}">元</text>
+            <text wx:if="{{message.assetType==3}}">点钻</text>
+            <text wx:if="{{message.assetType==4}}">TRX</text>
         </view>
         <view class="packet">
-            <view class="li" wx:for="{{4}}">
-                <image src="/image/invite_img_1.png"/>
+            <view class="li" wx:for="{{list}}">
+                <image src="{{tools.imgUrl(item.photo)}}"/>
                 <view class="center">
                     <view class="center_top">
-                        <text>小太阳</text>
+                        <text>{{item.nick}}</text>
                         <text>拼</text>
                     </view>
-                    <view class="center_bottom">17:54:30</view>
+                    <view class="center_bottom">{{tools.formatDate(item.receivingTime,1)}}</view>
                 </view>
                 <view class="right">
-                    <view>0.1TRX</view>
-                    <view>手气最佳</view>
+                    <view>{{item.amount}}</view>
+                    <view wx:if="{{item.best==1}}">手气最佳</view>
                 </view>
             </view>
         </view>
     </view>
-    <view class="message">
+    <view class="message" wx:if="{{message.type==1}}">
         <view class="title">区块信息</view>
         <view bindtap="copy">
             <text class="key">交易ID：</text>
@@ -61,3 +70,4 @@
         </view>
     </view>
 </view>
+<kefuDialog data='{{kefuDialog}}'></kefuDialog>
