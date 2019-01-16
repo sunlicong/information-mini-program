@@ -81,7 +81,7 @@ Page({
 			})
 		}else{
 			wx.navigateTo({
-				url: '/pages/shareRedPack/shareRedPack'
+				url: '/pages/shareRedPack/shareRedPack?redpackId='+this.data.redpackId
 			})
 		}
 	},
