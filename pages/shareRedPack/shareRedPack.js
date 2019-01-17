@@ -9,7 +9,8 @@ Page({
 		redpackId:'',
 		coderUrl:'',//大图
 		minCoderUrl:'',//分享小图
-		isStatus:false
+		isStatus:false,
+		redpackData:{}
 
 	},
 
@@ -33,14 +34,15 @@ Page({
 			method:'GET',
 			url:'/blockchain/v1/share/redEnvelopeShare',
 			data:{
-				type:2,
+				type:1,
 				pathUrlChat:link,
 				pathUrlApplet:'/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId
 			},
 			success:res=>{
 				this.setData({
 					coderUrl:res.data.coderUrl,
-					isStatus:true
+					isStatus:true,
+					redpackData:res.data
 				})
 				wx.hideLoading();
 			}
@@ -49,7 +51,7 @@ Page({
 			method:'GET',
 			url:'/blockchain/v1/share/redEnvelopeShare',
 			data:{
-				type:1,
+				type:2,
 				pathUrlChat:link,
 				pathUrlApplet:'/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId
 			},
@@ -97,9 +99,14 @@ Page({
 	 * 用户点击右上角分享
 	 */
 	onShareAppMessage() {
+		if(this.data.redpackData.type == 1){
+			var title = app.globalData.userInfo.nick +'发了一个拼手气红包，由波场区块链生成，公平公正';
+		}else{
+			var title = app.globalData.userInfo.nick +'发了一个红包';
+		}
 		return {
-            title:app.globalData.userInfo.nick+'发了一个红包，祝你新年快乐！',
-            path: '/pages/getRedPacket/getRedPacket',
+            title:title,
+            path: '/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId,
             imageUrl: app.globalData.config.imgDomain + this.data.minCoderUrl
         }
 	}
