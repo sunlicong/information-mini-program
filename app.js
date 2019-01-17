@@ -181,7 +181,7 @@ App({
   checkPaySwitch(){
     var that = this
     wx.request({
-      url: that.globalData.config.apiDomain + '/blockchain/v1/home/paySwitchV1',
+      url: that.globalData.config.apiDomain + that.globalData.paySwitch,
       method: 'GET',
       header: {
         'x-app-id': 10001,
@@ -239,7 +239,13 @@ App({
   },
   globalData: {
     // 调试模式
-    debug: false,
+    debug: true,
+    /**
+     * 每次上线 切换一下两个接口
+     * paySwitchV1
+     * paySwitchV2
+     */
+    paySwitch: '/blockchain/v1/home/paySwitchV2',
     isOpenPaySwitch: 0,//支付相关功能开关，暂时为了审核小程序虚拟支付相关
     token: "",
     // 用户数据
@@ -255,7 +261,7 @@ App({
       // 图片存储域名
       imgDomain: 'https://ess.jieyunshop.com/',
       //h5地址
-      h5Domain: 'https://bigfish.51kupai.com/dayu/'
+      h5Domain: 'https://bigfish.51kupai.com/dayu/',
     },
   },
   /**

@@ -50,7 +50,7 @@ Page({
   feedsCheckV1() {
     var that = this
     api.http({
-      url: '/blockchain/v1/home/paySwitchV1',
+      url: app.globalData.paySwitch,
       method: 'GET',
       success: function(res) {
         if (res.data) {
