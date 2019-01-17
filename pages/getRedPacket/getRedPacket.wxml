@@ -10,10 +10,8 @@
             <view class="packet_text">{{message.description}}</view>
             <view class="money" wx:if="{{message.status==1}}">
                 <text>{{message.giveOutAmount}}</text>
-                <text wx:if="{{message.assetType==1}}">糖果</text>
                 <text wx:if="{{message.assetType==2}}">元</text>
-                <text wx:if="{{message.assetType==3}}">点钻</text>
-                <text wx:if="{{message.assetType==4}}">TRX</text>
+                <text wx:if="{{message.assetType==1}}">TRX</text>
             </view>
             <view class="run_out" wx:if="{{message.status==2||message.status==3}}">{{message.receive}}</view>
             <view class="hint" wx:if="{{message.status==1}}">已存入云钱包，可直接提现</view>
@@ -35,10 +33,8 @@
         </view>
         <view class="draw">
             已领取{{message.receiveCount}}/{{message.count}}个，共<text class="text">{{message.amount}}</text>
-            <text wx:if="{{message.assetType==1}}">糖果</text>
             <text wx:if="{{message.assetType==2}}">元</text>
-            <text wx:if="{{message.assetType==3}}">点钻</text>
-            <text wx:if="{{message.assetType==4}}">TRX</text>
+            <text wx:if="{{message.assetType==1}}">TRX</text>
         </view>
         <view class="packet">
             <view class="li" wx:for="{{list}}" wx:if="{{message.type==1}}">
