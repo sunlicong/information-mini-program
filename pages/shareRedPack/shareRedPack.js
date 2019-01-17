@@ -36,7 +36,9 @@ Page({
 			data:{
 				type:1,
 				pathUrlChat:link,
-				pathUrlApplet:'/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId
+				pathUrlApplet:'/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId,
+				redpackId:this.data.redpackId
+
 			},
 			success:res=>{
 				this.setData({
@@ -53,7 +55,8 @@ Page({
 			data:{
 				type:2,
 				pathUrlChat:link,
-				pathUrlApplet:'/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId
+				pathUrlApplet:'/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId,
+				redpackId:this.data.redpackId
 			},
 			success:res=>{
 				this.setData({
