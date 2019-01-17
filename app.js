@@ -8,7 +8,8 @@ App({
     if (debug) {
       // 测试接口地址
       this.globalData.config.apiDomain = 'http://10.207.2.37:8181';
-      this.globalData.config.imgDomain = 'https://ess.jieyunshop.com/'
+      this.globalData.config.imgDomain = 'https://ess.jieyunshop.com/';
+      this.globalData.config.h5Domain = 'http://opentest.51kupai.com/dayu/';
       // 打开调试模式
       wx.setEnableDebug({
         enableDebug: true
@@ -252,7 +253,9 @@ App({
       // 接口域名
       apiDomain: 'https://bigfish.51kupai.com',
       // 图片存储域名
-      imgDomain: 'https://ess.jieyunshop.com/'
+      imgDomain: 'https://ess.jieyunshop.com/',
+      //h5地址
+      h5Domain: 'https://bigfish.51kupai.com/dayu/'
     },
   },
   /**

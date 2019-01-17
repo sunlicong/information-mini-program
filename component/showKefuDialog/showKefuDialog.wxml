@@ -5,7 +5,9 @@
         <view class='text'>
           <text>进入客服消息后，</text>
           <text class='col_red'>回复"{{data.type||1}}"</text>
-          <text>进入钱包查看领取的点钻和分红</text>
+          <text wx:if="{{data.type==1}}">进入钱包查看领取的点钻和分红</text>
+          <text wx:if="{{data.type==2}}">给好友发红包</text>
+          <text wx:if="{{data.type==3}}">进入钱包去提现</text>
         </view>
         <button open-type="contact" class='confirm' bindtap='closeDialog'>知道了</button>
       </view>

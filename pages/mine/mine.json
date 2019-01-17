@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "我的",
   "usingComponents": {
-    "guid-mask": "/component/guidingMask/guidingMask"
+    "guid-mask": "/component/guidingMask/guidingMask",
+    "kefuDialog": "/component/showKefuDialog/showKefuDialog"
   }
 }

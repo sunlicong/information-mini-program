@@ -61,7 +61,7 @@
     </view>
   </view>
   <!--  发布  -->
-  <view wx:if="{{false}}" bindtap='itemClick' data-name='publish' class='height-120, margintop-20'>
+  <view wx:if="{{false}}" bindtap='itemClick' data-name='publish' class='height-120, margintop20'>
     <view class='left'>
       <image src='/image/icon_publish.png' class='size-33' mode='aspectFit'></image>
       <view class='margin-left-20'>发布作品</view>
@@ -82,5 +82,39 @@
       <image class='arrow' src='/image/arrows_right.png'></image>
     </view>
   </view>
+  <!-- 发红包 -->
+   <view wx:if="{{isOpenPaySwitch}}" bindtap='itemClick' data-name='sendpack' class='height-120, margintop20'>
+    <view class='left'>
+      <image src='/image/icon_redpack.png' class='size-33' mode='aspectFit'></image>
+      <view class='margin-left-20'>发红包</view>
+    </view>
+    <view class='right'>
+      <view class='quan-total'></view>
+      <image class='arrow' src='/image/arrows_right.png'></image>
+    </view>
+  </view>
+  <!-- 发送中的红包 -->
+   <view wx:if="{{isOpenPaySwitch}}" bindtap='itemClick' data-name='sendingPack' class='height-120, margintop-1'>
+    <view class='left'>
+      <image src='/image/icon_sending_redpack.png' class='size-33' mode='aspectFit'></image>
+      <view class='margin-left-20'>发送中的红包</view>
+    </view>
+    <view class='right'>
+      <view class='quan-total'></view>
+      <image class='arrow' src='/image/arrows_right.png'></image>
+    </view>
+  </view>
+  <!-- 红包记录 -->
+   <view wx:if="{{isOpenPaySwitch}}" bindtap='itemClick' data-name='redpackRecords' class='height-120, margintop-1'>
+    <view class='left'>
+      <image src='/image/icon_redpack_records.png' class='size-33' mode='aspectFit'></image>
+      <view class='margin-left-20'>红包记录</view>
+    </view>
+    <view class='right'>
+      <view class='quan-total'></view>
+      <image class='arrow' src='/image/arrows_right.png'></image>
+    </view>
+  </view>
 </view>
 <guid-mask data='{{mask}}'></guid-mask>
+<kefuDialog data='{{kefuDialog}}'></kefuDialog>

@@ -110,6 +110,23 @@ Page({
       wx.navigateTo({
         url: '/pages/myFans/myFans?type=1'
       })
+    } else if (itemName == 'sendpack'){
+      this.setData({
+        kefuDialog: {
+          show: true,
+          type: 2
+        }
+      })
+    } else if (itemName == 'sendingPack') {
+      var link = app.globalData.config.h5Domain + 'PacketInSend'
+      wx.navigateTo({
+        url: '/pages/webViewPage/webViewPage?srcUrl=' + link,
+      })
+    } else if (itemName == 'redpackRecords') {
+      var link = app.globalData.config.h5Domain + 'RedPacketRecords'
+      wx.navigateTo({
+        url: '/pages/webViewPage/webViewPage?srcUrl=' + link,
+      })
     }
   }
 })
