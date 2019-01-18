@@ -47,7 +47,11 @@
                     <view class="center_bottom">{{tools.formatDate(item.receivingTime,1)}}</view>
                 </view>
                 <view class="right">
-                    <view>{{item.amount}}</view>
+                    <view>
+                        {{item.amount}}
+                        <text wx:if="{{item.assetType==2}}">元</text>
+                        <text wx:if="{{item.assetType==1}}">TRX</text>
+                    </view>
                     <view wx:if="{{item.best==1}}">手气最佳</view>
                 </view>
             </view>
