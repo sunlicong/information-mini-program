@@ -57,7 +57,7 @@
         <view class="title">区块信息</view>
         <view bindtap="copy">
             <text class="key">交易ID：</text>
-            <text class="value">{{message.txId}}</text>
+            <text class="value">{{txId}}</text>
             <image src="/image/copy.png" class="copy"></image>
         </view>
         <view>

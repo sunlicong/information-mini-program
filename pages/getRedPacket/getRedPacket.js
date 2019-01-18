@@ -8,7 +8,8 @@ Page({
 		redpackId:'',
 		next: 0,
 		list:[],
-		message:{}
+		message:{},
+		txId:''
 	},
 
 	/**
@@ -31,9 +32,13 @@ Page({
 				redpackId:this.data.redpackId
 			},
 			success:res=>{
+				
+				var txId = res.data.txId.slice(0,6) + '...'+res.data.txId.slice(res.data.txId.length-6,res.data.txId.length);
 				this.setData({
-					message:res.data
+					message:res.data,
+					txId:txId
 				})
+
 			},
 			complete:res=>{
 				wx.hideLoading();
