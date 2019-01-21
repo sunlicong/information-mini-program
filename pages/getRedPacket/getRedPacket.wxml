@@ -9,7 +9,7 @@
             </view>
             <view class="packet_text">{{message.description}}</view>
             <view class="money" wx:if="{{message.status==1}}">
-                <text>{{message.receive}}</text>
+                <text>{{message.receiving}}</text>
                 <text wx:if="{{message.assetType==2}}">元</text>
                 <text wx:if="{{message.assetType==1}}">TRX</text>
             </view>
