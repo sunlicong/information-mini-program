@@ -105,11 +105,11 @@
   margin-top: 10rpx;
   margin-left: 0rpx;
   margin-right: 0rpx;
-  font-size: 34rpx;
+  font-size: 38rpx;
   font-family: PingFangSC-Regular;
   font-weight: 400;
   color: #051426;
-  line-height: 50rpx;
+  line-height: 53rpx;
 }
 
 .readTip {
