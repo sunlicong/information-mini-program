@@ -17,15 +17,17 @@
             <view class="hint" wx:if="{{message.status==1}}">已存入云钱包，可直接提现</view>
             <view class="hint" wx:if="{{message.status==2&&message.sendUser}}">未领取的红包，已返还至云钱包</view>
             <view class="bottom">
-                <view bindtap="goTo" id="1">
+                <view bindtap="goTo" id="1" class="view">
                     <image src="/image/bottom_packet1.png" class="bottom_packet1"/>
                     <text>去提现</text>
+                    <view class="gradual"></view>
                 </view>
-                <view bindtap="goTo" id="2">
+                <view bindtap="goTo" id="2" class="view">
                     <image src="/image/bottom_packet2.png" class="bottom_packet2"/>
                     <text>去发红包</text>
+                    <view class="gradual"></view>
                 </view>
-                <view bindtap="goTo" id="3" wx:if="{{message.sendUser}}">
+                <view bindtap="goTo" id="3" wx:if="{{message.sendUser}}" class="view">
                     <image src="/image/bottom_packet3.png" class="bottom_packet3"/>
                     <text>继续转发</text>
                 </view>
