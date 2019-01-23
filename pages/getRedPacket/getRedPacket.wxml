@@ -14,8 +14,8 @@
                 <text wx:if="{{message.assetType==1}}">TRX</text>
             </view>
             <view class="run_out" wx:if="{{message.status==2||message.status==3}}">{{message.receive}}</view>
-            <view class="hint" wx:if="{{message.status==1}}">已存入云钱包，可直接提现</view>
-            <view class="hint" wx:if="{{message.status==2&&message.sendUser}}">未领取的红包，已返还至云钱包</view>
+            <view class="hint" wx:if="{{message.status==1}}">已存入{{message.assetType==1?'云':'本地'}}钱包，可直接提现</view>
+            <view class="hint" wx:if="{{message.status==2&&message.sendUser}}">未领取的红包，已返还至{{message.assetType==1?'云':'本地'}}钱包</view>
             <view class="bottom">
                 <view bindtap="goTo" id="1" class="view">
                     <image src="/image/bottom_packet1.png" class="bottom_packet1"/>
