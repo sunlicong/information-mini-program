@@ -5,7 +5,7 @@
             <image src="{{tools.imgUrl(message.photo)}}" class="head_portrait"/>
             <view class="name_packet">
                 <text>{{message.nick}}的红包</text>
-                <text class="pin">拼</text>
+                <text class="pin" wx:if="{{message.type==1}}">拼</text>
             </view>
             <view class="packet_text">{{message.description}}</view>
             <view class="money" wx:if="{{message.status==1}}">
