@@ -102,13 +102,8 @@ Page({
 	 * 用户点击右上角分享
 	 */
 	onShareAppMessage() {
-		if(this.data.redpackData.type == 1){
-			var title = app.globalData.userInfo.nick +'发了一个拼手气红包，由波场区块链生成，公平公正';
-		}else{
-			var title = app.globalData.userInfo.nick +'发了一个红包';
-		}
 		return {
-            title:title,
+            title:'[红包]我给你发了一个新年红包',
             path: '/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId,
             imageUrl: app.globalData.config.imgDomain + this.data.minCoderUrl
         }
