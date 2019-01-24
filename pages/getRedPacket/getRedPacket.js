@@ -20,7 +20,7 @@ Page({
       title: '加载中...',
     })
     this.setData({
-      redpackId: options.redpackId || 99
+      redpackId: options.redpackId || 306
     })
     this.receiveRedpack();
     //登录之后的操作  callback 

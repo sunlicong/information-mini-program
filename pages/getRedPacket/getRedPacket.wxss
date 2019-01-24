@@ -161,6 +161,7 @@
    background:rgba(244,187,22,1);
    border-radius:3rpx;
    text-align: center;
+   line-height: 32rpx;
 }
 .GetRedPacket{
     background: #ffffff
