@@ -15,7 +15,10 @@
             </view>
             <view class="run_out" wx:if="{{message.status==2||message.status==3}}">{{message.receive}}</view>
             <view class="hint" wx:if="{{message.status==1}}">已存入{{message.assetType==1?'云':'本地'}}钱包，可直接提现</view>
-            <view class="hint" wx:if="{{message.status==2&&message.sendUser}}">未领取的红包，已返还至{{message.assetType==1?'云':'本地'}}钱包</view>
+            <view class="hint" wx:if="{{message.status==2&&message.sendUser}}">
+                <text wx:if="{{message.assetType==1}}">未领取的红包，已返还至云钱包</text>
+                <text wx:if="{{message.assetType==2}}">未领取的红包，已发起退款原路返回</text>
+            </view>
             <view class="bottom">
                 <view bindtap="goTo" id="1" class="view">
                     <image src="/image/bottom_packet1.png" class="bottom_packet1"/>
@@ -60,7 +63,7 @@
         </view>
     </view>
     <view class="message" wx:if="{{message.type==1}}">
-        <view class="title">区块信息</view>
+        <view class="title">红包区块信息</view>
         <view bindtap="copy">
             <text class="key">交易ID：</text>
             <text class="value">{{txId}}</text>

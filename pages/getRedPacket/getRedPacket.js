@@ -20,7 +20,7 @@ Page({
       title: '加载中...',
     })
     this.setData({
-      redpackId: options.redpackId || 60
+      redpackId: options.redpackId || 99
     })
     this.receiveRedpack();
     //登录之后的操作  callback 
@@ -37,6 +37,22 @@ Page({
       }
       this.receiveRedpack();
     }
+    var link = "https://bigfish.51kupai.com/dayu/GetRedPacket?redpackId=" + this.data.redpackId + '&inviter=' + app.globalData.userInfo.uid
+    $.http({
+			method:'GET',
+			url:'/blockchain/v1/share/redEnvelopeShare',
+			data:{
+				type:2,
+				pathUrlChat:link,
+        pathUrlApplet: '/pages/getRedPacket/getRedPacket?redpackId=' + this.data.redpackId + '&inviter=' + app.globalData.userInfo.uid,
+				redpackId:this.data.redpackId
+			},
+			success:res=>{
+				this.setData({
+					minCoderUrl:res.data.coderUrl
+				})
+			}
+		});
   },
   receiveRedpack() {
     $.http({

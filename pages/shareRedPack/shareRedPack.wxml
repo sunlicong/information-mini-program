@@ -5,7 +5,7 @@
 		<image src="{{tools.imgUrl(coderUrl)}}" class="share_img" mode="widthFix"/>
 		<view class="bottom_btn">
 			<button open-type="share">分享给好友</button>
-			<view bindtap="saveImg">生成海报</view>
+			<view bindtap="saveImg">点击保存海报</view>
 		</view>
     </view>
 </view>
