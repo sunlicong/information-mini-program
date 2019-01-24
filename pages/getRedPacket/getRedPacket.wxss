@@ -82,15 +82,15 @@
     font-size: 28rpx;
     color: #FFFFFF
 }
-.bottom_packet1{
-     height: 24rpx;
-     width: 24rpx;
+.bottom .bottom_packet1{
+     height: 26rpx;
+     width: 31rpx;
 }
- .bottom_packet2{
+ .bottom .bottom_packet2{
      height: 25rpx;
      width: 21rpx;
 }
- .bottom_packet3{
+ .bottom .bottom_packet3{
      height: 22rpx;
      width: 23rpx;
 }
