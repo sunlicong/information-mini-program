@@ -25,7 +25,6 @@ Page({
     this.receiveRedpack();
     //登录之后的操作  callback 
     app.userInfoReadyCallback = res => {
-      res.awardTokenAmount = 10
       if (res.awardTokenAmount) {
         this.setData({
           pointDialog: {
