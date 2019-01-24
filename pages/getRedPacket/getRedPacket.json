@@ -1,5 +1,6 @@
 {
     "usingComponents": {
-        "kefuDialog": "/component/showKefuDialog/showKefuDialog"
+        "kefuDialog": "/component/showKefuDialog/showKefuDialog",
+        "points-dialog": "/component/pointsDialog/pointsDialog"
       }
 }

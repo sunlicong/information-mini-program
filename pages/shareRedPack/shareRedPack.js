@@ -29,14 +29,14 @@ Page({
 		this.getRedEnvelopeShare();
 	},
 	getRedEnvelopeShare(){
-		var link = "https://bigfish.51kupai.com/dayu/GetRedPacket?redpackId="+this.data.redpackId
+    var link = "https://bigfish.51kupai.com/dayu/GetRedPacket?redpackId=" + this.data.redpackId + '&inviter=' + app.globalData.userInfo.uid
 		$.http({
 			method:'GET',
 			url:'/blockchain/v1/share/redEnvelopeShare',
 			data:{
 				type:1,
 				pathUrlChat:link,
-				pathUrlApplet:'/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId,
+        pathUrlApplet: '/pages/getRedPacket/getRedPacket?redpackId=' + this.data.redpackId + '&inviter=' + app.globalData.userInfo.uid,
 				redpackId:this.data.redpackId
 
 			},
@@ -55,7 +55,7 @@ Page({
 			data:{
 				type:2,
 				pathUrlChat:link,
-				pathUrlApplet:'/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId,
+        pathUrlApplet: '/pages/getRedPacket/getRedPacket?redpackId=' + this.data.redpackId + '&inviter=' + app.globalData.userInfo.uid,
 				redpackId:this.data.redpackId
 			},
 			success:res=>{
@@ -104,7 +104,7 @@ Page({
 	onShareAppMessage() {
 		return {
             title:'[红包]我给你发了一个新年红包',
-            path: '/pages/getRedPacket/getRedPacket?redpackId='+this.data.redpackId,
+      path: '/pages/getRedPacket/getRedPacket?redpackId=' + this.data.redpackId + '&inviter=' + app.globalData.userInfo.uid,
             imageUrl: app.globalData.config.imgDomain + this.data.minCoderUrl
         }
 	}
