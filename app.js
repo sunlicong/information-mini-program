@@ -239,7 +239,7 @@ App({
   },
   globalData: {
     // 调试模式
-    debug: true,
+    debug: false,
     /**
      * 每次上线 切换一下两个接口
      * paySwitchV1

@@ -35,6 +35,11 @@
                     <image src="/image/bottom_packet3.png" class="bottom_packet3"/>
                     <text>继续转发</text>
                 </view>
+                <view  wx:if="{{!message.sendUser}}" class="view">
+                    <button open-type="share"></button>
+                    <image src="/image/bottom_packet3.png" class="bottom_packet3"/>
+                    <text>继续转发</text>
+                </view>
             </view>
         </view>
         <view class="draw">
@@ -73,6 +78,13 @@
         <view>
             <text class="key">区块高度：</text>
             <text class="value">{{message.refBlock}}</text>
+        </view>
+    </view>
+    <view class="shade" wx:if="{{isPopup}}">
+        <view class="box_img">
+            <image src="/image/icon_close.png" class="icon_close" bindtap="close"></image>
+            <image src="/image/{{message.assetType==1?'TRX':'RMB'}}.png" class="image" mode="widthFix"></image>
+            <view class="shade_btn" bindtap="shadeBtn"></view>
         </view>
     </view>
 </view>

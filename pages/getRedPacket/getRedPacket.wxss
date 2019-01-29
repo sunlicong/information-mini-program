@@ -187,3 +187,44 @@
     height: 25rpx;
     margin-left: 10rpx;
 }
+.shade{
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.box_img{
+  position: relative;
+}
+.icon_close{
+    width: 52rpx;
+    height: 52rpx;
+    display: block;
+    position: relative;
+    left:580rpx;
+    top: 0;
+}
+
+.image{
+    width: 645rpx;
+}
+.shade_btn{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom:30rpx;
+    height: 100rpx;
+}
+.view button{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    opacity: 0;
+}

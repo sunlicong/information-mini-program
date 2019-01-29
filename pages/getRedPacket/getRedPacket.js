@@ -9,7 +9,8 @@ Page({
     next: 0,
     list: [],
     message: {},
-    txId: ''
+	txId: '',
+	isPopup:false
   },
 
   /**
@@ -55,78 +56,105 @@ Page({
   },
   receiveRedpack() {
     $.http({
-      method: 'POST',
-      url: '/blockchain/v1/redpack/receiveRedpack',
-      data: {
-        redpackId: this.data.redpackId
-      },
-      success: res => {
-
-        var txId = res.data.txId.slice(0, 6) + '...' + res.data.txId.slice(res.data.txId.length - 6, res.data.txId.length);
-        this.setData({
-          message: res.data,
-          txId: txId
-        })
-
-      },
-      complete: res => {
-        wx.hideLoading();
-        this.getRedpackList(1);
-      }
+			method: 'POST',
+			url: '/blockchain/v1/redpack/receiveRedpack',
+			data: {
+				redpackId: this.data.redpackId
+			},
+			success: res => {
+				var txId = res.data.txId.slice(0, 6) + '...' + res.data.txId.slice(res.data.txId.length - 6, res.data.txId.length);
+				this.setData({
+					message: res.data,
+					txId: txId
+				});
+				this.setPopup(res.data)
+			},
+			complete: res => {
+				wx.hideLoading();
+				this.getRedpackList(1);
+			}
     });
+  },
+  setPopup(data){
+		if(data.redpackAlertRule == 1){
+			if((data.receiveStatus == 0) || (data.receiveStatus == 1&&data.assetType ==2) || (data.receiveStatus == 2&&data.assetType ==1)){
+				this.setData({
+					isPopup:true
+				})
+			}
+		}else if(data.redpackAlertRule == 2){
+			if((data.sendStatus == 0) || (data.sendStatus == 1&&data.assetType ==2) || (data.sendStatus == 2&&data.assetType ==1)){
+				this.setData({
+					isPopup:true
+				})
+			}
+		}
+  },
+  close(){
+	this.setData({
+		isPopup:false
+	})
+  },
+  shadeBtn(){
+	this.setData({
+		kefuDialog: {
+			show: true,
+			type: 2
+		}
+	})
   },
   getRedpackList(type) {
     if (this.data.next == -1) return;
     $.http({
-      method: 'GET',
-      url: '/blockchain/v1/redpack/getRedpackList',
-      data: {
-        redpackId: this.data.redpackId,
-        next: 0,
-        limit: 20
-      },
-      success: res => {
-        var list = type == 1 ? res.data.data : this.data.list.concat(res.data.data);
-        this.setData({
-          list: list,
-          next: res.data.next
-        });
-      },
-      complete: res => {
+		method: 'GET',
+		url: '/blockchain/v1/redpack/getRedpackList',
+		data: {
+			redpackId: this.data.redpackId,
+			next: 0,
+			limit: 20
+		},
+		success: res => {
+			var list = type == 1 ? res.data.data : this.data.list.concat(res.data.data);
+			this.setData({
+			list: list,
+			next: res.data.next
+			});
+		},
+		complete: res => {
 
-      }
+		}
     });
   },
   goTo(e) {
     var id = e.currentTarget.id;
     if (id == 1) {
-      this.setData({
-        kefuDialog: {
-          show: true,
-          type: 3
-        }
-      })
+		this.setData({
+			kefuDialog: {
+			show: true,
+			type: 3
+			}
+		})
     } else if (id == 2) {
-      this.setData({
-        kefuDialog: {
-          show: true,
-          type: 2
-        }
-      })
+		this.setData({
+			kefuDialog: {
+			show: true,
+			type: 2
+			}
+		})
     } else {
-      wx.navigateTo({
-        url: '/pages/shareRedPack/shareRedPack?redpackId=' + this.data.redpackId
-      })
+		wx.navigateTo({
+			url: '/pages/shareRedPack/shareRedPack?redpackId=' + this.data.redpackId
+		})
     }
   },
-  copy() {
-    wx.setClipboardData({
-      data: this.data.message.txId,
-      success(res) {
-        console.log(res)
-      }
-    })
-  },
+	copy() {
+		wx.setClipboardData({
+			data: this.data.message.txId,
+			success(res) {
+				console.log(res)
+			}
+		})
+	},
   /**
    * 页面上拉触底事件的处理函数
    */
