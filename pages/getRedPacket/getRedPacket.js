@@ -21,23 +21,38 @@ Page({
       title: '加载中...',
     })
     this.setData({
-      redpackId: options.redpackId || 306
+      redpackId: options.redpackId || 61
     })
-    this.receiveRedpack();
+		
+		var token = wx.getStorageSync('token');
+		if(token){
+			this.receiveRedpack();
+			this.redEnvelopeShare();
+		}
     //登录之后的操作  callback 
-    app.userInfoReadyCallback = res => {
-      if (res.awardTokenAmount) {
-        this.setData({
-          pointDialog: {
-            fromType: 1,
-            points: res.awardTokenAmount, //积分
-            show: true //是否显示
-          }
-        })
-      }
-      this.receiveRedpack();
-    }
-    var link = "https://bigfish.51kupai.com/dayu/GetRedPacket?redpackId=" + this.data.redpackId + '&inviter=' + app.globalData.userInfo.uid
+    // app.userInfoReadyCallback = res => {
+    //   if (res.awardTokenAmount) {
+    //     this.setData({
+    //       pointDialog: {
+    //         fromType: 1,
+    //         points: res.awardTokenAmount, //积分
+    //         show: true //是否显示
+    //       }
+    //     })
+    //   }
+    //   this.receiveRedpack();
+    // }
+   
+	},
+	onShow(){
+		var token = wx.getStorageSync('token');
+		if(token){
+			this.receiveRedpack();
+			this.redEnvelopeShare();
+		}
+	},
+	redEnvelopeShare(){
+		var link = "https://bigfish.51kupai.com/dayu/GetRedPacket?redpackId=" + this.data.redpackId + '&inviter=' + app.globalData.userInfo.uid
     $.http({
 			method:'GET',
 			url:'/blockchain/v1/share/redEnvelopeShare',
@@ -53,7 +68,7 @@ Page({
 				})
 			}
 		});
-  },
+	},
   receiveRedpack() {
     $.http({
 			method: 'POST',
