@@ -245,7 +245,7 @@ App({
      * paySwitchV1
      * paySwitchV2
      */
-    paySwitch: '/blockchain/v1/home/paySwitchV2',
+    paySwitch: '/blockchain/v1/home/paySwitchV1',
     isOpenPaySwitch: 0,//支付相关功能开关，暂时为了审核小程序虚拟支付相关
     token: "",
     // 用户数据
