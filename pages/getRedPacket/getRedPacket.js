@@ -21,7 +21,7 @@ Page({
       title: '加载中...',
     })
     this.setData({
-      redpackId: options.redpackId || 61
+      redpackId: options.redpackId || 72
     })
 		
 		var token = wx.getStorageSync('token');
@@ -125,8 +125,8 @@ Page({
 		url: '/blockchain/v1/redpack/getRedpackList',
 		data: {
 			redpackId: this.data.redpackId,
-			next: 0,
-			limit: 20
+			next: this.data.next,
+			limit: 50
 		},
 		success: res => {
 			var list = type == 1 ? res.data.data : this.data.list.concat(res.data.data);
